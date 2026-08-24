@@ -51,17 +51,7 @@ async function main() {
       //now that we have the first set we need to transverse 
       // all of its cards before we go on to the next one
       for (const card of cardData.cards) {
-        //----------------------------------------------------
-        //NEXT STEPS:
-        ///NOW I NEED TO GET ONLY THE DATA FIELDS OUT OF THE CARDS THAT I NEED
-        //DATA: illustrator, image, localId, name, rarity, set.cardcount.total, set.name, hp, types, evolveFrom, descritpion
-        //stage, attacks (all data), weaknesses, resistances, and retreat
 
-        //possibly add pricing as its own table
-
-        //to add the images for later use in the live camera api: https://assets.tcgdex.net/en/swsh/swsh3/136/low.jpg
-        //-------------------------------------------------------
-        
         cardCounter++
 
         const cardId = card.id;
@@ -69,25 +59,24 @@ async function main() {
 
         const cardResponse = await fetch(cardUrl);
         const cardInfo = await cardResponse.json();
-        //console.log(cardInfo);
 
         const cardIll = cardInfo.illustrator;
         const cardImage = cardInfo.image;
         const cardLocalId = cardInfo.localId;
         const cardName = cardInfo.name;
         const cardRarity = cardInfo.rarity;
-        const cardCount = cardInfo.set?.cardCount?.total ?? null; //might have to change
+        const cardCount = cardInfo.set?.cardCount?.total ?? null; 
         const cardSetName = cardInfo.set?.name ?? null;
         const cardHp = cardInfo.hp;
-        const cardType = cardInfo.types; //change
+        const cardType = cardInfo.types;
         const cardEvolveFrom = cardInfo.evolveFrom;
         const cardDescription = cardInfo.description;
         const cardStage = cardInfo.stage;
-        const cardAttacks = cardInfo.attacks; //change
-        const cardWeaknesses = cardInfo.weaknesses; //change
-        const cardResistances = cardInfo.resistances; //change
+        const cardAttacks = cardInfo.attacks; 
+        const cardWeaknesses = cardInfo.weaknesses; 
+        const cardResistances = cardInfo.resistances;
         const cardRetreat = cardInfo.retreat;
-        const cardPrice = cardInfo.pricing; //figure this out later
+        const cardPrice = cardInfo.pricing; 
         
         console.log(cardName, "\n", cardImage, "|", cardLocalId, "|", cardIll, "|",cardRarity, "|", cardCount, "|", cardSetName, "|",
           cardHp, "|", cardType, "|", cardType, "|", cardEvolveFrom, "|", cardDescription, "|", cardStage, "|", cardAttacks, "|", 
@@ -95,7 +84,17 @@ async function main() {
 
       }
       //displaying the test count
-      console.log(`Done! Processed ${cardCounter} cards across ${setCount} sets`)
+      console.log(`Done! Processed ${cardCounter} cards across ${setCount} sets`);
+
+
+        //----------------------------------------------------
+        //NEXT STEPS:
+        //make database insertion statements
+        //possibly add pricing as its own table
+
+        //to add the images for later use in the live camera api: https://assets.tcgdex.net/en/swsh/swsh3/136/low.jpg
+        //-------------------------------------------------------
+        
     }
 
     await client.end()
