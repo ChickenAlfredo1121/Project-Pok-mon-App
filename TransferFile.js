@@ -60,32 +60,90 @@ async function main() {
         const cardResponse = await fetch(cardUrl);
         const cardInfo = await cardResponse.json();
 
-        const cardIll = cardInfo.illustrator;
-        const cardImage = cardInfo.image;
-        const cardLocalId = cardInfo.localId;
-        const cardName = cardInfo.name;
-        const cardRarity = cardInfo.rarity;
-        const cardCount = cardInfo.set?.cardCount?.total ?? null; 
-        const cardSetName = cardInfo.set?.name ?? null;
-        const cardHp = cardInfo.hp;
-        const cardType = cardInfo.types;
-        const cardEvolveFrom = cardInfo.evolveFrom;
-        const cardDescription = cardInfo.description;
-        const cardStage = cardInfo.stage;
-        const cardAttacks = cardInfo.attacks; 
-        const cardWeaknesses = cardInfo.weaknesses; 
-        const cardResistances = cardInfo.resistances;
-        const cardRetreat = cardInfo.retreat;
-        const cardPrice = cardInfo.pricing; 
+        const cardIll = cardInfo.illustrator; //string varchar(80)
+        const cardImage = cardInfo.image; //string
+        const cardLocalId = cardInfo.localId; //string 
+        const cardName = cardInfo.name; //string
+        const cardRarity = cardInfo.rarity; //string
+        const cardCount = cardInfo.set?.cardCount?.total ?? null; //int
+        const cardSetName = cardInfo.set?.name ?? null;  //string
+        const cardHp = cardInfo.hp; //int
+        const cardType = cardInfo.types; //TEXT[]
+        const cardEvolveFrom = cardInfo.evolveFrom; //string
+        const cardDescription = cardInfo.description; //string
+        const cardStage = cardInfo.stage; //string
+        const cardAttacks = cardInfo.attacks; //idk
+
+        const cardWeaknesses = cardInfo.weaknesses ? JSON.stringify(
+        cardInfo.weaknesses.map(weakness => ({
+            ...weakness,
+            value: weakness.value.replace("×", "x")
+        }))
+      ) : null; //JSONB
+
+
+        const cardResistances = cardInfo.resistances ? JSON.stringify(
+        cardInfo.resistances.map(resistances => ({
+            ...resistances,
+            value: resistances.value.replace("×", "x")
+        }))
+      ) : null; //JSONB
+      
+        const cardRetreat = cardInfo.retreat; //int
+        const cardPrice = cardInfo.pricing; //idk
         
         console.log(cardName, "\n", cardImage, "|", cardLocalId, "|", cardIll, "|",cardRarity, "|", cardCount, "|", cardSetName, "|",
-          cardHp, "|", cardType, "|", cardType, "|", cardEvolveFrom, "|", cardDescription, "|", cardStage, "|", cardAttacks, "|", 
+          cardHp, "|", cardType, "|", cardEvolveFrom, "|", cardDescription, "|", cardStage, "|", cardAttacks, "|", 
           cardWeaknesses, "|", cardResistances, "|", cardRetreat, "|", cardPrice);
+
+
+           
+         
+        let psql = `INSERT INTO card (cardid, card_ill, card_image, card_local_id, card_name, card_rarity, card_count, 
+        card_set_name, card_hp, card_type, card_evolve_from, card_description, card_stage, card_weakness, card_resistance, 
+        card_retreat) 
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) 
+        ON CONFLICT (cardid)
+        DO UPDATE SET 
+        card_ill = EXCLUDED.card_ill,
+        card_image = EXCLUDED.card_image,
+        card_local_id = EXCLUDED.card_local_id,
+        card_name = EXCLUDED.card_name,
+        card_rarity = EXCLUDED.card_rarity,
+        card_count = EXCLUDED.card_count,
+        card_set_name = EXCLUDED.card_set_name,
+        card_hp = EXCLUDED.card_hp,
+        card_type = EXCLUDED.card_type,
+        card_evolve_from = EXCLUDED.card_evolve_from,
+        card_description = EXCLUDED.card_description,
+        card_stage = EXCLUDED.card_stage,
+        card_weakness = EXCLUDED.card_weakness,
+        card_resistance = EXCLUDED.card_resistance,
+        card_retreat = EXCLUDED.card_retreat`;
+        
+        await client.query(psql, [
+            cardId,
+            cardIll, 
+            cardImage,
+            cardLocalId,
+            cardName,
+            cardRarity,
+            cardCount,
+            cardSetName,
+            cardHp,
+            cardType,
+            cardEvolveFrom,
+            cardDescription,
+            cardStage,
+            cardWeaknesses,
+            cardResistances,
+            cardRetreat
+        ]);
+        break;
 
       }
       //displaying the test count
       console.log(`Done! Processed ${cardCounter} cards across ${setCount} sets`);
-
 
         //----------------------------------------------------
         //NEXT STEPS:
