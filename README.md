@@ -31,7 +31,7 @@ This project aims to build a working script for a database that contains all cre
 
 1. Download `TransferFile.js`.
 2. Create a database in PostgreSQL named `pokedata`.
-   - If you use a different name, update the database name on line 9 of `TransferFile.js` to match.
+   - If you use a different name, update the database name on line 5 of `TransferFile.js` to match.
 3. Run the script to display all card information to the console.
 
 ## 🔮 Future Expansions
