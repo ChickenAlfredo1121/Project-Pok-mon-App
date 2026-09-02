@@ -72,7 +72,7 @@ async function main() {
         const cardEvolveFrom = cardInfo.evolveFrom; //string
         const cardDescription = cardInfo.description; //string
         const cardStage = cardInfo.stage; //string
-        const cardAttacks = cardInfo.attacks; //idk
+        const cardAttacks = cardInfo.attacks ? JSON.stringify(cardInfo.attacks) : null;
 
         const cardWeaknesses = cardInfo.weaknesses ? JSON.stringify(
         cardInfo.weaknesses.map(weakness => ({
@@ -90,7 +90,7 @@ async function main() {
       ) : null; //JSONB
       
         const cardRetreat = cardInfo.retreat; //int
-        const cardPrice = cardInfo.pricing; //idk
+        const cardPrice = cardInfo.pricing ? JSON.stringify(cardInfo.pricing) : null;
         
         console.log(cardName, "\n", cardImage, "|", cardLocalId, "|", cardIll, "|",cardRarity, "|", cardCount, "|", cardSetName, "|",
           cardHp, "|", cardType, "|", cardEvolveFrom, "|", cardDescription, "|", cardStage, "|", cardAttacks, "|", 
@@ -98,8 +98,8 @@ async function main() {
 
 
            
-         
-        let psql = `INSERT INTO card (cardid, card_ill, card_image, card_local_id, card_name, card_rarity, card_count, 
+         //card insert statment with update statment for chance of possible breakage in code or update in data
+        let psqlCard = `INSERT INTO card (cardid, card_ill, card_image, card_local_id, card_name, card_rarity, card_count, 
         card_set_name, card_hp, card_type, card_evolve_from, card_description, card_stage, card_weakness, card_resistance, 
         card_retreat) 
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) 
@@ -121,7 +121,7 @@ async function main() {
         card_resistance = EXCLUDED.card_resistance,
         card_retreat = EXCLUDED.card_retreat`;
         
-        await client.query(psql, [
+        await client.query(psqlCard, [
             cardId,
             cardIll, 
             cardImage,
@@ -139,6 +139,29 @@ async function main() {
             cardResistances,
             cardRetreat
         ]);
+
+
+         //attacks insert statment with update statment for chance of possible breakage in code or update in data
+        let psqlAttacks = `INSERT INTO attacks (card_id, attack_data) 
+        VALUES ($1, $2) 
+        ON CONFLICT (attack_id)
+        DO UPDATE SET attack_data = EXCLUDED.attack_data `;
+
+        await client.query(psqlAttacks, [
+          cardId,
+          cardAttacks
+        ]);
+
+         //pricing insert statment with update statment for chance of possible breakage in code or update in data
+        let psqlPrice = `INSERT INTO pricing (card_id, pricing_data) 
+        VALUES ($1, $2) 
+        ON CONFLICT (pricing_id)
+        DO UPDATE SET pricing_data = EXCLUDED.pricing_data `;
+
+        await client.query(psqlPrice, [
+          cardId,
+          cardPrice
+        ]);
         break;
 
       }
@@ -147,8 +170,6 @@ async function main() {
 
         //----------------------------------------------------
         //NEXT STEPS:
-        //make database insertion statements
-        //possibly add pricing as its own table
 
         //to add the images for later use in the live camera api: https://assets.tcgdex.net/en/swsh/swsh3/136/low.jpg
         //-------------------------------------------------------
