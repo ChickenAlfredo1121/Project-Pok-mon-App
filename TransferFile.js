@@ -34,6 +34,7 @@ async function main() {
     //all cards to make sure it is running properly
     let setCount = 0
     let cardCounter = 0
+    //change based on testing purposes
     let testMode = false;
 
     //need to get list of cards now that i know the sets
@@ -96,76 +97,7 @@ async function main() {
         console.log(cardName, "\n", cardImage, "|", cardLocalId, "|", cardIll, "|",cardRarity, "|", cardCount, "|", cardSetName, "|",
           cardHp, "|", cardType, "|", cardEvolveFrom, "|", cardDescription, "|", cardStage, "|\n\n\nATTACKS:", cardAttacks, "|", 
           cardWeaknesses, "|", cardResistances, "|", cardRetreat, "|\n\n\n\nPRICE:", cardPrice);
-
-
-           
-         //card insert statment with update statment for chance of possible breakage in code or update in data
-        let psqlCard = `INSERT INTO card (cardid, card_ill, card_image, card_local_id, card_name, card_rarity, card_count, 
-        card_set_name, card_hp, card_type, card_evolve_from, card_description, card_stage, card_weakness, card_resistance, 
-        card_retreat) 
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16) 
-        ON CONFLICT (cardid)
-        DO UPDATE SET 
-        card_ill = EXCLUDED.card_ill,
-        card_image = EXCLUDED.card_image,
-        card_local_id = EXCLUDED.card_local_id,
-        card_name = EXCLUDED.card_name,
-        card_rarity = EXCLUDED.card_rarity,
-        card_count = EXCLUDED.card_count,
-        card_set_name = EXCLUDED.card_set_name,
-        card_hp = EXCLUDED.card_hp,
-        card_type = EXCLUDED.card_type,
-        card_evolve_from = EXCLUDED.card_evolve_from,
-        card_description = EXCLUDED.card_description,
-        card_stage = EXCLUDED.card_stage,
-        card_weakness = EXCLUDED.card_weakness,
-        card_resistance = EXCLUDED.card_resistance,
-        card_retreat = EXCLUDED.card_retreat`;
         
-        await client.query(psqlCard, [
-            cardId,
-            cardIll, 
-            cardImage,
-            cardLocalId,
-            cardName,
-            cardRarity,
-            cardCount,
-            cardSetName,
-            cardHp,
-            cardType,
-            cardEvolveFrom,
-            cardDescription,
-            cardStage,
-            cardWeaknesses,
-            cardResistances,
-            cardRetreat
-        ]);
-
-
-         //attacks insert statment with update statment for chance of possible breakage in code or update in data
-        let psqlAttacks = `INSERT INTO attacks (card_id, attack_data) 
-        VALUES ($1, $2) 
-        ON CONFLICT (card_id)
-        DO UPDATE SET attack_data = EXCLUDED.attack_data `;
-
-        await client.query(psqlAttacks, [
-          cardId,
-          cardAttacks
-        ]);
-
-         //pricing insert statment with update statment for chance of possible breakage in code or update in data
-        let psqlPrice = `INSERT INTO pricing (card_id, pricing_data) 
-        VALUES ($1, $2) 
-        ON CONFLICT (card_id)
-        DO UPDATE SET pricing_data = EXCLUDED.pricing_data `;
-
-        await client.query(psqlPrice, [
-          cardId,
-          cardPrice
-        ]);
-         if (testMode) break;
-
-      }
       //displaying the test count
       console.log(`Done! Processed ${cardCounter} cards across ${setCount} sets`);
 
