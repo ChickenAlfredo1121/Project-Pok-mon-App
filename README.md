@@ -51,8 +51,9 @@ This project aims to build a working script for a database that contains all cre
 ## Troubleshooting
 
 - If you get a timeout error in your console check this link: [TCG Set List](https://api.tcgdex.net/v2/en/sets)
- - Data Displayed: check if the pokedata database is running.
- - Data not Displayed: this means the TCG's card API is currently down. It usually is only down for a max of 4 hours.
+  
+  - Data Displayed: check if the pokedata database is running.
+  - Data not Displayed: this means the TCG's card API is currently down. It usually is only down for a max of 4 hours.
   
 
 ## 🔮 Future Development and Expansions
