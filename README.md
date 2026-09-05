@@ -16,17 +16,6 @@ As a person who collects Pokémon cards and is learning back-end development. I 
 
 This project aims to build a working script for a database that contains all created Pokémon cards, sourced using the TCG live card collection API. The goal is to provide a solid backend foundation that any Pokémon-related app can be built on top of.
 
-### Future Development
-
--Database creation:
-  - https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/issues?q=is%3Aissue%20state%3Aopen%20label%3Adatabase
-- Live card reading:
-  - https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22card%20reading%22
- - Personal Collection storage:
-  - https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22personal%20collection%22
-- Pricing functions:
-  - https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22price%20charting%22
-
 ## 🛠 Requirements
 
 - **VSCode** (or preferred code editor)
@@ -59,7 +48,16 @@ This project aims to build a working script for a database that contains all cre
     ```
 5. Run the script to display all card information to the console.
 
-## 🔮 Future Expansions
+## 🔮 Future Development and Expansions
+
+### Development:
+
+- [Database creation](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/issues?q=is%3Aissue%20state%3Aopen%20label%3Adatabase)
+- [Live card reading](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22card%20reading%22)
+- [Personal Collection storage](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22personal%20collection%22)
+- [Pricing functions](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/issues?q=is%3Aissue%20state%3Aopen%20label%3A%22price%20charting%22)
+
+### Expansions:
 
 - [ ] Add full database setup steps
 - [ ] Create live price charting
