@@ -48,6 +48,13 @@ This project aims to build a working script for a database that contains all cre
     ```
 5. Run the script to display all card information to the console.
 
+## Troubleshooting
+
+- If you get a timeout error in your console check this link: [TCG Set List](https://api.tcgdex.net/v2/en/sets)
+ - Data Displayed: check if the pokedata database is running.
+ - Data not Displayed: this means the TCG's card API is currently down. It usually is only down for a max of 4 hours.
+  
+
 ## 🔮 Future Development and Expansions
 
 Currently I am working to take the projects in steps with milestones for each. The current milestone is the database. The goal is to incrementally make an entire working app. 
