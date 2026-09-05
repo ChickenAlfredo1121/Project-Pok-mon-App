@@ -1,8 +1,16 @@
 # Project Pokémon App
 
-Public repository for **Project Pokémon App**.
+## Authorship
+ - Dev: ChickenAlfredo1121
+ - Version: 1.1 September 2nd, 2026
 
 ## 📖 Project Description
+
+### User Story
+
+As a person who collects Pokémon cards and is learning back-end development. I want to make an app that easily read Pokémon cards, so that I can store my personal collection and increase my knowledge of various development processes. 
+
+### Narrative
 
 This project aims to build a working script for a database that contains all created Pokémon cards, sourced using the TCG live card collection API. The goal is to provide a solid backend foundation that any Pokémon-related app can be built on top of.
 
