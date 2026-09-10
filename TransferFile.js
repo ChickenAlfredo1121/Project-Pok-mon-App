@@ -75,30 +75,29 @@ async function main() {
         const cardAttacks = cardInfo.attacks ? JSON.stringify(cardInfo.attacks) : null;
 
         const cardWeaknesses = cardInfo.weaknesses ? JSON.stringify(
-        cardInfo.weaknesses.map(weakness => ({
+          cardInfo.weaknesses.map(weakness => ({
             ...weakness,
-            value: weakness.value.replace("×", "x")
-        }))
-      ) : null; //JSONB
-
+            value: weakness.value?.replace("×", "x") ?? weakness.value
+          }))
+        ) : null;
 
         const cardResistances = cardInfo.resistances ? JSON.stringify(
-        cardInfo.resistances.map(resistances => ({
+          cardInfo.resistances.map(resistances => ({
             ...resistances,
-            value: resistances.value.replace("×", "x")
-        }))
-      ) : null; //JSONB
-      
+            value: resistances.value?.replace("×", "x") ?? resistances.value
+          }))
+        ) : null; //JSONB
+
         const cardRetreat = cardInfo.retreat; //int
         const cardPrice = cardInfo.pricing ? JSON.stringify(cardInfo.pricing) : null;
-        
-        console.log(cardName, "\n", cardImage, "|", cardLocalId, "|", cardIll, "|",cardRarity, "|", cardCount, "|", cardSetName, "|",
-          cardHp, "|", cardType, "|", cardEvolveFrom, "|", cardDescription, "|", cardStage, "|", cardAttacks, "|", 
+
+        console.log(cardName, "\n", cardImage, "|", cardLocalId, "|", cardIll, "|", cardRarity, "|", cardCount, "|", cardSetName, "|",
+          cardHp, "|", cardType, "|", cardEvolveFrom, "|", cardDescription, "|", cardStage, "|", cardAttacks, "|",
           cardWeaknesses, "|", cardResistances, "|", cardRetreat, "|", cardPrice);
 
 
-           
-         //card insert statment with update statment for chance of possible breakage in code or update in data
+
+        //card insert statment with update statment for chance of possible breakage in code or update in data
         let psqlCard = `INSERT INTO card (cardid, card_ill, card_image, card_local_id, card_name, card_rarity, card_count, 
         card_set_name, card_hp, card_type, card_evolve_from, card_description, card_stage, card_weakness, card_resistance, 
         card_retreat) 
@@ -120,60 +119,62 @@ async function main() {
         card_weakness = EXCLUDED.card_weakness,
         card_resistance = EXCLUDED.card_resistance,
         card_retreat = EXCLUDED.card_retreat`;
-        
+
         await client.query(psqlCard, [
-            cardId,
-            cardIll, 
-            cardImage,
-            cardLocalId,
-            cardName,
-            cardRarity,
-            cardCount,
-            cardSetName,
-            cardHp,
-            cardType,
-            cardEvolveFrom,
-            cardDescription,
-            cardStage,
-            cardWeaknesses,
-            cardResistances,
-            cardRetreat
+          cardId,
+          cardIll,
+          cardImage,
+          cardLocalId,
+          cardName,
+          cardRarity,
+          cardCount,
+          cardSetName,
+          cardHp,
+          cardType,
+          cardEvolveFrom,
+          cardDescription,
+          cardStage,
+          cardWeaknesses,
+          cardResistances,
+          cardRetreat
         ]);
 
 
-         //attacks insert statment with update statment for chance of possible breakage in code or update in data
+        //attacks insert statment with update statment for chance of possible breakage in code or update in data
         let psqlAttacks = `INSERT INTO attacks (card_id, attack_data) 
         VALUES ($1, $2) 
-        ON CONFLICT (attack_id)
-        DO UPDATE SET attack_data = EXCLUDED.attack_data `;
+        ON CONFLICT (card_id)
+        DO UPDATE SET 
+        attack_data = EXCLUDED.attack_data `;
 
         await client.query(psqlAttacks, [
           cardId,
           cardAttacks
         ]);
 
-         //pricing insert statment with update statment for chance of possible breakage in code or update in data
+        //pricing insert statment with update statment for chance of possible breakage in code or update in data
         let psqlPrice = `INSERT INTO pricing (card_id, pricing_data) 
         VALUES ($1, $2) 
-        ON CONFLICT (pricing_id)
-        DO UPDATE SET pricing_data = EXCLUDED.pricing_data `;
+        ON CONFLICT (card_id)
+        DO UPDATE SET 
+        pricing_data = EXCLUDED.pricing_data `;
 
         await client.query(psqlPrice, [
           cardId,
           cardPrice
         ]);
-        break;
+        
 
       }
       //displaying the test count
       console.log(`Done! Processed ${cardCounter} cards across ${setCount} sets`);
 
-        //----------------------------------------------------
-        //NEXT STEPS:
+      //----------------------------------------------------
+      //NEXT STEPS:
 
-        //to add the images for later use in the live camera api: https://assets.tcgdex.net/en/swsh/swsh3/136/low.jpg
-        //-------------------------------------------------------
-        
+      //to add the images for later use in the live camera api: https://assets.tcgdex.net/en/swsh/swsh3/136/low.jpg
+      //-------------------------------------------------------
+
     }
 
     await client.end()
