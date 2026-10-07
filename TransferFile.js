@@ -1,8 +1,9 @@
 const { Client } = require('pg')
 const fs = require('node:fs');
 const path = require('path');
-
-
+const TCGdexModule = require('@tcgdex/sdk')
+const TCGdex = TCGdexModule.default || TCGdexModule
+const tcgdex = new TCGdex('en')
 //connection to server
 const client = new Client({
   host: 'localhost',
@@ -11,9 +12,7 @@ const client = new Client({
   user: 'postgres',
   password: 'pass'
 })
-function sleepy(time) {
-      return new Promise(resolve => setTimeout(resolve, time));
-}
+
 
 
 //obtains all cards and insert the data into the database
@@ -23,52 +22,29 @@ async function main() {
     await client.connect()
     const res = await client.query('SELECT $1::text as message', ['Hello world!'])
     console.log(res.rows[0].message)
-    
-    //--------------------------------------------------------------
-    //get set IDs
-    //set a default for the id and url so that way we can transverse the data
-    const id = '';
-    const url = `https://api.tcgdex.net/v2/en/sets/${id}`;
-    //get a connection to the url
-    const response = await fetch(url);
-    //grab the data out of the url
-    const data = await response.json();
+
+    const data = await tcgdex.fetch('sets');
     //----------------------------------------------------------
     //checking how many sets and cards it goes through when it displays
     //all cards to make sure it is running properly
-    let setCount = 0
-    let cardCounter = 0
+    let setCount = 0;
+    let cardCounter = 0;
 
     //need to get list of cards now that i know the sets
     //transverse through the data by each item ti get individual cards
     for (const set of data) {
 
       setCount++
-      console.log(`Processing set ${setCount}/${data.length}: ${set.id}`)
-
-      //get first sets name
-      const setId = set.id; //the name we just got
-      const setUrl = `https://api.tcgdex.net/v2/en/sets/${setId}`;
-
-      const setResponse = await fetch(setUrl);
-      const cardData = await setResponse.json();
+      const setData = await tcgdex.fetch('sets', set.id);
       //now that we have the first set we need to transverse 
       // all of its cards before we go on to the next one
-      for (const card of cardData.cards) {
+      for (const card of setData.cards) {
         try {
 
           cardCounter++
 
-          const cardId = card.id;
-          const cardUrl = `https://api.tcgdex.net/v2/en/cards/${cardId}`;
-
-          const cardResponse = await fetch(cardUrl);
-          if (!cardResponse.ok) {
-            console.error(`API error for ${cardId}: ${cardResponse.status}`);
-            continue;
-          }
-          const cardInfo = await cardResponse.json();
-
+          const cardInfo = await tcgdex.fetch('cards', card.id);
+          const cardId = card.id; //string varchar(80)
           const cardIll = cardInfo.illustrator; //string varchar(80)
           const cardImage = cardInfo.image; //string
           const cardLocalId = cardInfo.localId; //string 
@@ -99,12 +75,6 @@ async function main() {
 
           const cardRetreat = cardInfo.retreat; //int
           const cardPrice = cardInfo.pricing ? JSON.stringify(cardInfo.pricing) : null;
-
-          // console.log(cardName, "\n", cardImage, "|", cardLocalId, "|", cardIll, "|", cardRarity, "|", cardCount, "|", cardSetName, "|",
-          //   cardHp, "|", cardType, "|", cardEvolveFrom, "|", cardDescription, "|", cardStage, "|", cardAttacks, "|",
-          //   cardWeaknesses, "|", cardResistances, "|", cardRetreat, "|", cardPrice);
-
-
 
           //card insert statment with update statment for chance of possible breakage in code or update in data
           let psqlCard = `INSERT INTO card (cardid, card_ill, card_image, card_local_id, card_name, card_rarity, card_count, 
@@ -172,8 +142,6 @@ async function main() {
             cardId,
             cardPrice
           ]);
-
-        await sleepy(200); //this slows down the card insert process so you dont overload the api
         } catch (cardErr) {
           console.error(`Skipping card ${card.id}:`, cardErr.message);
         }
