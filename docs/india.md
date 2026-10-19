@@ -70,4 +70,11 @@ I currently don't know how to do the live camera capture. I have the database ma
 6. [database](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/tree/database)
 7. [camera](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/tree/camera)
 
+## Expansions:
+
+- [ ] Add full database setup steps
+- [ ] Build an active diagram of past prices for monitoring
+- [ ] Front-end app with card gallery of all cards separated by set
+
+
 *This is an early-stage project — contributions, suggestions, and feedback are welcome.*
