@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User | Pokédex cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #eef2ec; --panel: #f6f8f4; --ink: #173a34; --muted: #7d8a84;
+      --line: #d9e0d9; --accent: #d9482b; --dark: #1f4a43; --card: #fbfcf8;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Outfit', system-ui, sans-serif; }
+    .page { max-width: 1100px; margin: 0 auto; padding: 40px 32px; }
+    .eyebrow { font-size: 11px; letter-spacing: .12em; color: var(--accent); text-transform: uppercase; }
+    h1 { font-size: 28px; font-weight: 500; margin: 8px 0 20px; }
+    .placeholder { color: var(--muted); font-size: 14px; }
+
+    /* total worth box */
+    .worth {
+      background: var(--dark); color: #fff; border-radius: 18px;
+      padding: 24px 28px; margin-bottom: 16px;
+    }
+    .worth-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #b9d0c8; }
+    .worth-value { font-size: 40px; font-weight: 500; margin-top: 6px; min-height: 1.2em; }
+
+    @media (max-width: 600px) {
+      .page { padding: 24px 16px; }
+      .worth { padding: 20px; }
+      .worth-value { font-size: 32px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="topbar"></div>
+  <script src="nav.js"></script>
+
+  <main class="page">
+    <div class="eyebrow">User</div>
+    <h1>My collection</h1>
+
+    <!-- total worth of the collection (fill #worthValue later) -->
+    <section class="worth" aria-label="Total worth of collection">
+      <div class="worth-label">Total worth</div>
+      <div class="worth-value">$<span id="worthValue"></span></div>
+    </section>
+
+    <!-- filter bar (series, type, name), under the worth box -->
+    <div id="filterbar"></div>
+
+    <!-- the user's cards will go here -->
+    <div id="results">
+      <p class="placeholder" id="status">Placeholder page. The user's cards will show here.</p>
+    </div>
+  </main>
+
+  <script src="filters.js"></script>
+  <script>
+    // runs whenever a filter changes
+    // filters = { series, type, name }
+    function onFiltersChanged(filters) {
+      // TODO: fetch the user's matching cards from the backend using `filters`,
+      // render them, and update #worthValue with the total price
+      const active = Object.entries(filters).filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`);
+      document.querySelector('#status').textContent =
+        active.length ? 'Filters: ' + active.join(' | ') : 'No filters set.';
+    }
+
+    initFilters(onFiltersChanged);
+  </script>
+
+</body>
+
+</html>
