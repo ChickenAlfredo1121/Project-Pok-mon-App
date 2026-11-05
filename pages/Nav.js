@@ -1,14 +1,11 @@
-// Shared top bar with the waffle menu. Add this to every page:
-//   <div id="topbar"></div>
-//   <script src="nav.js"></script>
-// To add or rename a tab, edit the `pages` list below.
 (function () {
+  //mapping all pages
   const pages = [
     { name: 'Home', href: 'Home.html' },
     { name: 'User', href: 'User.html' },
     { name: 'Card Database', href: 'CardCollection.html' },
   ];
-  const current = location.pathname.split('/').pop() || 'index.html';
+  const current = location.pathname.split('/').pop() || 'Home.html'; //changed
 
   const style = document.createElement('style');
   style.textContent = `
@@ -63,6 +60,7 @@
     btn.setAttribute('aria-expanded', String(open));
   }
 
+  //open and close nav bar
   btn.addEventListener('click', (e) => {
     e.stopPropagation();
     setOpen(!menu.classList.contains('open'));
