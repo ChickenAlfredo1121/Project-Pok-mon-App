@@ -1,10 +1,4 @@
 // Shared filter bar: Series, Type, Name.
-// On a page, add:
-//   <div id="filterbar"></div>
-//   <script src="filters.js"></script>
-// then call:
-//   initFilters(function (filters) { ... });
-// `filters` is { series, type, name }. An empty string means "no filter".
 (function () {
   const TYPES = ['Colorless', 'Darkness', 'Dragon', 'Fairy', 'Fighting', 'Fire', 'Grass', 'Lightning', 'Metal', 'Psychic', 'Water'];
 
@@ -49,8 +43,9 @@
     const host = document.getElementById('filterbar');
     host.innerHTML = `
       <div class="filterbar" role="search">
-        <label>Series
-          <select id="fSeries"><option value="">All series</option></select>
+        <label>Set
+            <input id="fSeries" list="seriesList" placeholder="All sets" autocomplete="off">
+            <datalist id="seriesList"></datalist>
         </label>
         <label>Type
           <select id="fType">
@@ -62,12 +57,15 @@
           <input id="fName" type="search" placeholder="e.g. Pikachu" autocomplete="off">
         </label>
         <button type="button" class="clear" id="fClear">Clear</button>
+        <button type="button" class="clear" id="fSearch">Search</button>
       </div>`;
 
     const series = host.querySelector('#fSeries');
     const type = host.querySelector('#fType');
     const name = host.querySelector('#fName');
     const clear = host.querySelector('#fClear');
+    const search = host.querySelector('#fSearch');
+
 
     function get() {
       return { series: series.value, type: type.value, name: name.value.trim() };
@@ -79,7 +77,7 @@
       clearTimeout(timer);
       timer = setTimeout(function () { if (onChange) onChange(get()); }, delay);
     }
-
+    
     series.addEventListener('change', () => notify(0));
     type.addEventListener('change', () => notify(0));
     name.addEventListener('input', () => notify(250));
@@ -88,6 +86,9 @@
       type.value = '';
       name.value = '';
       notify(0);
+    });
+    search.addEventListener('click', function (){
+      
     });
 
     // Series choices come from GET /api/series, which should return an array of names.
@@ -106,4 +107,18 @@
 
     return { get: get };
   };
+
+
+
+  fetch('/api/filters/sets')
+  .then(r => r.json())
+  .then(sets => {
+    const list = document.getElementById('seriesList');
+    for (const s of sets) {
+      const opt = document.createElement('option');
+      opt.value = s;
+      list.appendChild(opt);
+    }
+
+  });
 })();
