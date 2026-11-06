@@ -5,7 +5,7 @@
   const style = document.createElement('style');
   style.textContent = `
     .filterbar {
-      display: grid; grid-template-columns: 1fr 1fr 2fr auto; gap: 12px; align-items: end;
+      display: grid; grid-template-columns: 1fr 1fr 2fr auto auto; gap: 12px; align-items: end;
       padding: 16px; margin-bottom: 24px;
       background: var(--panel, #f6f8f4); border: 1px solid var(--line, #d9e0d9); border-radius: 14px;
     }
@@ -65,6 +65,7 @@
     const name = host.querySelector('#fName');
     const clear = host.querySelector('#fClear');
     const search = host.querySelector('#fSearch');
+    search.addEventListener('click', () => notify(0));
 
 
     function get() {
@@ -87,38 +88,21 @@
       name.value = '';
       notify(0);
     });
-    search.addEventListener('click', function (){
-      
-    });
 
-    // Series choices come from GET /api/series, which should return an array of names.
-    // If that endpoint doesn't exist yet, the dropdown just stays on "All series".
-    fetch('/api/series')
-      .then(r => (r.ok ? r.json() : []))
-      .then(list => {
-        list.forEach(s => {
-          const o = document.createElement('option');
-          o.value = s;
-          o.textContent = s;
-          series.appendChild(o);
-        });
-      })
-      .catch(() => {});
-
-    return { get: get };
-  };
-
-
-
-  fetch('/api/filters/sets')
+fetch('/api/cards/sets')
   .then(r => r.json())
   .then(sets => {
-    const list = document.getElementById('seriesList');
+    const list = host.querySelector('#seriesList');
     for (const s of sets) {
       const opt = document.createElement('option');
       opt.value = s;
       list.appendChild(opt);
     }
+  })
+  .catch(err => console.error('Failed to load sets', err));
 
-  });
+    return { get: get };
+  };
+
+
 })();

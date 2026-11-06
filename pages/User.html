@@ -10,28 +10,258 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #eef2ec; --panel: #f6f8f4; --ink: #173a34; --muted: #7d8a84;
-      --line: #d9e0d9; --accent: #d9482b; --dark: #1f4a43; --card: #fbfcf8;
+      --bg: #eef2ec;
+      --panel: #f6f8f4;
+      --ink: #173a34;
+      --muted: #7d8a84;
+      --line: #d9e0d9;
+      --accent: #d9482b;
+      --dark: #1f4a43;
+      --card: #fbfcf8;
     }
-    * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Outfit', system-ui, sans-serif; }
-    .page { max-width: 1100px; margin: 0 auto; padding: 40px 32px; }
-    .eyebrow { font-size: 11px; letter-spacing: .12em; color: var(--accent); text-transform: uppercase; }
-    h1 { font-size: 28px; font-weight: 500; margin: 8px 0 20px; }
-    .placeholder { color: var(--muted); font-size: 14px; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .12em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 500;
+      margin: 8px 0 20px;
+    }
+
+    .placeholder {
+      color: var(--muted);
+      font-size: 14px;
+    }
 
     /* total worth box */
     .worth {
-      background: var(--dark); color: #fff; border-radius: 18px;
-      padding: 24px 28px; margin-bottom: 16px;
+      background: var(--dark);
+      color: #fff;
+      border-radius: 18px;
+      padding: 24px 28px;
+      margin-bottom: 16px;
     }
-    .worth-label { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #b9d0c8; }
-    .worth-value { font-size: 40px; font-weight: 500; margin-top: 6px; min-height: 1.2em; }
+
+    .worth-label {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: #b9d0c8;
+    }
+
+    .worth-value {
+      font-size: 40px;
+      font-weight: 500;
+      margin-top: 6px;
+      min-height: 1.2em;
+    }
+
+    /* results grid */
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    #grid .placeholder {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .card {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      text-align: center;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(23, 58, 52, .12);
+    }
+
+    .card:focus-visible {
+      outline: 2px solid var(--dark);
+      outline-offset: 2px;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 500;
+      padding: 40px 0;
+    }
+
+    .qty {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      min-width: 26px;
+      height: 26px;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 99px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, .25);
+    }
+
+    /* magnified popup */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(23, 58, 52, .65);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-box {
+      position: relative;
+      max-width: min(480px, 100%);
+      max-height: 100%;
+      padding: 16px;
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+      overflow: auto;
+    }
+
+    .modal-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .modal-box h3 {
+      margin: 0;
+      padding: 60px 40px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .modal-price {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .modal-price small {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .modal-price.none {
+      font-size: 14px;
+      color: var(--muted);
+    }
+    #modalRemove { left: auto; right: 10px; background: var(--accent); color: #fff; border-color: var(--accent); font-size: 24px; }
+    #modalRemove:hover { background: #bf3d23; }
+    .modal-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 20px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+    }
+
+    .modal-btn:hover {
+      background: #e4ece6;
+    }
+
+    .modal-btn:focus-visible {
+      outline: 2px solid var(--dark);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 1000px) {
+      #grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
 
     @media (max-width: 600px) {
-      .page { padding: 24px 16px; }
-      .worth { padding: 20px; }
-      .worth-value { font-size: 32px; }
+      .page {
+        padding: 24px 16px;
+      }
+
+      .worth {
+        padding: 20px;
+      }
+
+      .worth-value {
+        font-size: 32px;
+      }
+
+      #grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -45,34 +275,186 @@
     <div class="eyebrow">User</div>
     <h1>My collection</h1>
 
-    <!-- total worth of the collection (fill #worthValue later) -->
     <section class="worth" aria-label="Total worth of collection">
       <div class="worth-label">Total worth</div>
       <div class="worth-value">$<span id="worthValue"></span></div>
     </section>
 
-    <!-- filter bar (series, type, name), under the worth box -->
     <div id="filterbar"></div>
 
-    <!-- the user's cards will go here -->
-    <div id="results">
-      <p class="placeholder" id="status">Placeholder page. The user's cards will show here.</p>
+    <div id="grid">
+      <p class="placeholder">Loading your collection...</p>
     </div>
   </main>
 
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Card preview">
+    <div class="modal-box" id="modalBox">
+      <button type="button" class="modal-btn" id="modalClose" aria-label="Close">&times;</button>
+      <button type="button" class="modal-btn" id="modalRemove" aria-label="Remove one from my collection">&minus;</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
   <script src="filters.js"></script>
   <script>
-    // runs whenever a filter changes
-    // filters = { series, type, name }
-    function onFiltersChanged(filters) {
-      // TODO: fetch the user's matching cards from the backend using `filters`,
-      // render them, and update #worthValue with the total price
-      const active = Object.entries(filters).filter(([, v]) => v).map(([k, v]) => `${k}: ${v}`);
-      document.querySelector('#status').textContent =
-        active.length ? 'Filters: ' + active.join(' | ') : 'No filters set.';
+    const grid = document.getElementById('grid');
+    const modal = document.getElementById('modal');
+    const modalBox = document.getElementById('modalBox');
+    const modalContent = document.getElementById('modalContent');
+    let currentCards = [];
+    let openCard = null;
+    let lastFilters = {};
+
+    function showMessage(text) {
+      grid.innerHTML = '';
+      const p = document.createElement('p');
+      p.className = 'placeholder';
+      p.textContent = text;
+      grid.appendChild(p);
+    }
+
+    function cardImage(card, size, fallbackSize) {
+      const img = document.createElement('img');
+      img.src = card.cardImage + '/' + size + '.webp';
+      img.alt = card.cardName;
+      img.onerror = function () {
+        img.onerror = null;
+        if (fallbackSize) {
+          img.src = card.cardImage + '/' + fallbackSize + '.webp';
+        } else {
+          const h = document.createElement('h3');
+          h.textContent = card.cardName;
+          img.replaceWith(h);
+        }
+      };
+      return img;
+    }
+
+    function render(cards) {
+      currentCards = cards;
+      grid.innerHTML = '';
+      if (!cards.length) { showMessage('No cards in your collection match.'); return; }
+
+      cards.forEach(function (c, i) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'card';
+        btn.dataset.index = i;
+        btn.setAttribute('aria-label', 'View ' + c.cardName);
+
+        if (c.cardImage) {
+          const img = cardImage(c, 'low');
+          img.loading = 'lazy';
+          btn.appendChild(img);
+        } else {
+          const h = document.createElement('h3');
+          h.textContent = c.cardName;
+          btn.appendChild(h);
+        }
+
+        if (c.quantity > 1) {   // change to `c.quantity` to always show the badge
+          const q = document.createElement('span');
+          q.className = 'qty';
+          q.textContent = '×' + c.quantity;
+          btn.appendChild(q);
+        }
+        grid.appendChild(btn);
+      });
+    }
+
+    grid.addEventListener('click', function (e) {
+      const btn = e.target.closest('.card');
+      if (btn) openModal(currentCards[Number(btn.dataset.index)]);
+    });
+
+    function openModal(card) {
+      openCard = card;
+      modalContent.innerHTML = '';
+      if (card.cardImage) {
+        modalContent.appendChild(cardImage(card, 'high', 'low'));
+      } else {
+        const h = document.createElement('h3');
+        h.textContent = card.cardName;
+        modalContent.appendChild(h);
+      }
+
+      // price of a single copy, under the card
+      const price = document.createElement('div');
+      price.className = 'modal-price';
+      if (typeof card.priceUsd === 'number') {
+        price.innerHTML = '<small>Price per card</small>$' +
+          card.priceUsd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      } else {
+        price.classList.add('none');
+        price.textContent = 'Price unavailable';
+      }
+      modalContent.appendChild(price);
+
+      modal.classList.add('open');
+      document.getElementById('modalClose').focus();
+    }
+
+document.getElementById('modalRemove').addEventListener('click', async function () {
+  if (!openCard) return;
+
+  // confirm before removing the last copy
+  
+
+  try {
+    const res = await fetch('/api/user/cards/' + encodeURIComponent(openCard._id), { method: 'DELETE' });
+    if (!res.ok) throw new Error('Remove failed');
+    const { quantity } = await res.json();
+
+    if (quantity === 0) {
+      closeModal();
+    } else {
+      openCard.quantity = quantity;   // popup stays open for more removals
+    }
+    onFiltersChanged(lastFilters);    // refresh the grid, badges and total worth
+  } catch (err) {
+    console.error(err);
+    alert('Could not remove the card.');
+  }
+});
+
+
+
+    function closeModal() { modal.classList.remove('open'); openCard = null; }
+
+    modal.addEventListener('click', function (e) {
+      if (!modalBox.contains(e.target)) closeModal();
+    });
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // runs whenever a filter changes; no filters = show the whole collection
+    async function onFiltersChanged(filters) {
+      lastFilters = filters;
+      const params = new URLSearchParams();
+      if (filters.series) params.set('set', filters.series);
+      if (filters.type) params.set('type', filters.type);
+      if (filters.name) params.set('name', filters.name);
+
+      try {
+        const response = await fetch('/api/user/cards?' + params);
+        if (!response.ok) throw new Error('Load failed');
+
+        const cards = await response.json();   // read the body once
+        render(cards);
+
+        const total = cards.reduce((sum, c) => sum + (c.priceUsd ?? 0) * (c.quantity ?? 1), 0);
+        document.getElementById('worthValue').textContent =
+          total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      } catch (err) {
+        console.error(err);
+        showMessage('Could not load your collection.');
+      }
     }
 
     initFilters(onFiltersChanged);
+    onFiltersChanged({});   // load everything when the page opens
   </script>
 
 </body>
