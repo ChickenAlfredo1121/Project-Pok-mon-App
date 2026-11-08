@@ -1,0 +1,720 @@
+noName: Ancient Mew | Miscellaneous Promos #001
+ambiguous: Treecko | Poké Card Creator Pack #1 -> Plasma Freeze #6 | Great Encounters #90 | Stormfront #79 | Ruby & Sapphire #75 | Ruby & Sapphire #76 | Crystal Guardians #67 | Crystal Guardians #68 | Dragon #80
+ambiguous: Wurmple | Poké Card Creator Pack #2 -> Dragons Exalted #6 | Diamond & Pearl #104 | Ruby & Sapphire #78 | Legend Maker #70 | Dragon #81 | Deoxys #82 | Ascended Heroes #11 | Platinum #103
+ambiguous: Torchic | Poké Card Creator Pack #3 -> Legendary Treasures #RC5 | Dark Explorers #14 | Dark Explorers #15 | Great Encounters #89 | Ruby & Sapphire #73 | Ruby & Sapphire #74 | Holon Phantoms #83 | Crystal Guardians #65
+ambiguous: Mudkip | Poké Card Creator Pack #4 -> Great Encounters #80 | Ruby & Sapphire #59 | Ruby & Sapphire #60 | Crystal Guardians #57 | Crystal Guardians #58 | Dragon #65 | Team Rocket Returns #107 | Emerald #56
+ambiguous: Pikachu | Poké Card Creator Pack #5 -> Base #58 | Jungle #60 | Base Set 2 #87 | Legendary Collection #86 | Wizards Black Star Promos #1 | Wizards Black Star Promos #4 | Wizards Black Star Promos #26 | Wizards Black Star Promos #27
+ambiguous: Unown | Unseen Forces Unown Collection #! -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #A -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #B -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #C -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #D -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #E -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #F -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #G -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #H -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #I -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #J -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #K -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #L -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #M -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #N -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #O -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #P -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #Q -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #R -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #S -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #T -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #U -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #V -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #W -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #X -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #Y -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Unown | Unseen Forces Unown Collection #Z -> Legends Awakened #42 | Legends Awakened #82 | Unseen Forces #A | Unseen Forces #B | Unseen Forces #C | Unseen Forces #D | Unseen Forces #E | Unseen Forces #F
+ambiguous: Geodude | DP trainer Kit (Lucario) #1 -> Fossil #47 | Legendary Collection #77 | Mysterious Treasures #84 | Expedition Base Set #110 | Legend Maker #53 | Dragon #55 | Dragon #56 | Generations #43
+ambiguous: Graveler | DP trainer Kit (Lucario) #2 -> Fossil #37 | Legendary Collection #44 | Mysterious Treasures #51 | Expedition Base Set #79 | Legend Maker #34 | Dragon #29 | Dragon #30 | Generations #44
+ambiguous: Lucario | DP trainer Kit (Lucario) #3 -> Legendary Treasures #80 | Next Destinies #64 | Plasma Storm #77 | Plasma Storm #78 | BW Black Star Promos #BW85 | Call of Legends #14 | Diamond & Pearl #6 | Legends Awakened #61
+ambiguous: Machoke | DP trainer Kit (Lucario) #4 -> Base #34 | Base Set 2 #49 | Legendary Collection #51 | Plasma Blast #48 | Diamond & Pearl #53 | Stormfront #41 | Expedition Base Set #85 | Skyridge #38
+ambiguous: Machop | DP trainer Kit (Lucario) #5 -> Base #52 | Base Set 2 #78 | Team Rocket #59 | Legendary Collection #79 | Plasma Blast #47 | Diamond & Pearl #86 | Stormfront #64 | Expedition Base Set #117
+ambiguous: Riolu | DP trainer Kit (Lucario) #6 -> Legendary Treasures #79 | Next Destinies #63 | Plasma Storm #75 | Plasma Storm #76 | BW Black Star Promos #BW33 | Call of Legends #50 | Diamond & Pearl #61 | Legends Awakened #117
+ambiguous: Starly | DP trainer Kit (Lucario) #7 -> Plasma Freeze #95 | Diamond & Pearl #101 | Majestic Dawn #75 | Stormfront #75 | Supreme Victors #129 | POP Series 6 #16 | Crimson Invasion #81 | Scarlet & Violet #148
+ambiguous: Energy Search | DP trainer Kit (Lucario) #8 -> Fossil #59 | Black & White #93 | Boundaries Crossed #128 | Diamond & Pearl #117 | Majestic Dawn #90 | Expedition Base Set #153 | Ruby & Sapphire #90 | Unseen Forces #94
+ambiguous: Potion | DP trainer Kit (Lucario) #9 -> Base #94 | Base Set 2 #122 | Legendary Collection #110 | Black & White #100 | Boundaries Crossed #132 | Diamond & Pearl #118 | Secret Wonders #127 | Stormfront #92
+ambiguous: Quick Ball | DP trainer Kit (Lucario) #10 -> Mysterious Treasures #114 | Majestic Dawn #86 | Sword & Shield #179 | Sword & Shield #216 | Fusion Strike #237
+ambiguous: Fighting Energy | DP trainer Kit (Lucario) #11 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Buizel | DP trainer Kit (Manaphy) #1 -> Dragons Exalted #32 | Diamond & Pearl #72 | Mysterious Treasures #75 | Great Encounters #61 | DP Black Star Promos #DP13 | HS—Unleashed #45 | Supreme Victors #92 | POP Series 9 #6
+ambiguous: Floatzel | DP trainer Kit (Manaphy) #2 -> Dragons Exalted #33 | Diamond & Pearl #26 | Great Encounters #37 | HS—Unleashed #16 | Supreme Victors #58 | Shining Legends #23 | Ultra Prism #36 | Scarlet & Violet #47
+ambiguous: Goldeen | DP trainer Kit (Manaphy) #3 -> Jungle #53 | Base Set 2 #76 | Diamond & Pearl #84 | Expedition Base Set #111 | Aquapolis #78 | Ruby & Sapphire #55 | Deoxys #61 | Pitch Black #13
+ambiguous: Manaphy | DP trainer Kit (Manaphy) #4 -> Plasma Storm #34 | Diamond & Pearl #9 | Majestic Dawn #8 | HS—Unleashed #3 | POP Series 6 #3 | POP Series 9 #2 | Shining Legends #25 | Ultra Prism #42
+ambiguous: Piplup | DP trainer Kit (Manaphy) #5 -> Legendary Treasures #33 | Legendary Treasures #RC6 | Dark Explorers #27 | Diamond & Pearl #93 | Majestic Dawn #71 | Majestic Dawn #72 | DP Black Star Promos #DP3 | McDonald's Collection 2021 #20
+ambiguous: Prinplup | DP trainer Kit (Manaphy) #6 -> Legendary Treasures #34 | Dark Explorers #28 | Diamond & Pearl #58 | Majestic Dawn #44 | Phantasmal Flames #28 | Platinum #59 | Cosmic Eclipse #55 | Ultra Prism #33
+ambiguous: Seaking | DP trainer Kit (Manaphy) #7 -> Jungle #46 | Base Set 2 #60 | Diamond & Pearl #62 | Aquapolis #59 | Ruby & Sapphire #21 | Deoxys #24 | Pitch Black #14 | Neo Revelation #37
+ambiguous: Totodile | DP trainer Kit (Manaphy) #8 -> Call of Legends #74 | Mysterious Treasures #106 | Expedition Base Set #134 | Expedition Base Set #135 | Unseen Forces #78 | Dragon Frontiers #67 | Hidden Legends #79 | HeartGold & SoulSilver #86
+ambiguous: Dusk Ball | DP trainer Kit (Manaphy) #9 -> Mysterious Treasures #110 | Majestic Dawn #80 | Surging Sparks #175
+ambiguous: Energy Search | DP trainer Kit (Manaphy) #10 -> Fossil #59 | Black & White #93 | Boundaries Crossed #128 | Diamond & Pearl #117 | Majestic Dawn #90 | Expedition Base Set #153 | Ruby & Sapphire #90 | Unseen Forces #94
+ambiguous: Potion | DP trainer Kit (Manaphy) #11 -> Base #94 | Base Set 2 #122 | Legendary Collection #110 | Black & White #100 | Boundaries Crossed #132 | Diamond & Pearl #118 | Secret Wonders #127 | Stormfront #92
+ambiguous: Water Energy | DP trainer Kit (Manaphy) #12 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+downloadFailed: Tropical Tidal Wave | HGSS Black Star Promos #HGSS18 (status 404) https://images.pokemontcg.io/hsp/HGSS18_hires.png
+ambiguous: Moomoo Milk | HS trainer Kit (Raichu) #1 -> Expedition Base Set #155 | HeartGold & SoulSilver #94 | Neo Genesis #101 | Lost Thunder #185
+ambiguous: Pikachu | HS trainer Kit (Raichu) #2 -> Base #58 | Jungle #60 | Base Set 2 #87 | Legendary Collection #86 | Wizards Black Star Promos #1 | Wizards Black Star Promos #4 | Wizards Black Star Promos #26 | Wizards Black Star Promos #27
+ambiguous: Flaaffy | HS trainer Kit (Raichu) #3 -> Dragons Exalted #39 | Call of Legends #43 | Secret Wonders #50 | Expedition Base Set #77 | Aquapolis #47 | Unseen Forces #56 | Dragon Frontiers #30 | Dragon #27
+ambiguous: Meowth | HS trainer Kit (Raichu) #4 -> Jungle #56 | Base Set 2 #80 | Team Rocket #62 | Legendary Collection #53 | Wizards Black Star Promos #10 | Noble Victories #102 | Next Destinies #80 | Boundaries Crossed #106
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #5 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #6 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #7 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #8 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #9 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #10 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #11 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Meowth | HS trainer Kit (Raichu) #12 -> Jungle #56 | Base Set 2 #80 | Team Rocket #62 | Legendary Collection #53 | Wizards Black Star Promos #10 | Noble Victories #102 | Next Destinies #80 | Boundaries Crossed #106
+ambiguous: Mareep | HS trainer Kit (Raichu) #13 -> Dragons Exalted #38 | Call of Legends #63 | Secret Wonders #94 | Expedition Base Set #119 | Aquapolis #93 | Unseen Forces #62 | Dragon Frontiers #54 | Dragon #64
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #14 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #15 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Pikachu | HS trainer Kit (Raichu) #16 -> Base #58 | Jungle #60 | Base Set 2 #87 | Legendary Collection #86 | Wizards Black Star Promos #1 | Wizards Black Star Promos #4 | Wizards Black Star Promos #26 | Wizards Black Star Promos #27
+ambiguous: Flaaffy | HS trainer Kit (Raichu) #17 -> Dragons Exalted #39 | Call of Legends #43 | Secret Wonders #50 | Expedition Base Set #77 | Aquapolis #47 | Unseen Forces #56 | Dragon Frontiers #30 | Dragon #27
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #18 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Raichu | HS trainer Kit (Raichu) #19 -> Base #14 | Fossil #14 | Fossil #29 | Base Set 2 #16 | Next Destinies #40 | BW Black Star Promos #BW78 | Mysterious Treasures #15 | Majestic Dawn #45
+ambiguous: Mareep | HS trainer Kit (Raichu) #20 -> Dragons Exalted #38 | Call of Legends #63 | Secret Wonders #94 | Expedition Base Set #119 | Aquapolis #93 | Unseen Forces #62 | Dragon Frontiers #54 | Dragon #64
+ambiguous: Copycat | HS trainer Kit (Raichu) #21 -> Call of Legends #77 | Expedition Base Set #138 | Dragon Frontiers #73 | Team Rocket Returns #83 | HeartGold & SoulSilver #90 | Celestial Storm #127 | Celestial Storm #163 | Evolving Skies #143
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #23 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Switch | HS trainer Kit (Raichu) #24 -> Base #95 | Base Set 2 #123 | Black & White #104 | Boundaries Crossed #135 | Diamond & Pearl #119 | Secret Wonders #128 | Stormfront #93 | Expedition Base Set #157
+ambiguous: Poké Ball | HS trainer Kit (Raichu) #25 -> Jungle #64 | Base Set 2 #121 | Black & White #97 | Boundaries Crossed #131 | Diamond & Pearl #110 | Majestic Dawn #85 | Ruby & Sapphire #86 | Unseen Forces #87
+ambiguous: Moomoo Milk | HS trainer Kit (Raichu) #26 -> Expedition Base Set #155 | HeartGold & SoulSilver #94 | Neo Genesis #101 | Lost Thunder #185
+ambiguous: Lightning Energy | HS trainer Kit (Raichu) #28 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Energy Switch | HS trainer Kit (Raichu) #29 -> Black & White #94 | Legendary Treasures #112 | Diamond & Pearl #107 | Stormfront #84 | Aquapolis #120 | Ruby & Sapphire #82 | Unseen Forces #84 | Power Keepers #75
+ambiguous: Raichu | HS trainer Kit (Raichu) #30 -> Base #14 | Fossil #14 | Fossil #29 | Base Set 2 #16 | Next Destinies #40 | BW Black Star Promos #BW78 | Mysterious Treasures #15 | Majestic Dawn #45
+ambiguous: Totodile | HS trainer Kit (Gyarados) #1 -> Call of Legends #74 | Mysterious Treasures #106 | Expedition Base Set #134 | Expedition Base Set #135 | Unseen Forces #78 | Dragon Frontiers #67 | Hidden Legends #79 | HeartGold & SoulSilver #86
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #2 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #3 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #4 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Bill | HS trainer Kit (Gyarados) #5 -> Base #91 | Base Set 2 #118 | Legendary Collection #108 | HeartGold & SoulSilver #89
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #6 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #7 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #8 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #9 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #10 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #11 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Magikarp | HS trainer Kit (Gyarados) #12 -> Base #35 | Base Set 2 #50 | Team Rocket #47 | Legendary Collection #52 | Legendary Treasures #30 | Dragons Exalted #23 | Call of Legends #61 | Detective Pikachu #8
+ambiguous: Croconaw | HS trainer Kit (Gyarados) #13 -> Call of Legends #41 | Mysterious Treasures #44 | Expedition Base Set #74 | Unseen Forces #38 | Dragon Frontiers #27 | HeartGold & SoulSilver #38 | Ascended Heroes #42 | Neo Genesis #31
+ambiguous: Totodile | HS trainer Kit (Gyarados) #14 -> Call of Legends #74 | Mysterious Treasures #106 | Expedition Base Set #134 | Expedition Base Set #135 | Unseen Forces #78 | Dragon Frontiers #67 | Hidden Legends #79 | HeartGold & SoulSilver #86
+ambiguous: Marill | HS trainer Kit (Gyarados) #15 -> Wizards Black Star Promos #29 | Boundaries Crossed #36 | Diamond & Pearl #88 | Expedition Base Set #120 | Aquapolis #53 | Delta Species #76 | Sandstorm #68 | Team Rocket Returns #68
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #16 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Croconaw | HS trainer Kit (Gyarados) #17 -> Call of Legends #41 | Mysterious Treasures #44 | Expedition Base Set #74 | Unseen Forces #38 | Dragon Frontiers #27 | HeartGold & SoulSilver #38 | Ascended Heroes #42 | Neo Genesis #31
+ambiguous: Bill | HS trainer Kit (Gyarados) #18 -> Base #91 | Base Set 2 #118 | Legendary Collection #108 | HeartGold & SoulSilver #89
+ambiguous: Magikarp | HS trainer Kit (Gyarados) #19 -> Base #35 | Base Set 2 #50 | Team Rocket #47 | Legendary Collection #52 | Legendary Treasures #30 | Dragons Exalted #23 | Call of Legends #61 | Detective Pikachu #8
+ambiguous: Gyarados | HS trainer Kit (Gyarados) #20 -> Base #6 | Base Set 2 #7 | Legendary Collection #12 | Legendary Treasures #31 | Dragons Exalted #24 | Call of Legends #7 | Mysterious Treasures #26 | Stormfront #19
+ambiguous: Energy Switch | HS trainer Kit (Gyarados) #21 -> Black & White #94 | Legendary Treasures #112 | Diamond & Pearl #107 | Stormfront #84 | Aquapolis #120 | Ruby & Sapphire #82 | Unseen Forces #84 | Power Keepers #75
+ambiguous: Pokémon Communication | HS trainer Kit (Gyarados) #22 -> Black & White #99 | HeartGold & SoulSilver #98 | Team Up #152 | Team Up #152A | Team Up #152B | Team Up #196
+ambiguous: Poké Ball | HS trainer Kit (Gyarados) #23 -> Jungle #64 | Base Set 2 #121 | Black & White #97 | Boundaries Crossed #131 | Diamond & Pearl #110 | Majestic Dawn #85 | Ruby & Sapphire #86 | Unseen Forces #87
+ambiguous: Marill | HS trainer Kit (Gyarados) #24 -> Wizards Black Star Promos #29 | Boundaries Crossed #36 | Diamond & Pearl #88 | Expedition Base Set #120 | Aquapolis #53 | Delta Species #76 | Sandstorm #68 | Team Rocket Returns #68
+ambiguous: Professor Elm's Training Method | HS trainer Kit (Gyarados) #25 -> Call of Legends #82 | Expedition Base Set #148 | Unseen Forces #89 | Dragon Frontiers #79 | HeartGold & SoulSilver #100
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #26 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Pokémon Communication | HS trainer Kit (Gyarados) #27 -> Black & White #99 | HeartGold & SoulSilver #98 | Team Up #152 | Team Up #152A | Team Up #152B | Team Up #196
+ambiguous: Switch | HS trainer Kit (Gyarados) #28 -> Base #95 | Base Set 2 #123 | Black & White #104 | Boundaries Crossed #135 | Diamond & Pearl #119 | Secret Wonders #128 | Stormfront #93 | Expedition Base Set #157
+ambiguous: Water Energy | HS trainer Kit (Gyarados) #29 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Gyarados | HS trainer Kit (Gyarados) #30 -> Base #6 | Base Set 2 #7 | Legendary Collection #12 | Legendary Treasures #31 | Dragons Exalted #24 | Call of Legends #7 | Mysterious Treasures #26 | Stormfront #19
+ambiguous: Energy Switch | BW trainer Kit (Excadrill) #4 -> Black & White #94 | Legendary Treasures #112 | Diamond & Pearl #107 | Stormfront #84 | Aquapolis #120 | Ruby & Sapphire #82 | Unseen Forces #84 | Power Keepers #75
+ambiguous: Fighting Energy | BW trainer Kit (Excadrill) #5 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Fighting Energy | BW trainer Kit (Excadrill) #6 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Fighting Energy | BW trainer Kit (Excadrill) #7 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Fighting Energy | BW trainer Kit (Excadrill) #8 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Fighting Energy | BW trainer Kit (Excadrill) #9 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Fighting Energy | BW trainer Kit (Excadrill) #10 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Timburr | BW trainer Kit (Excadrill) #11 -> Black & White #58 | Black & White #59 | Noble Victories #62 | Dark Explorers #58 | Plasma Storm #79 | Twilight Masquerade #103 | Twilight Masquerade #183 | Battle Styles #73
+ambiguous: Audino | BW trainer Kit (Excadrill) #12 -> Black & White #87 | Legendary Treasures #RC17 | Emerging Powers #83 | Noble Victories #85 | Dragons Exalted #108 | Boundaries Crossed #126 | McDonald's Collection 2011 #12 | Unified Minds #177
+ambiguous: Drilbur | BW trainer Kit (Excadrill) #13 -> Emerging Powers #54 | Emerging Powers #55 | Dark Explorers #55 | McDonald's Collection 2012 #8 | Pitch Black #46 | Unified Minds #118 | Cosmic Eclipse #114 | Obsidian Flames #111
+ambiguous: Gurdurr | BW trainer Kit (Excadrill) #14 -> Black & White #60 | Noble Victories #63 | Dark Explorers #59 | Plasma Storm #80 | Twilight Masquerade #104 | Battle Styles #74 | XY #66 | Black Bolt #48
+ambiguous: Potion | BW trainer Kit (Excadrill) #15 -> Base #94 | Base Set 2 #122 | Legendary Collection #110 | Black & White #100 | Boundaries Crossed #132 | Diamond & Pearl #118 | Secret Wonders #127 | Stormfront #92
+ambiguous: PlusPower | BW trainer Kit (Excadrill) #16 -> Base #84 | Base Set 2 #113 | Black & White #96 | Diamond & Pearl #109 | Secret Wonders #121 | HS—Unleashed #80 | Platinum #112
+ambiguous: Excadrill | BW trainer Kit (Excadrill) #17 -> Emerging Powers #56 | Emerging Powers #57 | Dark Explorers #56 | Dark Explorers #57 | Unified Minds #119 | Cosmic Eclipse #115 | Cosmic Eclipse #246 | Obsidian Flames #147
+ambiguous: Audino | BW trainer Kit (Excadrill) #18 -> Black & White #87 | Legendary Treasures #RC17 | Emerging Powers #83 | Noble Victories #85 | Dragons Exalted #108 | Boundaries Crossed #126 | McDonald's Collection 2011 #12 | Unified Minds #177
+ambiguous: Herdier | BW trainer Kit (Excadrill) #19 -> Black & White #82 | Dark Explorers #87 | Boundaries Crossed #121 | White Flare #75 | White Flare #155 | Sun & Moon #104 | Cosmic Eclipse #175 | Obsidian Flames #171
+ambiguous: Fighting Energy | BW trainer Kit (Excadrill) #20 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Energy Search | BW trainer Kit (Excadrill) #21 -> Fossil #59 | Black & White #93 | Boundaries Crossed #128 | Diamond & Pearl #117 | Majestic Dawn #90 | Expedition Base Set #153 | Ruby & Sapphire #90 | Unseen Forces #94
+ambiguous: Fighting Energy | BW trainer Kit (Excadrill) #22 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Potion | BW trainer Kit (Excadrill) #23 -> Base #94 | Base Set 2 #122 | Legendary Collection #110 | Black & White #100 | Boundaries Crossed #132 | Diamond & Pearl #118 | Secret Wonders #127 | Stormfront #92
+ambiguous: Pokémon Communication | BW trainer Kit (Excadrill) #24 -> Black & White #99 | HeartGold & SoulSilver #98 | Team Up #152 | Team Up #152A | Team Up #152B | Team Up #196
+ambiguous: Drilbur | BW trainer Kit (Excadrill) #25 -> Emerging Powers #54 | Emerging Powers #55 | Dark Explorers #55 | McDonald's Collection 2012 #8 | Pitch Black #46 | Unified Minds #118 | Cosmic Eclipse #114 | Obsidian Flames #111
+ambiguous: Fighting Energy | BW trainer Kit (Excadrill) #26 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Lillipup | BW trainer Kit (Excadrill) #27 -> Black & White #80 | Black & White #81 | Dark Explorers #86 | Boundaries Crossed #120 | BW Black Star Promos #BW52 | White Flare #74 | White Flare #154 | Sun & Moon #103
+ambiguous: Fighting Energy | BW trainer Kit (Excadrill) #28 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Timburr | BW trainer Kit (Excadrill) #29 -> Black & White #58 | Black & White #59 | Noble Victories #62 | Dark Explorers #58 | Plasma Storm #79 | Twilight Masquerade #103 | Twilight Masquerade #183 | Battle Styles #73
+ambiguous: Excadrill | BW trainer Kit (Excadrill) #30 -> Emerging Powers #56 | Emerging Powers #57 | Dark Explorers #56 | Dark Explorers #57 | Unified Minds #119 | Cosmic Eclipse #115 | Cosmic Eclipse #246 | Obsidian Flames #147
+ambiguous: Purrloin | BW trainer Kit (Zoroark) #1 -> Black & White #66 | Legendary Treasures #RC13 | Emerging Powers #64 | Boundaries Crossed #90 | Plasma Storm #82 | Plasma Storm #83 | McDonald's Collection 2012 #9 | White Flare #55
+ambiguous: Watchog | BW trainer Kit (Zoroark) #2 -> Black & White #79 | Emerging Powers #79 | Boundaries Crossed #119 | Plasma Storm #112 | Plasma Storm #113 | Chaos Rising #71 | Chaos Rising #97 | White Flare #73
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #3 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Minccino | BW trainer Kit (Zoroark) #4 -> Black & White #88 | Legendary Treasures #104 | Legendary Treasures #RC18 | Emerging Powers #84 | Next Destinies #84 | Dragons Exalted #109 | BW Black Star Promos #BW13 | Chaos Rising #72
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #5 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #6 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #7 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #8 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #9 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #10 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: PlusPower | BW trainer Kit (Zoroark) #11 -> Base #84 | Base Set 2 #113 | Black & White #96 | Diamond & Pearl #109 | Secret Wonders #121 | HS—Unleashed #80 | Platinum #112
+ambiguous: Patrat | BW trainer Kit (Zoroark) #12 -> Black & White #77 | Black & White #78 | Emerging Powers #78 | Boundaries Crossed #118 | Plasma Storm #110 | Plasma Storm #111 | Chaos Rising #70 | White Flare #72
+ambiguous: Zorua | BW trainer Kit (Zoroark) #13 -> Black & White #70 | Legendary Treasures #89 | Emerging Powers #66 | Dark Explorers #69 | Dark Explorers #70 | BW Black Star Promos #BW12 | McDonald's Collection 2011 #9 | 30th Celebration #95
+ambiguous: Pidove | BW trainer Kit (Zoroark) #14 -> Black & White #84 | Emerging Powers #80 | Next Destinies #83 | Boundaries Crossed #123 | BW Black Star Promos #BW15 | McDonald's Collection 2011 #11 | Pokémon GO #61 | Unified Minds #174
+ambiguous: Zoroark | BW trainer Kit (Zoroark) #17 -> Black & White #71 | Legendary Treasures #90 | Emerging Powers #67 | Next Destinies #102 | Dark Explorers #71 | BW Black Star Promos #BW9 | BW Black Star Promos #BW19 | 30th Celebration #96
+ambiguous: Pokémon Communication | BW trainer Kit (Zoroark) #18 -> Black & White #99 | HeartGold & SoulSilver #98 | Team Up #152 | Team Up #152A | Team Up #152B | Team Up #196
+ambiguous: Minccino | BW trainer Kit (Zoroark) #19 -> Black & White #88 | Legendary Treasures #104 | Legendary Treasures #RC18 | Emerging Powers #84 | Next Destinies #84 | Dragons Exalted #109 | BW Black Star Promos #BW13 | Chaos Rising #72
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #20 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Pidove | BW trainer Kit (Zoroark) #21 -> Black & White #84 | Emerging Powers #80 | Next Destinies #83 | Boundaries Crossed #123 | BW Black Star Promos #BW15 | McDonald's Collection 2011 #11 | Pokémon GO #61 | Unified Minds #174
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #22 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Zorua | BW trainer Kit (Zoroark) #23 -> Black & White #70 | Legendary Treasures #89 | Emerging Powers #66 | Dark Explorers #69 | Dark Explorers #70 | BW Black Star Promos #BW12 | McDonald's Collection 2011 #9 | 30th Celebration #95
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #24 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Purrloin | BW trainer Kit (Zoroark) #25 -> Black & White #66 | Legendary Treasures #RC13 | Emerging Powers #64 | Boundaries Crossed #90 | Plasma Storm #82 | Plasma Storm #83 | McDonald's Collection 2012 #9 | White Flare #55
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #26 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Energy Search | BW trainer Kit (Zoroark) #27 -> Fossil #59 | Black & White #93 | Boundaries Crossed #128 | Diamond & Pearl #117 | Majestic Dawn #90 | Expedition Base Set #153 | Ruby & Sapphire #90 | Unseen Forces #94
+ambiguous: Darkness Energy | BW trainer Kit (Zoroark) #28 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Patrat | BW trainer Kit (Zoroark) #29 -> Black & White #77 | Black & White #78 | Emerging Powers #78 | Boundaries Crossed #118 | Plasma Storm #110 | Plasma Storm #111 | Chaos Rising #70 | White Flare #72
+ambiguous: Zoroark | BW trainer Kit (Zoroark) #30 -> Black & White #71 | Legendary Treasures #90 | Emerging Powers #67 | Next Destinies #102 | Dark Explorers #71 | BW Black Star Promos #BW9 | BW Black Star Promos #BW19 | 30th Celebration #96
+downloadFailed: Kingdra | XY Black Star Promos #XY39 (status 404) https://images.pokemontcg.io/xyp/XY39_hires.png
+downloadFailed: Altaria | XY Black Star Promos #XY46 (status 404) https://images.pokemontcg.io/xyp/XY46_hires.png
+downloadFailed: Chesnaught | XY Black Star Promos #XY68 (status 404) https://images.pokemontcg.io/xyp/XY68_hires.png
+ambiguous: M Manectric-EX | Yellow A Alternate #24a -> Phantom Forces #24 | Phantom Forces #24A | Phantom Forces #120
+ambiguous: Jolteon-EX | Yellow A Alternate #28a -> Delta Species #109 | Generations #28 | Generations #28A | Prismatic Evolutions #30 | Prismatic Evolutions #153
+ambiguous: Zygarde-EX | Yellow A Alternate #54a -> Fates Collide #54 | Fates Collide #54A | XY Black Star Promos #XY151
+ambiguous: M Lucario-EX | Yellow A Alternate #55a -> Furious Fists #55 | Furious Fists #55A | Furious Fists #113
+ambiguous: Trainers’ Mail | Yellow A Alternate #92a -> Roaring Skies #92 | Roaring Skies #92A | Ancient Origins #100
+ambiguous: Professor Sycamore | Yellow A Alternate #107a -> XY #122 | Steam Siege #114 | Phantom Forces #101 | BREAKpoint #107 | BREAKpoint #107A
+ambiguous: Spoink | XY trainer Kit (Noivern) #1 -> Boundaries Crossed #59 | Legends Awakened #121 | Crystal Guardians #62 | Dragon #73 | Dragon #74 | Deoxys #76 | Emerald #65 | Emerald #66
+ambiguous: Gourgeist | XY trainer Kit (Noivern) #2 -> Crimson Invasion #45 | Paradox Rift #78 | Evolving Skies #77 | XY #57 | Phantom Forces #45
+ambiguous: Arbok | XY trainer Kit (Noivern) #3 -> Fossil #31 | Great Encounters #33 | Expedition Base Set #3 | Expedition Base Set #35 | Dragon Frontiers #13 | Sandstorm #29 | Unbroken Bonds #63 | Hidden Fates #27
+ambiguous: Bunnelby | XY trainer Kit (Noivern) #4 -> McDonald's Collection 2014 #10 | Perfect Order #64 | Crimson Invasion #87 | Forbidden Light #97 | Obsidian Flames #175 | Rebel Clash #146 | Darkness Ablaze #150 | Shining Fates Shiny Vault #SV97
+ambiguous: Psychic Energy | XY trainer Kit (Noivern) #5 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Psychic Energy | XY trainer Kit (Noivern) #6 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Psychic Energy | XY trainer Kit (Noivern) #7 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Psychic Energy | XY trainer Kit (Noivern) #8 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Psychic Energy | XY trainer Kit (Noivern) #9 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Psychic Energy | XY trainer Kit (Noivern) #10 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Pumpkaboo | XY trainer Kit (Noivern) #11 -> Chaos Rising #40 | Crimson Invasion #44 | Paradox Rift #77 | Evolving Skies #76 | XY #56 | Phantom Forces #44
+ambiguous: Noibat | XY trainer Kit (Noivern) #12 -> Ascended Heroes #156 | Unified Minds #158 | Burning Shadows #109 | Forbidden Light #100 | Hidden Fates Shiny Vault #SV43 | Paldea Evolved #152 | Paldean Fates #68 | Paldean Fates #194
+ambiguous: Noivern | XY trainer Kit (Noivern) #13 -> Ascended Heroes #157 | Unified Minds #159 | Forbidden Light #101 | Journey Together #128 | Silver Tempest #133 | Furious Fists #77 | BREAKthrough #112
+ambiguous: Pokémon Catcher | XY trainer Kit (Noivern) #14 -> Plasma Blast #83 | Emerging Powers #95 | Dark Explorers #111 | Perfect Order #82 | Sun & Moon #126 | Shining Legends #64 | Scarlet & Violet #187 | Sword & Shield #175
+ambiguous: Potion | XY trainer Kit (Noivern) #15 -> Base #94 | Base Set 2 #122 | Legendary Collection #110 | Black & White #100 | Boundaries Crossed #132 | Diamond & Pearl #118 | Secret Wonders #127 | Stormfront #92
+ambiguous: Ekans | XY trainer Kit (Noivern) #16 -> Fossil #46 | Team Rocket #56 | Great Encounters #66 | Expedition Base Set #108 | Dragon Frontiers #47 | Sandstorm #64 | Team Rocket Returns #55 | Unbroken Bonds #62
+ambiguous: Psychic Energy | XY trainer Kit (Noivern) #17 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Pumpkaboo | XY trainer Kit (Noivern) #18 -> Chaos Rising #40 | Crimson Invasion #44 | Paradox Rift #77 | Evolving Skies #76 | XY #56 | Phantom Forces #44
+ambiguous: Darkness Energy | XY trainer Kit (Noivern) #19 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Furfrou | XY trainer Kit (Noivern) #20 -> McDonald's Collection 2014 #12 | Perfect Order #67 | Forbidden Light #99 | Shrouded Fable #51 | Prismatic Evolutions #88 | Chilling Reign #126 | Kalos Starter Set #32 | Kalos Starter Set #33
+ambiguous: Poké Ball | XY trainer Kit (Noivern) #21 -> Jungle #64 | Base Set 2 #121 | Black & White #97 | Boundaries Crossed #131 | Diamond & Pearl #110 | Majestic Dawn #85 | Ruby & Sapphire #86 | Unseen Forces #87
+ambiguous: Darkness Energy | XY trainer Kit (Noivern) #22 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Noibat | XY trainer Kit (Noivern) #23 -> Ascended Heroes #156 | Unified Minds #158 | Burning Shadows #109 | Forbidden Light #100 | Hidden Fates Shiny Vault #SV43 | Paldea Evolved #152 | Paldean Fates #68 | Paldean Fates #194
+ambiguous: Professor’s Letter | XY trainer Kit (Noivern) #24 -> XY #123 | BREAKthrough #146 | BREAKthrough #146A
+ambiguous: Psychic Energy | XY trainer Kit (Noivern) #25 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Darkness Energy | XY trainer Kit (Noivern) #26 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Potion | XY trainer Kit (Noivern) #27 -> Base #94 | Base Set 2 #122 | Legendary Collection #110 | Black & White #100 | Boundaries Crossed #132 | Diamond & Pearl #118 | Secret Wonders #127 | Stormfront #92
+ambiguous: Darkness Energy | XY trainer Kit (Noivern) #28 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Switch | XY trainer Kit (Noivern) #29 -> Base #95 | Base Set 2 #123 | Black & White #104 | Boundaries Crossed #135 | Diamond & Pearl #119 | Secret Wonders #128 | Stormfront #93 | Expedition Base Set #157
+ambiguous: Noivern | XY trainer Kit (Noivern) #30 -> Ascended Heroes #157 | Unified Minds #159 | Forbidden Light #101 | Journey Together #128 | Silver Tempest #133 | Furious Fists #77 | BREAKthrough #112
+ambiguous: Fletchling | XY trainer Kit (Sylveon) #1 -> Generations #RC25 | McDonald's Collection 2014 #11 | Perfect Order #66 | Unified Minds #179 | Guardians Rising #109 | Paldea Evolved #163 | Stellar Crown #121 | Silver Tempest #150
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #2 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #3 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Switch | XY trainer Kit (Sylveon) #4 -> Base #95 | Base Set 2 #123 | Black & White #104 | Boundaries Crossed #135 | Diamond & Pearl #119 | Secret Wonders #128 | Stormfront #93 | Expedition Base Set #157
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #5 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #6 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #7 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #8 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #9 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #10 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Snubbull | XY trainer Kit (Sylveon) #11 -> Call of Legends #71 | Detective Pikachu #15 | Great Encounters #84 | Skyridge #101 | Unseen Forces #74 | HeartGold & SoulSilver #82 | McDonald's Collection 2014 #8 | Phantasmal Flames #37
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #12 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Eevee | XY trainer Kit (Sylveon) #13 -> Jungle #51 | Team Rocket #55 | Legendary Collection #74 | Wizards Black Star Promos #11 | Legendary Treasures #RC14 | Dark Explorers #83 | Dark Explorers #84 | Plasma Freeze #89
+ambiguous: Granbull | XY trainer Kit (Sylveon) #14 -> Call of Legends #26 | Great Encounters #39 | Skyridge #61 | Unseen Forces #39 | HeartGold & SoulSilver #22 | Phantasmal Flames #38 | Neo Genesis #37 | Sun & Moon #91
+ambiguous: Sylveon | XY trainer Kit (Sylveon) #15 -> Pokémon GO #35 | Cosmic Eclipse #155 | Forbidden Light #87 | Shrouded Fable #22 | Prismatic Evolutions #40 | SWSH Black Star Promos #SWSH211 | Furious Fists #72 | XY Black Star Promos #XY4
+ambiguous: Furfrou | XY trainer Kit (Sylveon) #16 -> McDonald's Collection 2014 #12 | Perfect Order #67 | Forbidden Light #99 | Shrouded Fable #51 | Prismatic Evolutions #88 | Chilling Reign #126 | Kalos Starter Set #32 | Kalos Starter Set #33
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #17 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Fairy Energy | XY trainer Kit (Sylveon) #18 -> Generations #83 | Sun & Moon #172 | Burning Shadows #169 | XY #140 | Evolutions #99
+ambiguous: Fletchling | XY trainer Kit (Sylveon) #19 -> Generations #RC25 | McDonald's Collection 2014 #11 | Perfect Order #66 | Unified Minds #179 | Guardians Rising #109 | Paldea Evolved #163 | Stellar Crown #121 | Silver Tempest #150
+ambiguous: Potion | XY trainer Kit (Sylveon) #20 -> Base #94 | Base Set 2 #122 | Legendary Collection #110 | Black & White #100 | Boundaries Crossed #132 | Diamond & Pearl #118 | Secret Wonders #127 | Stormfront #92
+ambiguous: Eevee | XY trainer Kit (Sylveon) #21 -> Jungle #51 | Team Rocket #55 | Legendary Collection #74 | Wizards Black Star Promos #11 | Legendary Treasures #RC14 | Dark Explorers #83 | Dark Explorers #84 | Plasma Freeze #89
+ambiguous: Furfrou | XY trainer Kit (Sylveon) #22 -> McDonald's Collection 2014 #12 | Perfect Order #67 | Forbidden Light #99 | Shrouded Fable #51 | Prismatic Evolutions #88 | Chilling Reign #126 | Kalos Starter Set #32 | Kalos Starter Set #33
+downloadFailed: Weedle | McDonald's Collection 2014 #1 (status 404) https://images.pokemontcg.io/mcd14/1_hires.png
+downloadFailed: Chespin | McDonald's Collection 2014 #2 (status 404) https://images.pokemontcg.io/mcd14/2_hires.png
+downloadFailed: Fennekin | McDonald's Collection 2014 #3 (status 404) https://images.pokemontcg.io/mcd14/3_hires.png
+downloadFailed: Froakie | McDonald's Collection 2014 #4 (status 404) https://images.pokemontcg.io/mcd14/4_hires.png
+downloadFailed: Pikachu | McDonald's Collection 2014 #5 (status 404) https://images.pokemontcg.io/mcd14/5_hires.png
+downloadFailed: Inkay | McDonald's Collection 2014 #6 (status 404) https://images.pokemontcg.io/mcd14/6_hires.png
+downloadFailed: Honedge | McDonald's Collection 2014 #7 (status 404) https://images.pokemontcg.io/mcd14/7_hires.png
+downloadFailed: Snubbull | McDonald's Collection 2014 #8 (status 404) https://images.pokemontcg.io/mcd14/8_hires.png
+downloadFailed: Swirlix | McDonald's Collection 2014 #9 (status 404) https://images.pokemontcg.io/mcd14/9_hires.png
+downloadFailed: Bunnelby | McDonald's Collection 2014 #10 (status 404) https://images.pokemontcg.io/mcd14/10_hires.png
+downloadFailed: Fletchling | McDonald's Collection 2014 #11 (status 404) https://images.pokemontcg.io/mcd14/11_hires.png
+downloadFailed: Furfrou | McDonald's Collection 2014 #12 (status 404) https://images.pokemontcg.io/mcd14/12_hires.png
+downloadFailed: Treecko | McDonald's Collection 2015 #1 (status 404) https://images.pokemontcg.io/mcd15/1_hires.png
+downloadFailed: Lotad | McDonald's Collection 2015 #2 (status 404) https://images.pokemontcg.io/mcd15/2_hires.png
+downloadFailed: Torchic | McDonald's Collection 2015 #3 (status 404) https://images.pokemontcg.io/mcd15/3_hires.png
+downloadFailed: Staryu | McDonald's Collection 2015 #4 (status 404) https://images.pokemontcg.io/mcd15/4_hires.png
+downloadFailed: Mudkip | McDonald's Collection 2015 #5 (status 404) https://images.pokemontcg.io/mcd15/5_hires.png
+downloadFailed: Pikachu | McDonald's Collection 2015 #6 (status 404) https://images.pokemontcg.io/mcd15/6_hires.png
+downloadFailed: Electrike | McDonald's Collection 2015 #7 (status 404) https://images.pokemontcg.io/mcd15/7_hires.png
+downloadFailed: Rhyhorn | McDonald's Collection 2015 #8 (status 404) https://images.pokemontcg.io/mcd15/8_hires.png
+downloadFailed: Meditite | McDonald's Collection 2015 #9 (status 404) https://images.pokemontcg.io/mcd15/9_hires.png
+downloadFailed: Marill | McDonald's Collection 2015 #10 (status 404) https://images.pokemontcg.io/mcd15/10_hires.png
+downloadFailed: Zigzagoon | McDonald's Collection 2015 #11 (status 404) https://images.pokemontcg.io/mcd15/11_hires.png
+downloadFailed: Skitty | McDonald's Collection 2015 #12 (status 404) https://images.pokemontcg.io/mcd15/12_hires.png
+ambiguous: Lightning Energy | SM trainer Kit (Alolan Raichu) #1 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | SM trainer Kit (Alolan Raichu) #3 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | SM trainer Kit (Alolan Raichu) #5 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | SM trainer Kit (Alolan Raichu) #7 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | SM trainer Kit (Alolan Raichu) #8 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | SM trainer Kit (Alolan Raichu) #9 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | SM trainer Kit (Alolan Raichu) #10 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Lightning Energy | SM trainer Kit (Alolan Raichu) #12 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Psychic Energy | SM trainer Kit (Alolan Raichu) #24 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Psychic Energy | SM trainer Kit (Alolan Raichu) #27 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Psychic Energy | SM trainer Kit (Alolan Raichu) #28 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+downloadFailed: Rowlet | McDonald's Collection 2017 #1 (status 404) https://images.pokemontcg.io/mcd17/1_hires.png
+downloadFailed: Grubbin | McDonald's Collection 2017 #2 (status 404) https://images.pokemontcg.io/mcd17/2_hires.png
+downloadFailed: Litten | McDonald's Collection 2017 #3 (status 404) https://images.pokemontcg.io/mcd17/3_hires.png
+downloadFailed: Popplio | McDonald's Collection 2017 #4 (status 404) https://images.pokemontcg.io/mcd17/4_hires.png
+downloadFailed: Pikachu | McDonald's Collection 2017 #5 (status 404) https://images.pokemontcg.io/mcd17/5_hires.png
+downloadFailed: Cosmog | McDonald's Collection 2017 #6 (status 404) https://images.pokemontcg.io/mcd17/6_hires.png
+downloadFailed: Crabrawler | McDonald's Collection 2017 #7 (status 404) https://images.pokemontcg.io/mcd17/7_hires.png
+downloadFailed: Alolan Meowth | McDonald's Collection 2017 #8 (status 404) https://images.pokemontcg.io/mcd17/8_hires.png
+downloadFailed: Alolan Diglett | McDonald's Collection 2017 #9 (status 404) https://images.pokemontcg.io/mcd17/9_hires.png
+downloadFailed: Cutiefly | McDonald's Collection 2017 #10 (status 404) https://images.pokemontcg.io/mcd17/10_hires.png
+downloadFailed: Pikipek | McDonald's Collection 2017 #11 (status 404) https://images.pokemontcg.io/mcd17/11_hires.png
+downloadFailed: Yungoos | McDonald's Collection 2017 #12 (status 404) https://images.pokemontcg.io/mcd17/12_hires.png
+downloadFailed: Growlithe | McDonald's Collection 2018 #1 (status 404) https://images.pokemontcg.io/mcd18/1_hires.png
+downloadFailed: Psyduck | McDonald's Collection 2018 #2 (status 404) https://images.pokemontcg.io/mcd18/2_hires.png
+downloadFailed: Horsea | McDonald's Collection 2018 #3 (status 404) https://images.pokemontcg.io/mcd18/3_hires.png
+downloadFailed: Pikachu | McDonald's Collection 2018 #4 (status 404) https://images.pokemontcg.io/mcd18/4_hires.png
+downloadFailed: Slowpoke | McDonald's Collection 2018 #5 (status 404) https://images.pokemontcg.io/mcd18/5_hires.png
+downloadFailed: Machop | McDonald's Collection 2018 #6 (status 404) https://images.pokemontcg.io/mcd18/6_hires.png
+downloadFailed: Cubone | McDonald's Collection 2018 #7 (status 404) https://images.pokemontcg.io/mcd18/7_hires.png
+downloadFailed: Magnemite | McDonald's Collection 2018 #8 (status 404) https://images.pokemontcg.io/mcd18/8_hires.png
+downloadFailed: Dratini | McDonald's Collection 2018 #9 (status 404) https://images.pokemontcg.io/mcd18/9_hires.png
+downloadFailed: Chansey | McDonald's Collection 2018 #10 (status 404) https://images.pokemontcg.io/mcd18/10_hires.png
+downloadFailed: Eevee | McDonald's Collection 2018 #11 (status 404) https://images.pokemontcg.io/mcd18/11_hires.png
+downloadFailed: Porygon | McDonald's Collection 2018 #12 (status 404) https://images.pokemontcg.io/mcd18/12_hires.png
+ambiguous: Unown V | SWSH Black Star Promos #SWSH300 -> Legends Awakened #79 | Neo Destiny #89 | Silver Tempest #65 | Silver Tempest #176 | Silver Tempest #177
+ambiguous: Lugia V | SWSH Black Star Promos #SWSH301 -> Silver Tempest #138 | Silver Tempest #185 | Silver Tempest #186
+ambiguous: Blastoise | Celebrations Classic Collection #CC001 -> Base #2 | Base Set 2 #2 | Plasma Blast #16 | Boundaries Crossed #31 | Plasma Storm #137 | Celebrations: Classic Collection #2 | Secret Wonders #2 | Expedition Base Set #4
+ambiguous: Charizard | Celebrations Classic Collection #CC002 -> Base #4 | Base Set 2 #4 | Legendary Collection #3 | Legendary Treasures #19 | Boundaries Crossed #20 | Plasma Storm #136 | Celebrations: Classic Collection #4 | Detective Pikachu #5
+ambiguous: Venusaur | Celebrations Classic Collection #CC003 -> Base #15 | Base Set 2 #18 | Legendary Collection #18 | Wizards Black Star Promos #13 | Dark Explorers #3 | Celebrations: Classic Collection #15 | Secret Wonders #20 | Expedition Base Set #30
+ambiguous: Imposter Professor Oak | Celebrations Classic Collection #CC004 -> Base Set 2 #102 | Celebrations: Classic Collection #73
+ambiguous: Dark Gyarados | Celebrations Classic Collection #CC005 -> Team Rocket #8 | Team Rocket #25 | Celebrations: Classic Collection #8 | Team Rocket Returns #36
+ambiguous: Here Comes Team Rocket! | Celebrations Classic Collection #CC006 -> Team Rocket #15 | Team Rocket #71 | Celebrations: Classic Collection #15 | Team Rocket Returns #111 | Evolutions #113
+ambiguous: Rocket's Zapdos | Celebrations Classic Collection #CC007 -> Celebrations: Classic Collection #15 | Gym Challenge #15
+ambiguous: _____'s Pikachu | Celebrations Classic Collection #CC008 -> Wizards Black Star Promos #24 | Celebrations: Classic Collection #24
+ambiguous: Cleffa | Celebrations Classic Collection #CC009 -> Wizards Black Star Promos #31 | Celebrations: Classic Collection #20 | Call of Legends #24 | Diamond & Pearl #78 | Skyridge #48 | Unseen Forces #21 | HeartGold & SoulSilver #17 | HGSS Black Star Promos #HGSS12
+ambiguous: Shining Magikarp | Celebrations Classic Collection #CC010 -> Celebrations: Classic Collection #66 | Neo Revelation #66
+ambiguous: Team Magma's Groudon | Celebrations Classic Collection #CC011 -> Celebrations: Classic Collection #9 | Team Magma vs Team Aqua #9
+ambiguous: Rocket's Admin. | Celebrations Classic Collection #CC012 -> Celebrations: Classic Collection #86 | Team Rocket Returns #86
+ambiguous: Mew ex | Celebrations Classic Collection #CC013 -> Legendary Treasures #RC24 | Dragons Exalted #46 | Dragons Exalted #120 | Celebrations: Classic Collection #88 | Legend Maker #88 | Holon Phantoms #100 | 30th Celebration #66 | 30th Celebration #152
+ambiguous: Gardevoir ex | Celebrations Classic Collection #CC014 -> Celebrations: Classic Collection #93 | Dragon Frontiers #93 | Sandstorm #96 | Generations #RC30 | Scarlet & Violet #86 | Scarlet & Violet #228 | Scarlet & Violet #245 | Paldean Fates #29
+ambiguous: Umbreon ☆ | Celebrations Classic Collection #CC015 -> Dark Explorers #60 | Dark Explorers #61 | Plasma Freeze #64 | BW Black Star Promos #BW93 | Celebrations: Classic Collection #17 | Call of Legends #22 | Majestic Dawn #32 | Aquapolis #41
+ambiguous: Claydol | Celebrations Classic Collection #CC016 -> Dragons Exalted #64 | Celebrations: Classic Collection #15 | Great Encounters #15 | Holon Phantoms #38 | Hidden Legends #2 | Hidden Legends #31 | Deoxys #5 | Emerald #24
+ambiguous: Luxray GL LV.X | Celebrations Classic Collection #CC017 -> Celebrations: Classic Collection #109 | Rising Rivals #109
+ambiguous: Garchomp C LV.X | Celebrations Classic Collection #CC018 -> Celebrations: Classic Collection #145 | DP Black Star Promos #DP46 | Supreme Victors #145
+ambiguous: Donphan | Celebrations Classic Collection #CC019 -> Plasma Storm #72 | Celebrations: Classic Collection #107 | Call of Legends #42 | Secret Wonders #48 | Aquapolis #7 | Ruby & Sapphire #17 | Holon Phantoms #40 | Deoxys #30
+ambiguous: Reshiram | Celebrations Classic Collection #CC020 -> Black & White #26 | Black & White #113 | Legendary Treasures #28 | Legendary Treasures #114 | Legendary Treasures #RC22 | Next Destinies #21 | Plasma Freeze #17 | BW Black Star Promos #BW4
+ambiguous: Zekrom | Celebrations Classic Collection #CC021 -> Black & White #47 | Black & White #114 | Legendary Treasures #51 | Legendary Treasures #115 | Next Destinies #50 | Plasma Freeze #39 | BW Black Star Promos #BW5 | BW Black Star Promos #BW24
+ambiguous: Mewtwo EX | Celebrations Classic Collection #CC022 -> Legendary Treasures #54 | Next Destinies #54 | Next Destinies #98 | BW Black Star Promos #BW45 | Celebrations: Classic Collection #54 | Ruby & Sapphire #101 | 30th Celebration #64 | 30th Celebration #151
+ambiguous: Xerneas EX | Celebrations Classic Collection #CC023 -> Celebrations: Classic Collection #97 | XY #97 | XY #146 | XY Black Star Promos #XY7 | XY Black Star Promos #XY149
+ambiguous: M Rayquaza EX | Celebrations Classic Collection #CC024 -> Celebrations: Classic Collection #76 | Roaring Skies #61 | Roaring Skies #76 | Roaring Skies #105 | Ancient Origins #98
+ambiguous: Tapu Lele GX | Celebrations Classic Collection #CC025 -> Celebrations: Classic Collection #60 | Guardians Rising #60 | Guardians Rising #60A | Guardians Rising #137 | Guardians Rising #155 | Hidden Fates Shiny Vault #SV94
+ambiguous: Grass Energy | Scarlet & Violet Energy #001 -> Base #99 | Base Set 2 #127 | Black & White #105 | Call of Legends #88 | Diamond & Pearl #123 | Expedition Base Set #162 | Ruby & Sapphire #104 | Holon Phantoms #105
+ambiguous: Fire Energy | Scarlet & Violet Energy #002 -> Base #98 | Base Set 2 #126 | Black & White #106 | Call of Legends #89 | Diamond & Pearl #124 | Expedition Base Set #161 | Ruby & Sapphire #108 | Holon Phantoms #106
+ambiguous: Water Energy | Scarlet & Violet Energy #003 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Lightning Energy | Scarlet & Violet Energy #004 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Psychic Energy | Scarlet & Violet Energy #005 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Fighting Energy | Scarlet & Violet Energy #006 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Darkness Energy | Scarlet & Violet Energy #007 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Metal Energy | Scarlet & Violet Energy #008 -> Black & White #112 | Call of Legends #87 | Call of Legends #95 | Diamond & Pearl #130 | Mysterious Treasures #120 | Secret Wonders #130 | Majestic Dawn #95 | Expedition Base Set #159
+ambiguous: Grass Energy | Scarlet & Violet Energy #009 -> Base #99 | Base Set 2 #127 | Black & White #105 | Call of Legends #88 | Diamond & Pearl #123 | Expedition Base Set #162 | Ruby & Sapphire #104 | Holon Phantoms #105
+ambiguous: Fire Energy | Scarlet & Violet Energy #010 -> Base #98 | Base Set 2 #126 | Black & White #106 | Call of Legends #89 | Diamond & Pearl #124 | Expedition Base Set #161 | Ruby & Sapphire #108 | Holon Phantoms #106
+ambiguous: Water Energy | Scarlet & Violet Energy #011 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Lightning Energy | Scarlet & Violet Energy #012 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Psychic Energy | Scarlet & Violet Energy #013 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Fighting Energy | Scarlet & Violet Energy #014 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Darkness Energy | Scarlet & Violet Energy #015 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Metal Energy | Scarlet & Violet Energy #016 -> Black & White #112 | Call of Legends #87 | Call of Legends #95 | Diamond & Pearl #130 | Mysterious Treasures #120 | Secret Wonders #130 | Majestic Dawn #95 | Expedition Base Set #159
+ambiguous: Grass Energy | Scarlet & Violet Energy #017 -> Base #99 | Base Set 2 #127 | Black & White #105 | Call of Legends #88 | Diamond & Pearl #123 | Expedition Base Set #162 | Ruby & Sapphire #104 | Holon Phantoms #105
+ambiguous: Fire Energy | Scarlet & Violet Energy #018 -> Base #98 | Base Set 2 #126 | Black & White #106 | Call of Legends #89 | Diamond & Pearl #124 | Expedition Base Set #161 | Ruby & Sapphire #108 | Holon Phantoms #106
+ambiguous: Water Energy | Scarlet & Violet Energy #019 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Lightning Energy | Scarlet & Violet Energy #020 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Psychic Energy | Scarlet & Violet Energy #021 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Fighting Energy | Scarlet & Violet Energy #022 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Darkness Energy | Scarlet & Violet Energy #023 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Metal Energy | Scarlet & Violet Energy #024 -> Black & White #112 | Call of Legends #87 | Call of Legends #95 | Diamond & Pearl #130 | Mysterious Treasures #120 | Secret Wonders #130 | Majestic Dawn #95 | Expedition Base Set #159
+downloadFailed: Oddish | SVP Black Star Promos #102 (status 404) https://images.pokemontcg.io/svp/102_hires.png
+ambiguous: Espeon ex | SVP Black Star Promos #175 -> Unseen Forces #102 | 30th Celebration #70 | Prismatic Evolutions #34 | Prismatic Evolutions #155 | BREAKpoint #52 | BREAKpoint #117
+ambiguous: Umbreon ex | SVP Black Star Promos #176 -> Unseen Forces #112 | 30th Celebration #92 | Prismatic Evolutions #60 | Prismatic Evolutions #161 | Fates Collide #55 | Fates Collide #119
+ambiguous: Pikachu | SVP Black Star Promos #190 -> Base #58 | Jungle #60 | Base Set 2 #87 | Legendary Collection #86 | Wizards Black Star Promos #1 | Wizards Black Star Promos #4 | Wizards Black Star Promos #26 | Wizards Black Star Promos #27
+ambiguous: Sprigatito | SVP Black Star Promos #191 -> Scarlet & Violet #13 | Paldea Evolved #12 | Paldea Evolved #13 | Paldea Evolved #196 | Journey Together #16 | Scarlet & Violet Black Star Promos #1 | Scarlet & Violet Black Star Promos #76
+ambiguous: Fuecoco | SVP Black Star Promos #192 -> Scarlet & Violet #36 | Paldea Evolved #34 | Paldea Evolved #35 | Paldea Evolved #201 | Paradox Rift #23 | Surging Sparks #29 | Scarlet & Violet Black Star Promos #2 | Scarlet & Violet Black Star Promos #79
+ambiguous: Charizard ex | SVP Black Star Promos #196 -> FireRed & LeafGreen #105 | Generations #11 | Obsidian Flames #125 | Obsidian Flames #215 | Obsidian Flames #223 | Obsidian Flames #228 | 151 #6 | 151 #183
+ambiguous: Zarude | SVP Black Star Promos #199 -> Pitch Black #56 | Surging Sparks #11 | Crown Zenith #16 | Shining Fates #16 | Chilling Reign #19 | Fusion Strike #27
+ambiguous: Eevee | SVP Black Star Promos #200 -> Jungle #51 | Team Rocket #55 | Legendary Collection #74 | Wizards Black Star Promos #11 | Legendary Treasures #RC14 | Dark Explorers #83 | Dark Explorers #84 | Plasma Freeze #89
+ambiguous: Zebstrika | SVP Black Star Promos #201 -> Black & White #42 | Black & White #43 | Noble Victories #36 | Next Destinies #48 | Boundaries Crossed #57 | White Flare #32 | White Flare #115 | Lost Thunder #82
+ambiguous: Kangaskhan | SVP Black Star Promos #202 -> Jungle #5 | Jungle #21 | Base Set 2 #26 | Plasma Blast #71 | Majestic Dawn #38 | Aquapolis #88 | FireRed & LeafGreen #6 | HS—Triumphant #36
+ambiguous: Cynthia's Garchomp ex | SVP Black Star Promos #204 -> Ascended Heroes #111 | Destined Rivals #104 | Destined Rivals #215 | Destined Rivals #232 | Destined Rivals #241
+ambiguous: Team Rocket's Mewtwo ex | SVP Black Star Promos #205 -> Ascended Heroes #79 | Ascended Heroes #281 | Destined Rivals #81 | Destined Rivals #213 | Destined Rivals #231 | Destined Rivals #240
+ambiguous: Victini | SVP Black Star Promos #208 -> Legendary Treasures #23 | Noble Victories #14 | Noble Victories #15 | Noble Victories #43 | Noble Victories #98 | Boundaries Crossed #23 | BW Black Star Promos #BW32 | McDonald's Collection 2022 #5
+ambiguous: Thundurus | SVP Black Star Promos #209 -> Legendary Treasures #50 | Emerging Powers #35 | Emerging Powers #97 | BW Black Star Promos #BW41 | Unified Minds #68 | Obsidian Flames #70 | Paldean Fates #139 | Chilling Reign #52
+ambiguous: Tornadus | SVP Black Star Promos #210 -> Legendary Treasures #108 | Emerging Powers #89 | Emerging Powers #98 | BW Black Star Promos #BW42 | White Flare #78 | Unified Minds #178 | Stellar Crown #120 | Vivid Voltage #142
+ambiguous: Gothitelle | SVP Black Star Promos #211 -> Legendary Treasures #72 | Emerging Powers #47 | Emerging Powers #48 | Dragons Exalted #57 | White Flare #43 | Guardians Rising #54 | Paldea Evolved #92 | Darkness Ablaze #75
+ambiguous: Reuniclus | SVP Black Star Promos #212 -> Black & White #57 | Plasma Blast #44 | Legendary Treasures #76 | Noble Victories #52 | Noble Victories #53 | Dragons Exalted #126 | Temporal Forces #72 | Temporal Forces #171
+ambiguous: Feraligatr | SVP Black Star Promos #213 -> Call of Legends #25 | Mysterious Treasures #8 | Expedition Base Set #12 | Expedition Base Set #46 | Expedition Base Set #47 | Unseen Forces #4 | Dragon Frontiers #2 | HeartGold & SoulSilver #20
+ambiguous: Pikachu | SVP Black Star Promos #214 -> Base #58 | Jungle #60 | Base Set 2 #87 | Legendary Collection #86 | Wizards Black Star Promos #1 | Wizards Black Star Promos #4 | Wizards Black Star Promos #26 | Wizards Black Star Promos #27
+ambiguous: Toxtricity ex | SVP Black Star Promos #215 -> Paradox Rift #100 | Paradox Rift #227
+ambiguous: Team Rocket's Mewtwo ex | SVP Black Star Promos #216 -> Ascended Heroes #79 | Ascended Heroes #281 | Destined Rivals #81 | Destined Rivals #213 | Destined Rivals #231 | Destined Rivals #240
+ambiguous: Team Rocket's Nidoking ex | SVP Black Star Promos #217 -> Destined Rivals #119 | Destined Rivals #216 | Destined Rivals #233
+ambiguous: Team Rocket's Persian ex | SVP Black Star Promos #218 -> Destined Rivals #150 | Destined Rivals #219
+ambiguous: Black Belt's Training | SVP Black Star Promos #219 -> Ascended Heroes #255 | Prismatic Evolutions #96 | Prismatic Evolutions #97 | Prismatic Evolutions #98 | Prismatic Evolutions #99 | Journey Together #143 | Journey Together #144 | Journey Together #145
+ambiguous: Black Belt's Training | SVP Black Star Promos #220 -> Ascended Heroes #255 | Prismatic Evolutions #96 | Prismatic Evolutions #97 | Prismatic Evolutions #98 | Prismatic Evolutions #99 | Journey Together #143 | Journey Together #144 | Journey Together #145
+ambiguous: Professor's Research | SVP Black Star Promos #221 -> Pokémon GO #78 | Pokémon GO #84 | Paldean Fates #87 | Paldean Fates #88 | Prismatic Evolutions #122 | Prismatic Evolutions #123 | Prismatic Evolutions #124 | Prismatic Evolutions #125
+ambiguous: Professor's Research | SVP Black Star Promos #222 -> Pokémon GO #78 | Pokémon GO #84 | Paldean Fates #87 | Paldean Fates #88 | Prismatic Evolutions #122 | Prismatic Evolutions #123 | Prismatic Evolutions #124 | Prismatic Evolutions #125
+ambiguous: Professor's Research | SVP Black Star Promos #223 -> Pokémon GO #78 | Pokémon GO #84 | Paldean Fates #87 | Paldean Fates #88 | Prismatic Evolutions #122 | Prismatic Evolutions #123 | Prismatic Evolutions #124 | Prismatic Evolutions #125
+ambiguous: Paradise Resort | SVP Black Star Promos #224 -> Scarlet & Violet Black Star Promos #45 | Scarlet & Violet Black Star Promos #150
+ambiguous: Pikachu | SVP Black Star Promos #225 -> Base #58 | Jungle #60 | Base Set 2 #87 | Legendary Collection #86 | Wizards Black Star Promos #1 | Wizards Black Star Promos #4 | Wizards Black Star Promos #26 | Wizards Black Star Promos #27
+noName: Terapagos & Friends | SVP Black Star Promos #500
+ambiguous: Sprigatito | McDonald's Collection 2023 #1 -> Scarlet & Violet #13 | Paldea Evolved #12 | Paldea Evolved #13 | Paldea Evolved #196 | Journey Together #16 | Scarlet & Violet Black Star Promos #1 | Scarlet & Violet Black Star Promos #76
+ambiguous: Fuecoco | McDonald's Collection 2023 #2 -> Scarlet & Violet #36 | Paldea Evolved #34 | Paldea Evolved #35 | Paldea Evolved #201 | Paradox Rift #23 | Surging Sparks #29 | Scarlet & Violet Black Star Promos #2 | Scarlet & Violet Black Star Promos #79
+ambiguous: Quaxly | McDonald's Collection 2023 #3 -> Scarlet & Violet #52 | Paldea Evolved #49 | Paldea Evolved #50 | Paldea Evolved #206 | Surging Sparks #50 | Scarlet & Violet Black Star Promos #3 | Scarlet & Violet Black Star Promos #82
+ambiguous: Cetoddle | McDonald's Collection 2023 #4 -> Scarlet & Violet #58 | Scarlet & Violet #59 | Destined Rivals #64 | Paldea Evolved #53 | Paldea Evolved #54 | Surging Sparks #53
+ambiguous: Cetitan | McDonald's Collection 2023 #5 -> Scarlet & Violet #60 | Paldea Evolved #55 | Surging Sparks #54 | Surging Sparks #201 | Scarlet & Violet Black Star Promos #63
+ambiguous: Pikachu | McDonald's Collection 2023 #6 -> Base #58 | Jungle #60 | Base Set 2 #87 | Legendary Collection #86 | Wizards Black Star Promos #1 | Wizards Black Star Promos #4 | Wizards Black Star Promos #26 | Wizards Black Star Promos #27
+ambiguous: Pawmi | McDonald's Collection 2023 #7 -> Phantasmal Flames #32 | Scarlet & Violet #73 | Scarlet & Violet #74 | Paldea Evolved #74 | Paldean Fates #142 | Paldean Fates #226 | Stellar Crown #56 | Scarlet & Violet Black Star Promos #40
+ambiguous: Kilowattrel | McDonald's Collection 2023 #8 -> Scarlet & Violet #79 | Paldea Evolved #82 | Paldean Fates #22 | Paldean Fates #146 | Twilight Masquerade #76 | Surging Sparks #67
+ambiguous: Flittle | McDonald's Collection 2023 #9 -> Scarlet & Violet #100 | Scarlet & Violet #101 | Scarlet & Violet #102 | Paradox Rift #79 | Paradox Rift #80 | Paldean Fates #41 | Paldean Fates #164 | Stellar Crown #68
+ambiguous: Sandaconda | McDonald's Collection 2023 #10 -> Scarlet & Violet #120 | Sword & Shield #109 | Sword & Shield #110 | Shining Fates Shiny Vault #SV71 | Battle Styles #82
+ambiguous: Klawf | McDonald's Collection 2023 #11 -> Scarlet & Violet #122 | Scarlet & Violet #217 | Paradox Rift #105 | Journey Together #90
+ambiguous: Blissey | McDonald's Collection 2023 #12 -> Dark Explorers #82 | Mysterious Treasures #5 | Aquapolis #6 | Aquapolis #H6 | HeartGold & SoulSilver #36 | HeartGold & SoulSilver #106 | Neo Revelation #2 | Pokémon GO #52
+ambiguous: Tandemaus | McDonald's Collection 2023 #13 -> Scarlet & Violet #159 | Scarlet & Violet #160 | Paldea Evolved #166 | Paldea Evolved #167 | Paradox Rift #153 | Paradox Rift #154 | Paldean Fates #73 | Paldean Fates #209
+ambiguous: Cyclizar | McDonald's Collection 2023 #14 -> Scarlet & Violet #163 | Scarlet & Violet #164 | Paradox Rift #157 | Paradox Rift #215 | Paldean Fates #70 | Paldean Fates #195 | Stellar Crown #127 | Scarlet & Violet Black Star Promos #96
+ambiguous: Kirlia | McDonald's Collection 2023 #15 -> Legendary Treasures #60 | Legendary Treasures #RC9 | Next Destinies #56 | Plasma Storm #60 | Secret Wonders #53 | Ruby & Sapphire #34 | Ruby & Sapphire #35 | Delta Species #47
+ambiguous: Bulbasaur | My First Battle #1 -> Base #44 | Base Set 2 #67 | Legendary Collection #68 | Dark Explorers #1 | Detective Pikachu #1 | Secret Wonders #77 | Expedition Base Set #94 | Expedition Base Set #95
+ambiguous: Ivysaur | My First Battle #2 -> Base #30 | Base Set 2 #44 | Legendary Collection #47 | Dark Explorers #2 | Secret Wonders #51 | Expedition Base Set #82 | Crystal Guardians #34 | Crystal Guardians #35
+ambiguous: Oddish | My First Battle #3 -> Jungle #58 | Team Rocket #63 | Boundaries Crossed #1 | Legends Awakened #111 | Legends Awakened #112 | Expedition Base Set #122 | Aquapolis #97 | Unseen Forces #64
+ambiguous: Gloom | My First Battle #4 -> Jungle #37 | Boundaries Crossed #2 | Legends Awakened #96 | Legends Awakened #97 | Expedition Base Set #78 | Aquapolis #49 | Unseen Forces #58 | Holon Phantoms #42
+ambiguous: Exeggcute | My First Battle #5 -> Jungle #52 | Base Set 2 #74 | Legendary Collection #75 | Plasma Blast #102 | Plasma Freeze #4 | Mysterious Treasures #82 | Legends Awakened #93 | Aquapolis #76
+ambiguous: Exeggutor | My First Battle #6 -> Jungle #35 | Base Set 2 #39 | Legendary Collection #23 | Plasma Freeze #5 | Mysterious Treasures #24 | Legends Awakened #54 | Aquapolis #12 | Aquapolis #13
+ambiguous: Scyther | My First Battle #7 -> Jungle #10 | Jungle #26 | Base Set 2 #17 | Wizards Black Star Promos #45 | Dark Explorers #4 | Boundaries Crossed #7 | Majestic Dawn #46 | Stormfront #49
+ambiguous: Grass Energy | My First Battle #8 -> Base #99 | Base Set 2 #127 | Black & White #105 | Call of Legends #88 | Diamond & Pearl #123 | Expedition Base Set #162 | Ruby & Sapphire #104 | Holon Phantoms #105
+ambiguous: Charmander | My First Battle #9 -> Base #46 | Base Set 2 #69 | Team Rocket #50 | Legendary Collection #70 | Legendary Treasures #17 | Boundaries Crossed #18 | Detective Pikachu #4 | Secret Wonders #82
+ambiguous: Charmeleon | My First Battle #10 -> Base #24 | Base Set 2 #35 | Legendary Collection #37 | Legendary Treasures #18 | Boundaries Crossed #19 | Secret Wonders #46 | Stormfront #102 | Expedition Base Set #73
+ambiguous: Vulpix | My First Battle #11 -> Base #68 | Base Set 2 #99 | Legendary Collection #98 | Legendary Treasures #20 | Dragons Exalted #18 | Call of Legends #75 | Mysterious Treasures #107 | Expedition Base Set #136
+ambiguous: Ninetales | My First Battle #12 -> Base #12 | Base Set 2 #13 | Legendary Collection #17 | Legendary Treasures #21 | Dragons Exalted #19 | BW Black Star Promos #BW66 | Call of Legends #17 | Mysterious Treasures #32
+ambiguous: Growlithe | My First Battle #13 -> Base #28 | Base Set 2 #42 | Legendary Collection #45 | Legendary Treasures #RC4 | Next Destinies #10 | Next Destinies #11 | Secret Wonders #89 | Aquapolis #51
+ambiguous: Arcanine | My First Battle #14 -> Base #23 | Base Set 2 #33 | Legendary Collection #36 | Wizards Black Star Promos #6 | Next Destinies #12 | Next Destinies #13 | Detective Pikachu #6 | Secret Wonders #22
+ambiguous: Magmar | My First Battle #15 -> Base #36 | Fossil #39 | Base Set 2 #51 | Wizards Black Star Promos #44 | Dragons Exalted #20 | Call of Legends #62 | Mysterious Treasures #54 | Secret Wonders #93
+ambiguous: Fire Energy | My First Battle #16 -> Base #98 | Base Set 2 #126 | Black & White #106 | Call of Legends #89 | Diamond & Pearl #124 | Expedition Base Set #161 | Ruby & Sapphire #108 | Holon Phantoms #106
+ambiguous: Pikachu | My First Battle #17 -> Base #58 | Jungle #60 | Base Set 2 #87 | Legendary Collection #86 | Wizards Black Star Promos #1 | Wizards Black Star Promos #4 | Wizards Black Star Promos #26 | Wizards Black Star Promos #27
+ambiguous: Raichu | My First Battle #18 -> Base #14 | Fossil #14 | Fossil #29 | Base Set 2 #16 | Next Destinies #40 | BW Black Star Promos #BW78 | Mysterious Treasures #15 | Majestic Dawn #45
+ambiguous: Magnemite | My First Battle #19 -> Base #53 | Base Set 2 #79 | Team Rocket #60 | Legendary Collection #80 | Plasma Storm #42 | Plasma Storm #43 | Diamond & Pearl #87 | Stormfront #66
+ambiguous: Magneton | My First Battle #20 -> Base #9 | Fossil #11 | Fossil #26 | Base Set 2 #9 | Legendary Collection #28 | Plasma Storm #44 | Plasma Storm #45 | Diamond & Pearl #54
+ambiguous: Voltorb | My First Battle #21 -> Base #67 | Base Set 2 #98 | Team Rocket #69 | Legendary Collection #97 | Boundaries Crossed #51 | Plasma Freeze #32 | Secret Wonders #117 | Stormfront #80
+ambiguous: Electrode | My First Battle #22 -> Base #21 | Jungle #2 | Jungle #18 | Base Set 2 #25 | Legendary Collection #22 | Boundaries Crossed #52 | Plasma Freeze #33 | BW Black Star Promos #BW76
+ambiguous: Electabuzz | My First Battle #23 -> Base #20 | Base Set 2 #24 | Wizards Black Star Promos #2 | Wizards Black Star Promos #46 | Best of Game #1 | Boundaries Crossed #53 | Diamond & Pearl #81 | Secret Wonders #87
+ambiguous: Lightning Energy | My First Battle #24 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Squirtle | My First Battle #25 -> Base #63 | Base Set 2 #93 | Team Rocket #68 | Legendary Collection #95 | Plasma Blast #14 | Boundaries Crossed #29 | Plasma Storm #24 | Secret Wonders #112
+ambiguous: Wartortle | My First Battle #26 -> Base #42 | Base Set 2 #63 | Plasma Blast #15 | Boundaries Crossed #30 | Secret Wonders #75 | Expedition Base Set #92 | Crystal Guardians #42 | Crystal Guardians #43
+ambiguous: Poliwag | My First Battle #27 -> Base #59 | Base Set 2 #88 | Legends Awakened #114 | Expedition Base Set #125 | Skyridge #87 | Unseen Forces #67 | FireRed & LeafGreen #75 | HS—Unleashed #58
+ambiguous: Poliwhirl | My First Battle #28 -> Base #38 | Base Set 2 #57 | Legends Awakened #115 | Expedition Base Set #89 | Skyridge #88 | Unseen Forces #68 | FireRed & LeafGreen #46 | HS—Unleashed #37
+ambiguous: Magikarp | My First Battle #29 -> Base #35 | Base Set 2 #50 | Team Rocket #47 | Legendary Collection #52 | Legendary Treasures #30 | Dragons Exalted #23 | Call of Legends #61 | Detective Pikachu #8
+ambiguous: Gyarados | My First Battle #30 -> Base #6 | Base Set 2 #7 | Legendary Collection #12 | Legendary Treasures #31 | Dragons Exalted #24 | Call of Legends #7 | Mysterious Treasures #26 | Stormfront #19
+ambiguous: Lapras | My First Battle #31 -> Fossil #10 | Fossil #25 | Plasma Blast #17 | Next Destinies #25 | Next Destinies #26 | Great Encounters #21 | Skyridge #71 | Legend Maker #8
+ambiguous: Water Energy | My First Battle #32 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Potion | My First Battle #33 -> Base #94 | Base Set 2 #122 | Legendary Collection #110 | Black & White #100 | Boundaries Crossed #132 | Diamond & Pearl #118 | Secret Wonders #127 | Stormfront #92
+ambiguous: Switch | My First Battle #34 -> Base #95 | Base Set 2 #123 | Black & White #104 | Boundaries Crossed #135 | Diamond & Pearl #119 | Secret Wonders #128 | Stormfront #93 | Expedition Base Set #157
+ambiguous: Zeraora | Promos-A #074 -> 30th Celebration #57 | Unbroken Bonds #60 | Team Up #52 | Destined Rivals #78 | Temporal Forces #57 | Stellar Crown #55 | Stellar Crown #151 | Silver Tempest #56
+ambiguous: Kartana | Promos-A #075 -> Unbroken Bonds #19 | Celestial Storm #101 | Hidden Fates Shiny Vault #SV33
+ambiguous: Blacephalon | Promos-A #076 -> Unbroken Bonds #32 | Cosmic Eclipse #104 | SM Black Star Promos #SM221
+ambiguous: Xurkitree | Promos-A #077 -> Unified Minds #70 | Forbidden Light #39 | Hidden Fates Shiny Vault #SV14 | SM Black Star Promos #SM116
+ambiguous: Dawn Wings Necrozma | Promos-A #078 -> SM Black Star Promos #SM106 | SM Black Star Promos #SM123
+ambiguous: Dusk Mane Necrozma | Promos-A #079 -> SM Black Star Promos #SM107 | SM Black Star Promos #SM124
+ambiguous: Stakataka | Promos-A #080 -> Unbroken Bonds #106 | SM Black Star Promos #SM180 | SM Black Star Promos #SM209
+noName: Ultra Necrozma ex | Promos-A #081
+ambiguous: Poipole | Promos-A #082 -> Unified Minds #102 | Forbidden Light #55 | Lost Thunder #107 | Hidden Fates Shiny Vault #SV19
+ambiguous: Stufful | Promos-A #083 -> Mega Evolution #111 | Mega Evolution #154 | Sun & Moon #111 | Cosmic Eclipse #181 | Guardians Rising #112 | Burning Shadows #110 | Crimson Invasion #55 | Shrouded Fable #52
+ambiguous: Tapu Koko ex | Promos-A #084 -> Paradox Rift #68 | Paradox Rift #222 | Paradox Rift #247 | Journey Together #51
+ambiguous: Vanillite | Promos-A #085 -> Noble Victories #27 | Next Destinies #31 | Dark Explorers #33 | Plasma Storm #35 | Plasma Freeze #27 | White Flare #27 | White Flare #111 | Guardians Rising #33
+ambiguous: Jolteon | Promos-A #086 -> Jungle #4 | Jungle #20 | Legendary Collection #14 | Dark Explorers #37 | Plasma Freeze #34 | BW Black Star Promos #BW91 | Call of Legends #45 | Majestic Dawn #23
+ambiguous: Alcremie | Promos-A #087 -> Phantasmal Flames #44 | Stellar Crown #65 | Rebel Clash #87 | Vivid Voltage #81 | Shining Fates Shiny Vault #SV58 | Brilliant Stars #71 | Brilliant Stars Trainer Gallery #TG8 | SWSH Black Star Promos #SWSH58
+ambiguous: Dragonair | Promos-A #088 -> Base #18 | Base Set 2 #22 | Plasma Freeze #82 | Legends Awakened #52 | Dragon Vault #3 | Dragon Vault #4 | Expedition Base Set #75 | Delta Species #41
+ambiguous: Audino | Promos-A #089 -> Black & White #87 | Legendary Treasures #RC17 | Emerging Powers #83 | Noble Victories #85 | Dragons Exalted #108 | Boundaries Crossed #126 | McDonald's Collection 2011 #12 | Unified Minds #177
+ambiguous: Togedemaru | Promos-A #090 -> Phantasmal Flames #73 | Phantasmal Flames #104 | Sun & Moon #53 | Cosmic Eclipse #73 | Cosmic Eclipse #74 | Burning Shadows #47 | SM Black Star Promos #SM9 | SM Black Star Promos #SM44
+ambiguous: Greedent | Promos-A #091 -> Scarlet & Violet #152 | Paldean Fates #206 | Journey Together #132 | Lost Origin #151 | Rebel Clash #152 | Darkness Ablaze #153 | Shining Fates Shiny Vault #SV100 | Chilling Reign #128
+ambiguous: Eevee | Promos-A #092 -> Jungle #51 | Team Rocket #55 | Legendary Collection #74 | Wizards Black Star Promos #11 | Legendary Treasures #RC14 | Dark Explorers #83 | Dark Explorers #84 | Plasma Freeze #89
+ambiguous: Cleffa | Promos-A #093 -> Wizards Black Star Promos #31 | Celebrations: Classic Collection #20 | Call of Legends #24 | Diamond & Pearl #78 | Skyridge #48 | Unseen Forces #21 | HeartGold & SoulSilver #17 | HGSS Black Star Promos #HGSS12
+ambiguous: Horsea | Promos-A #094 -> Fossil #49 | Plasma Freeze #18 | Legends Awakened #102 | Aquapolis #84 | Aquapolis #85 | Holon Phantoms #66 | Dragon Frontiers #31 | Dragon Frontiers #50
+ambiguous: Chinchou | Promos-A #095 -> Boundaries Crossed #55 | Plasma Freeze #35 | Legends Awakened #87 | Legends Awakened #88 | Aquapolis #70 | Aquapolis #71 | Unseen Forces #52 | Legend Maker #50
+ambiguous: Houndoom | Promos-A #096 -> Plasma Blast #56 | Dragons Exalted #75 | Call of Legends #10 | Great Encounters #18 | Legends Awakened #57 | Aquapolis #14 | Aquapolis #15 | Aquapolis #H11
+ambiguous: Kangaskhan | Promos-A #097 -> Jungle #5 | Jungle #21 | Base Set 2 #26 | Plasma Blast #71 | Majestic Dawn #38 | Aquapolis #88 | FireRed & LeafGreen #6 | HS—Triumphant #36
+ambiguous: Blissey ex | Promos-A #098 -> Unseen Forces #101 | Twilight Masquerade #134 | Twilight Masquerade #201
+ambiguous: Marill | Promos-A #099 -> Wizards Black Star Promos #29 | Boundaries Crossed #36 | Diamond & Pearl #88 | Expedition Base Set #120 | Aquapolis #53 | Delta Species #76 | Sandstorm #68 | Team Rocket Returns #68
+ambiguous: Weavile | Promos-A #100 -> Next Destinies #70 | Plasma Freeze #66 | Diamond & Pearl #40 | Secret Wonders #40 | HS—Undaunted #25 | Ascended Heroes #45 | Ascended Heroes #228 | Cosmic Eclipse #44
+ambiguous: Charizard | McDonald's Collection 2024 #1 -> Base #4 | Base Set 2 #4 | Legendary Collection #3 | Legendary Treasures #19 | Boundaries Crossed #20 | Plasma Storm #136 | Celebrations: Classic Collection #4 | Detective Pikachu #5
+ambiguous: Pikachu | McDonald's Collection 2024 #2 -> Base #58 | Jungle #60 | Base Set 2 #87 | Legendary Collection #86 | Wizards Black Star Promos #1 | Wizards Black Star Promos #4 | Wizards Black Star Promos #26 | Wizards Black Star Promos #27
+ambiguous: Miraidon | McDonald's Collection 2024 #3 -> Pitch Black #28 | 30th Celebration #62 | Scarlet & Violet #80 | Temporal Forces #121 | Surging Sparks #69 | Scarlet & Violet Black Star Promos #13 | Scarlet & Violet Black Star Promos #92 | Scarlet & Violet Black Star Promos #148
+ambiguous: Jigglypuff | McDonald's Collection 2024 #4 -> Jungle #54 | Base Set 2 #77 | Wizards Black Star Promos #7 | Next Destinies #78 | BW Black Star Promos #BW65 | Detective Pikachu #14 | Great Encounters #72 | Skyridge #68
+ambiguous: Hatenna | McDonald's Collection 2024 #5 -> Rebel Clash #83 | Champion's Path #18 | Shining Fates Shiny Vault #SV54 | Chilling Reign #71 | SWSH Black Star Promos #SWSH40
+ambiguous: Dragapult | McDonald's Collection 2024 #6 -> Silver Tempest #89 | Rebel Clash #91 | Shining Fates Shiny Vault #SV62 | Fusion Strike #130 | SWSH Black Star Promos #SWSH132
+ambiguous: Quagsire | McDonald's Collection 2024 #7 -> Plasma Freeze #22 | Secret Wonders #60 | Aquapolis #30 | Unseen Forces #44 | Dragon Frontiers #21 | Team Rocket Returns #26 | HeartGold & SoulSilver #9 | Neo Genesis #45
+ambiguous: Koraidon | McDonald's Collection 2024 #8 -> Pitch Black #47 | 30th Celebration #86 | Scarlet & Violet #124 | Temporal Forces #119 | Stellar Crown #90 | Surging Sparks #116 | Scarlet & Violet Black Star Promos #14 | Scarlet & Violet Black Star Promos #91
+ambiguous: Umbreon | McDonald's Collection 2024 #9 -> Dark Explorers #60 | Dark Explorers #61 | Plasma Freeze #64 | BW Black Star Promos #BW93 | Celebrations: Classic Collection #17 | Call of Legends #22 | Majestic Dawn #32 | Aquapolis #41
+ambiguous: Hydreigon | McDonald's Collection 2024 #10 -> Legendary Treasures #99 | Noble Victories #79 | Next Destinies #103 | Dragons Exalted #97 | Dragons Exalted #98 | Plasma Freeze #78 | 30th Celebration #99 | Crimson Invasion #62
+ambiguous: Roaring Moon | McDonald's Collection 2024 #11 -> Temporal Forces #109 | Prismatic Evolutions #65
+ambiguous: Dragonite | McDonald's Collection 2024 #12 -> Fossil #4 | Fossil #19 | Wizards Black Star Promos #5 | Plasma Freeze #83 | Legends Awakened #2 | Dragon Vault #5 | Expedition Base Set #9 | Expedition Base Set #43
+ambiguous: Eevee | McDonald's Collection 2024 #13 -> Jungle #51 | Team Rocket #55 | Legendary Collection #74 | Wizards Black Star Promos #11 | Legendary Treasures #RC14 | Dark Explorers #83 | Dark Explorers #84 | Plasma Freeze #89
+ambiguous: Rayquaza | McDonald's Collection 2024 #14 -> Legendary Treasures #93 | Dragons Exalted #128 | Call of Legends #20 | Call of Legends #SL10 | Legends Awakened #14 | Dragon Vault #11 | Delta Species #13 | Holon Phantoms #16
+ambiguous: Drampa | McDonald's Collection 2024 #15 -> McDonald's Collection 2022 #14 | Ascended Heroes #176 | Cosmic Eclipse #159 | Guardians Rising #97 | Ultra Prism #117 | Dragon Majesty #51 | SM Black Star Promos #SM21 | Obsidian Flames #161
+ambiguous: Grass Energy | Mega Evolution Energy #001 -> Base #99 | Base Set 2 #127 | Black & White #105 | Call of Legends #88 | Diamond & Pearl #123 | Expedition Base Set #162 | Ruby & Sapphire #104 | Holon Phantoms #105
+ambiguous: Fire Energy | Mega Evolution Energy #002 -> Base #98 | Base Set 2 #126 | Black & White #106 | Call of Legends #89 | Diamond & Pearl #124 | Expedition Base Set #161 | Ruby & Sapphire #108 | Holon Phantoms #106
+ambiguous: Water Energy | Mega Evolution Energy #003 -> Base #102 | Base Set 2 #130 | Black & White #107 | Call of Legends #90 | Diamond & Pearl #125 | Expedition Base Set #165 | Ruby & Sapphire #106 | Holon Phantoms #107
+ambiguous: Lightning Energy | Mega Evolution Energy #004 -> Base #100 | Base Set 2 #128 | Black & White #108 | Call of Legends #91 | Diamond & Pearl #126 | Expedition Base Set #163 | Ruby & Sapphire #109 | Holon Phantoms #108
+ambiguous: Psychic Energy | Mega Evolution Energy #005 -> Base #101 | Base Set 2 #129 | Black & White #109 | Call of Legends #92 | Diamond & Pearl #127 | Expedition Base Set #164 | Ruby & Sapphire #107 | Holon Phantoms #109
+ambiguous: Fighting Energy | Mega Evolution Energy #006 -> Base #97 | Base Set 2 #125 | Black & White #110 | Call of Legends #93 | Diamond & Pearl #128 | Expedition Base Set #160 | Ruby & Sapphire #105 | Holon Phantoms #110
+ambiguous: Darkness Energy | Mega Evolution Energy #007 -> Black & White #111 | Call of Legends #86 | Call of Legends #94 | Diamond & Pearl #129 | Mysterious Treasures #119 | Secret Wonders #129 | Majestic Dawn #93 | Expedition Base Set #158
+ambiguous: Metal Energy | Mega Evolution Energy #008 -> Black & White #112 | Call of Legends #87 | Call of Legends #95 | Diamond & Pearl #130 | Mysterious Treasures #120 | Secret Wonders #130 | Majestic Dawn #95 | Expedition Base Set #159
+ambiguous: Meganium | MEP Black Star Promos #001 -> Call of Legends #27 | Mysterious Treasures #13 | Expedition Base Set #18 | Expedition Base Set #53 | Expedition Base Set #54 | Unseen Forces #9 | Dragon Frontiers #4 | HeartGold & SoulSilver #26
+ambiguous: Inteleon | MEP Black Star Promos #002 -> Mega Evolution #41 | Mega Evolution #142 | Sword & Shield #58 | Sword & Shield #59 | Shining Fates Shiny Vault #SV27 | Chilling Reign #43 | Evolving Skies #227 | SWSH Black Star Promos #SWSH113
+ambiguous: Alakazam | MEP Black Star Promos #003 -> Base #1 | Base Set 2 #1 | Legendary Collection #1 | Mysterious Treasures #2 | Expedition Base Set #1 | Expedition Base Set #33 | Skyridge #2 | Skyridge #H1
+ambiguous: Lunatone | MEP Black Star Promos #004 -> Plasma Storm #73 | Great Encounters #76 | Legend Maker #20 | Sandstorm #8 | Deoxys #36 | HS—Triumphant #25 | Mega Evolution #74 | Ascended Heroes #105
+ambiguous: Drifloon | MEP Black Star Promos #005 -> Plasma Blast #34 | Dragons Exalted #49 | Dragons Exalted #50 | Diamond & Pearl #46 | Majestic Dawn #61 | Legends Awakened #92 | Stormfront #58 | Stormfront #SH1
+ambiguous: Drifblim | MEP Black Star Promos #006 -> Plasma Blast #35 | Dragons Exalted #51 | BW Black Star Promos #BW64 | Diamond & Pearl #24 | Legends Awakened #53 | Stormfront #16 | DP Black Star Promos #DP34 | HS—Undaunted #12
+ambiguous: Psyduck | MEP Black Star Promos #007 -> Fossil #53 | Team Rocket #65 | Legendary Collection #88 | Wizards Black Star Promos #20 | Boundaries Crossed #32 | Boundaries Crossed #33 | Detective Pikachu #7 | Secret Wonders #100
+ambiguous: Golduck | MEP Black Star Promos #008 -> Fossil #35 | Legendary Collection #43 | Boundaries Crossed #34 | Boundaries Crossed #35 | Secret Wonders #28 | Aquapolis #50 | Holon Phantoms #43 | Sandstorm #17
+ambiguous: Alakazam | MEP Black Star Promos #009 -> Base #1 | Base Set 2 #1 | Legendary Collection #1 | Mysterious Treasures #2 | Expedition Base Set #1 | Expedition Base Set #33 | Skyridge #2 | Skyridge #H1
+ambiguous: Riolu | MEP Black Star Promos #010 -> Legendary Treasures #79 | Next Destinies #63 | Plasma Storm #75 | Plasma Storm #76 | BW Black Star Promos #BW33 | Call of Legends #50 | Diamond & Pearl #61 | Legends Awakened #117
+ambiguous: Mega Latias ex | MEP Black Star Promos #011 -> Mega Evolution #100 | Mega Evolution #163 | Mega Evolution #181
+ambiguous: Mega Lucario ex | MEP Black Star Promos #012 -> Mega Evolution #77 | Mega Evolution #160 | Mega Evolution #179 | Mega Evolution #188 | Ascended Heroes #113
+ambiguous: Mega Venusaur ex | MEP Black Star Promos #013 -> Mega Evolution #3 | Mega Evolution #155 | Mega Evolution #177
+ambiguous: Ceruledge | MEP Black Star Promos #014 -> Phantasmal Flames #20 | Paldea Evolved #98 | Paldean Fates #40 | Paldean Fates #162 | Surging Sparks #35 | Surging Sparks #197
+ambiguous: Zacian | MEP Black Star Promos #015 -> Phantasmal Flames #45 | Phantasmal Flames #100 | 30th Celebration #106 | Paradox Rift #136 | Crown Zenith #94 | Rebel Clash #139 | Vivid Voltage #82 | SWSH Black Star Promos #SWSH33
+ambiguous: Flygon | MEP Black Star Promos #016 -> Boundaries Crossed #99 | BW Black Star Promos #BW53 | Secret Wonders #5 | Holon Phantoms #7 | Dragon #4 | Dragon #15 | Phantasmal Flames #53 | Phantasmal Flames #101
+ambiguous: Toxtricity | MEP Black Star Promos #017 -> Phantasmal Flames #68 | Phantasmal Flames #103 | 30th Celebration #59 | 30th Celebration #60 | 30th Celebration #134 | Scarlet & Violet #72 | Obsidian Flames #72 | Paldean Fates #141
+ambiguous: Cottonee | MEP Black Star Promos #018 -> Emerging Powers #9 | Emerging Powers #10 | Boundaries Crossed #14 | White Flare #4 | White Flare #90 | Unbroken Bonds #139 | Unified Minds #143 | Cosmic Eclipse #147
+ambiguous: Whimsicott | MEP Black Star Promos #019 -> Emerging Powers #11 | Emerging Powers #12 | Boundaries Crossed #15 | Unified Minds #144 | Cosmic Eclipse #148 | Guardians Rising #91 | Paldean Fates #35 | Temporal Forces #15
+ambiguous: Sneasel | MEP Black Star Promos #020 -> Next Destinies #69 | Plasma Freeze #65 | Diamond & Pearl #100 | Legends Awakened #120 | Aquapolis #110 | HS—Undaunted #68 | Ascended Heroes #44 | 30th Celebration: Classic Collection #25
+ambiguous: Weavile | MEP Black Star Promos #021 -> Next Destinies #70 | Plasma Freeze #66 | Diamond & Pearl #40 | Secret Wonders #40 | HS—Undaunted #25 | Ascended Heroes #45 | Ascended Heroes #228 | Cosmic Eclipse #44
+ambiguous: Charcadet | MEP Black Star Promos #022 -> Phantasmal Flames #19 | Pitch Black #11 | Scarlet & Violet #39 | Scarlet & Violet #40 | Paldea Evolved #38 | Paldea Evolved #39 | Obsidian Flames #43 | Paradox Rift #25
+ambiguous: Mega Charizard X ex | MEP Black Star Promos #023 -> Phantasmal Flames #13 | Phantasmal Flames #109 | Phantasmal Flames #125 | Phantasmal Flames #130
+ambiguous: Oricorio ex | MEP Black Star Promos #024 -> Phantasmal Flames #18 | Phantasmal Flames #110
+ambiguous: Mega Kangaskhan ex | MEP Black Star Promos #025 -> Mega Evolution #104 | Mega Evolution #164 | Mega Evolution #182
+ambiguous: Meloetta | MEP Black Star Promos #026 -> Legendary Treasures #78 | Legendary Treasures #86 | Boundaries Crossed #77 | BW Black Star Promos #BW68 | BW Black Star Promos #BW69 | Phantasmal Flames #40 | Unified Minds #123 | Lost Thunder #104
+ambiguous: Haunter | MEP Black Star Promos #027 -> Base #29 | Fossil #6 | Fossil #21 | Base Set 2 #43 | Legendary Collection #46 | Diamond & Pearl #50 | Stormfront #40 | Expedition Base Set #80
+noName: Celebratory Fanfare | MEP Black Star Promos #028
+ambiguous: Mega Charizard X ex | MEP Black Star Promos #029 -> Phantasmal Flames #13 | Phantasmal Flames #109 | Phantasmal Flames #125 | Phantasmal Flames #130
+ambiguous: Mega Charizard Y ex | MEP Black Star Promos #030 -> Ascended Heroes #22 | Ascended Heroes #294
+ambiguous: Mega Gardevoir ex | MEP Black Star Promos #032 -> Mega Evolution #60 | Mega Evolution #159 | Mega Evolution #178 | Mega Evolution #187 | Ascended Heroes #89
+ambiguous: Mega Lucario ex | MEP Black Star Promos #033 -> Mega Evolution #77 | Mega Evolution #160 | Mega Evolution #179 | Mega Evolution #188 | Ascended Heroes #113
+ambiguous: Mega Meganium ex | MEP Black Star Promos #034 -> Ascended Heroes #10 | Ascended Heroes #272
+ambiguous: Mega Emboar ex | MEP Black Star Promos #035 -> Ascended Heroes #31 | Ascended Heroes #273
+ambiguous: Mega Feraligatr ex | MEP Black Star Promos #036 -> Ascended Heroes #43 | Ascended Heroes #274
+ambiguous: Bulbasaur | MEP Black Star Promos #037 -> Base #44 | Base Set 2 #67 | Legendary Collection #68 | Dark Explorers #1 | Detective Pikachu #1 | Secret Wonders #77 | Expedition Base Set #94 | Expedition Base Set #95
+ambiguous: Charmander | MEP Black Star Promos #038 -> Base #46 | Base Set 2 #69 | Team Rocket #50 | Legendary Collection #70 | Legendary Treasures #17 | Boundaries Crossed #18 | Detective Pikachu #4 | Secret Wonders #82
+ambiguous: Squirtle | MEP Black Star Promos #039 -> Base #63 | Base Set 2 #93 | Team Rocket #68 | Legendary Collection #95 | Plasma Blast #14 | Boundaries Crossed #29 | Plasma Storm #24 | Secret Wonders #112
+ambiguous: Turtwig | MEP Black Star Promos #040 -> Plasma Storm #1 | Diamond & Pearl #103 | Majestic Dawn #77 | Majestic Dawn #78 | DP Black Star Promos #DP1 | HS—Unleashed #67 | McDonald's Collection 2021 #4 | Platinum #101
+ambiguous: Chimchar | MEP Black Star Promos #041 -> Plasma Storm #15 | Diamond & Pearl #76 | Majestic Dawn #56 | Majestic Dawn #57 | DP Black Star Promos #DP2 | McDonald's Collection 2021 #12 | Platinum #70 | Supreme Victors #97
+ambiguous: Piplup | MEP Black Star Promos #042 -> Legendary Treasures #33 | Legendary Treasures #RC6 | Dark Explorers #27 | Diamond & Pearl #93 | Majestic Dawn #71 | Majestic Dawn #72 | DP Black Star Promos #DP3 | McDonald's Collection 2021 #20
+ambiguous: Rowlet | MEP Black Star Promos #043 -> McDonald's Collection 2017 #1 | McDonald's Collection 2021 #7 | McDonald's Collection 2022 #2 | Perfect Order #10 | Perfect Order #90 | Sun & Moon #9 | Cosmic Eclipse #17 | Cosmic Eclipse #18
+ambiguous: Litten | MEP Black Star Promos #044 -> McDonald's Collection 2017 #3 | McDonald's Collection 2021 #15 | Sun & Moon #24 | Unbroken Bonds #26 | Unbroken Bonds #27 | Shining Legends #15 | Dragon Majesty #12 | Team Up #20
+ambiguous: Popplio | MEP Black Star Promos #045 -> McDonald's Collection 2017 #4 | McDonald's Collection 2021 #23 | Pitch Black #18 | Sun & Moon #39 | Lost Thunder #64 | Lost Thunder #65 | SM Black Star Promos #SM3 | SM Black Star Promos #SM24
+ambiguous: Chikorita | MEP Black Star Promos #046 -> Call of Legends #53 | Mysterious Treasures #77 | Expedition Base Set #99 | Expedition Base Set #100 | Unseen Forces #51 | Dragon Frontiers #44 | Hidden Legends #55 | Generations #RC1
+ambiguous: Cyndaquil | MEP Black Star Promos #047 -> Call of Legends #55 | Mysterious Treasures #79 | Expedition Base Set #104 | Expedition Base Set #105 | Unseen Forces #54 | Dragon Frontiers #45 | Sandstorm #59 | Hidden Legends #59
+ambiguous: Totodile | MEP Black Star Promos #048 -> Call of Legends #74 | Mysterious Treasures #106 | Expedition Base Set #134 | Expedition Base Set #135 | Unseen Forces #78 | Dragon Frontiers #67 | Hidden Legends #79 | HeartGold & SoulSilver #86
+ambiguous: Snivy | MEP Black Star Promos #049 -> Black & White #1 | Black & White #2 | Legendary Treasures #6 | Legendary Treasures #RC1 | Boundaries Crossed #11 | BW Black Star Promos #BW1 | BW Black Star Promos #BW6 | McDonald's Collection 2011 #1
+ambiguous: Tepig | MEP Black Star Promos #050 -> Black & White #15 | Black & White #16 | Legendary Treasures #25 | Boundaries Crossed #24 | BW Black Star Promos #BW2 | BW Black Star Promos #BW7 | McDonald's Collection 2011 #3 | McDonald's Collection 2021 #13
+ambiguous: Oshawott | MEP Black Star Promos #051 -> Black & White #27 | Black & White #28 | Legendary Treasures #37 | Boundaries Crossed #39 | BW Black Star Promos #BW3 | BW Black Star Promos #BW8 | McDonald's Collection 2011 #4 | McDonald's Collection 2021 #21
+ambiguous: Grookey | MEP Black Star Promos #052 -> McDonald's Collection 2021 #8 | Twilight Masquerade #14 | Sword & Shield #10 | Sword & Shield #11 | Shining Fates #11 | Shining Fates Shiny Vault #SV4 | Chilling Reign #16 | SWSH Black Star Promos #SWSH1
+ambiguous: Scorbunny | MEP Black Star Promos #053 -> McDonald's Collection 2021 #16 | Mega Evolution #26 | Ascended Heroes #36 | Ascended Heroes #225 | Stellar Crown #26 | Sword & Shield #30 | Sword & Shield #31 | Shining Fates Shiny Vault #SV15
+ambiguous: Sobble | MEP Black Star Promos #054 -> McDonald's Collection 2021 #24 | Mega Evolution #39 | Sword & Shield #54 | Sword & Shield #55 | Shining Fates Shiny Vault #SV25 | Chilling Reign #41 | SWSH Black Star Promos #SWSH3 | SWSH Black Star Promos #SWSH73
+ambiguous: Treecko | MEP Black Star Promos #055 -> Plasma Freeze #6 | Great Encounters #90 | Stormfront #79 | Ruby & Sapphire #75 | Ruby & Sapphire #76 | Crystal Guardians #67 | Crystal Guardians #68 | Dragon #80
+ambiguous: Torchic | MEP Black Star Promos #056 -> Legendary Treasures #RC5 | Dark Explorers #14 | Dark Explorers #15 | Great Encounters #89 | Ruby & Sapphire #73 | Ruby & Sapphire #74 | Holon Phantoms #83 | Crystal Guardians #65
+ambiguous: Mudkip | MEP Black Star Promos #057 -> Great Encounters #80 | Ruby & Sapphire #59 | Ruby & Sapphire #60 | Crystal Guardians #57 | Crystal Guardians #58 | Dragon #65 | Team Rocket Returns #107 | Emerald #56
+ambiguous: Chespin | MEP Black Star Promos #058 -> McDonald's Collection 2014 #2 | McDonald's Collection 2021 #6 | Chaos Rising #5 | Chaos Rising #87 | Kalos Starter Set #3 | XY #12 | BREAKthrough #7 | BREAKthrough #8
+ambiguous: Fennekin | MEP Black Star Promos #059 -> McDonald's Collection 2014 #3 | McDonald's Collection 2016 #3 | McDonald's Collection 2021 #14 | Chaos Rising #11 | Forbidden Light #14 | Forbidden Light #15 | Silver Tempest #25 | Kalos Starter Set #8
+ambiguous: Froakie | MEP Black Star Promos #060 -> McDonald's Collection 2014 #4 | McDonald's Collection 2021 #22 | Chaos Rising #20 | Chaos Rising #88 | Unbroken Bonds #51 | Forbidden Light #21 | Forbidden Light #22 | Hidden Fates Shiny Vault #SV11
+ambiguous: Sprigatito | MEP Black Star Promos #061 -> Scarlet & Violet #13 | Paldea Evolved #12 | Paldea Evolved #13 | Paldea Evolved #196 | Journey Together #16 | Scarlet & Violet Black Star Promos #1 | Scarlet & Violet Black Star Promos #76
+ambiguous: Fuecoco | MEP Black Star Promos #062 -> Scarlet & Violet #36 | Paldea Evolved #34 | Paldea Evolved #35 | Paldea Evolved #201 | Paradox Rift #23 | Surging Sparks #29 | Scarlet & Violet Black Star Promos #2 | Scarlet & Violet Black Star Promos #79
+ambiguous: Quaxly | MEP Black Star Promos #063 -> Scarlet & Violet #52 | Paldea Evolved #49 | Paldea Evolved #50 | Paldea Evolved #206 | Surging Sparks #50 | Scarlet & Violet Black Star Promos #3 | Scarlet & Violet Black Star Promos #82
+ambiguous: Serperior | MEP Black Star Promos #064 -> Black & White #5 | Black & White #6 | Legendary Treasures #8 | Legendary Treasures #RC3 | Dragons Exalted #125 | Boundaries Crossed #13 | BW Black Star Promos #BW20 | Perfect Order #6
+ambiguous: Barbaracle | MEP Black Star Promos #065 -> Perfect Order #43 | Forbidden Light #67 | Lost Origin #107 | Rebel Clash #104 | Fates Collide #23 | Flashfire #49
+ambiguous: Tyrantrum | MEP Black Star Promos #066 -> Perfect Order #45 | Forbidden Light #69 | Furious Fists #62
+ambiguous: Doublade | MEP Black Star Promos #067 -> Perfect Order #57 | Perfect Order #98 | Unified Minds #94 | Forbidden Light #48 | Team Up #108 | Paradox Rift #132 | Paradox Rift #133 | Rebel Clash #134
+ambiguous: Makuhita | MEP Black Star Promos #068 -> Boundaries Crossed #82 | Plasma Freeze #62 | Great Encounters #78 | Ruby & Sapphire #56 | Ruby & Sapphire #57 | Ruby & Sapphire #58 | Delta Species #75 | Deoxys #65
+ambiguous: Chikorita | MEP Black Star Promos #069 -> Call of Legends #53 | Mysterious Treasures #77 | Expedition Base Set #99 | Expedition Base Set #100 | Unseen Forces #51 | Dragon Frontiers #44 | Hidden Legends #55 | Generations #RC1
+ambiguous: Tyrunt | MEP Black Star Promos #070 -> Perfect Order #44 | Forbidden Light #68 | Furious Fists #61
+ambiguous: Mega Zygarde ex | MEP Black Star Promos #071 -> Perfect Order #47 | Perfect Order #104 | Perfect Order #120 | Perfect Order #124
+ambiguous: Mega Clefable ex | MEP Black Star Promos #072 -> Perfect Order #31 | Perfect Order #103 | Perfect Order #119
+ambiguous: Mega Gengar ex | MEP Black Star Promos #073 -> Phantasmal Flames #56 | Ascended Heroes #125 | Ascended Heroes #269 | Ascended Heroes #284
+ambiguous: Delphox | MEP Black Star Promos #074 -> Chaos Rising #13 | Forbidden Light #17 | Silver Tempest #27 | Kalos Starter Set #10 | XY #26 | Fates Collide #13
+ambiguous: Ampharos | MEP Black Star Promos #075 -> Dragons Exalted #40 | BW Black Star Promos #BW67 | Call of Legends #23 | Secret Wonders #1 | Expedition Base Set #2 | Expedition Base Set #34 | Aquapolis #1 | Aquapolis #H1
+ambiguous: Crobat | MEP Black Star Promos #076 -> Plasma Storm #55 | BW Black Star Promos #BW51 | Mysterious Treasures #23 | Skyridge #6 | Skyridge #147 | Skyridge #H5 | Delta Species #2 | Hidden Legends #3
+ambiguous: Goodra | MEP Black Star Promos #077 -> Chaos Rising #68 | Guardians Rising #96 | Forbidden Light #94 | Fusion Strike #197 | Flashfire #74 | Phantom Forces #77 | Ancient Origins #60
+ambiguous: Toxel | MEP Black Star Promos #078 -> Phantasmal Flames #67 | 30th Celebration #58 | Scarlet & Violet #71 | Obsidian Flames #71 | Paradox Rift #69 | Paldean Fates #140 | Scarlet & Violet Black Star Promos #119 | Rebel Clash #68
+ambiguous: Charmeleon | MEP Black Star Promos #079 -> Base #24 | Base Set 2 #35 | Legendary Collection #37 | Legendary Treasures #18 | Boundaries Crossed #19 | Secret Wonders #46 | Stormfront #102 | Expedition Base Set #73
+ambiguous: Fennekin | MEP Black Star Promos #080 -> McDonald's Collection 2014 #3 | McDonald's Collection 2016 #3 | McDonald's Collection 2021 #14 | Chaos Rising #11 | Forbidden Light #14 | Forbidden Light #15 | Silver Tempest #25 | Kalos Starter Set #8
+ambiguous: Mega Greninja ex | MEP Black Star Promos #081 -> Chaos Rising #22 | Chaos Rising #100 | Chaos Rising #116 | Chaos Rising #122
+ambiguous: Miraidon | MEP Black Star Promos #082 -> Pitch Black #28 | 30th Celebration #62 | Scarlet & Violet #80 | Temporal Forces #121 | Surging Sparks #69 | Scarlet & Violet Black Star Promos #13 | Scarlet & Violet Black Star Promos #92 | Scarlet & Violet Black Star Promos #148
+ambiguous: Slowbro | MEP Black Star Promos #083 -> Fossil #43 | Dark Explorers #24 | Great Encounters #54 | Aquapolis #33 | Unseen Forces #13 | FireRed & LeafGreen #14 | HeartGold & SoulSilver #52 | HS—Undaunted #38
+ambiguous: Dhelmise | MEP Black Star Promos #084 -> Mega Evolution #18 | Pitch Black #39 | Pitch Black #91 | Unified Minds #20 | Cosmic Eclipse #98 | Guardians Rising #59 | Celestial Storm #22 | SM Black Star Promos #SM53
+ambiguous: Bastiodon | MEP Black Star Promos #085 -> Mysterious Treasures #21 | Pitch Black #62 | Pitch Black #93 | Platinum #20 | POP Series 6 #1 | Pokémon Rumble #14 | Ultra Prism #85 | Astral Radiance #110
+ambiguous: Slowpoke | MEP Black Star Promos #086 -> Fossil #55 | Team Rocket #67 | Legendary Collection #93 | Dark Explorers #23 | Call of Legends #70 | Great Encounters #82 | Aquapolis #108 | Unseen Forces #72
+ambiguous: Binacle | MEP Black Star Promos #087 -> Perfect Order #42 | Forbidden Light #66 | Lost Origin #106 | Rebel Clash #103 | Fates Collide #22 | Flashfire #48 | Roaring Skies #38
+ambiguous: Zarude | MEP Black Star Promos #088 -> Pitch Black #56 | Surging Sparks #11 | Crown Zenith #16 | Shining Fates #16 | Chilling Reign #19 | Fusion Strike #27
+noName: Pikachu at the Museum | MEP Black Star Promos #Museum
+ambiguous: Oddish | Crimson Blaze #088 -> Jungle #58 | Team Rocket #63 | Boundaries Crossed #1 | Legends Awakened #111 | Legends Awakened #112 | Expedition Base Set #122 | Aquapolis #97 | Unseen Forces #64
+ambiguous: Sprigatito | Paldean Wonders #001 -> Scarlet & Violet #13 | Paldea Evolved #12 | Paldea Evolved #13 | Paldea Evolved #196 | Journey Together #16 | Scarlet & Violet Black Star Promos #1 | Scarlet & Violet Black Star Promos #76
+ambiguous: Floragato | Paldean Wonders #002 -> Scarlet & Violet #14 | Paldea Evolved #14 | Paldea Evolved #197 | Journey Together #17 | Scarlet & Violet Black Star Promos #77
+ambiguous: Meowscarada | Paldean Wonders #003 -> Scarlet & Violet #15 | Journey Together #18
+ambiguous: Tarountula | Paldean Wonders #004 -> Scarlet & Violet #16 | Scarlet & Violet #17 | Scarlet & Violet #18 | Scarlet & Violet #199 | Paldea Evolved #16 | Paldea Evolved #17
+ambiguous: Spidops | Paldean Wonders #005 -> Paldea Evolved #18 | Scarlet & Violet Black Star Promos #9
+ambiguous: Nymble | Paldean Wonders #006 -> Phantasmal Flames #9 | Phantasmal Flames #96 | Paldea Evolved #19 | Paldea Evolved #20 | Paradox Rift #13 | Paradox Rift #14 | Stellar Crown #15 | Journey Together #19
+ambiguous: Smoliv | Paldean Wonders #007 -> Scarlet & Violet #20 | Scarlet & Violet #21 | Destined Rivals #21 | Obsidian Flames #19 | Paldean Fates #102 | Scarlet & Violet Black Star Promos #23
+ambiguous: Dolliv | Paldean Wonders #008 -> Scarlet & Violet #22 | Scarlet & Violet #200 | Destined Rivals #22 | Obsidian Flames #20 | Paldean Fates #103
+ambiguous: Arboliva | Paldean Wonders #009 -> Scarlet & Violet #23 | Obsidian Flames #21 | Paldean Fates #104
+ambiguous: Bramblin | Paldean Wonders #010 -> Phantasmal Flames #46 | Paldea Evolved #22 | Paldea Evolved #23 | Paldea Evolved #198 | Temporal Forces #20
+ambiguous: Brambleghast | Paldean Wonders #011 -> Phantasmal Flames #47 | Paldea Evolved #24 | Temporal Forces #21
+ambiguous: Capsakid | Paldean Wonders #012 -> Scarlet & Violet #27 | Scarlet & Violet #28 | Obsidian Flames #23 | Obsidian Flames #24 | Paldean Fates #106 | Surging Sparks #12
+ambiguous: Scovillain | Paldean Wonders #013 -> Scarlet & Violet #29 | Scarlet & Violet #202 | Obsidian Flames #25 | Paldean Fates #107
+ambiguous: Rellor | Paldean Wonders #014 -> Destined Rivals #24 | Paldea Evolved #25 | Paldea Evolved #26 | Paldean Fates #108 | Temporal Forces #23 | Surging Sparks #13
+ambiguous: Wo-Chien | Paldean Wonders #015 -> Paradox Rift #18 | Surging Sparks #15
+ambiguous: Fuecoco | Paldean Wonders #016 -> Scarlet & Violet #36 | Paldea Evolved #34 | Paldea Evolved #35 | Paldea Evolved #201 | Paradox Rift #23 | Surging Sparks #29 | Scarlet & Violet Black Star Promos #2 | Scarlet & Violet Black Star Promos #79
+ambiguous: Crocalor | Paldean Wonders #017 -> Scarlet & Violet #37 | Paldea Evolved #36 | Paldea Evolved #202 | Paradox Rift #24 | Surging Sparks #30 | Scarlet & Violet Black Star Promos #80
+ambiguous: Skeledirge | Paldean Wonders #018 -> Scarlet & Violet #38 | Surging Sparks #31
+ambiguous: Charcadet | Paldean Wonders #019 -> Phantasmal Flames #19 | Pitch Black #11 | Scarlet & Violet #39 | Scarlet & Violet #40 | Paldea Evolved #38 | Paldea Evolved #39 | Obsidian Flames #43 | Paradox Rift #25
+ambiguous: Armarouge | Paldean Wonders #020 -> Pitch Black #12 | Pitch Black #86 | Scarlet & Violet #41 | Scarlet & Violet #203 | Obsidian Flames #44 | Paldean Fates #15 | Paldean Fates #115 | Surging Sparks #34
+ambiguous: Chi-Yu | Paldean Wonders #021 -> Mega Evolution #31 | Pitch Black #59 | Paradox Rift #29 | Twilight Masquerade #39 | Scarlet & Violet Black Star Promos #57
+ambiguous: Quaxly | Paldean Wonders #022 -> Scarlet & Violet #52 | Paldea Evolved #49 | Paldea Evolved #50 | Paldea Evolved #206 | Surging Sparks #50 | Scarlet & Violet Black Star Promos #3 | Scarlet & Violet Black Star Promos #82
+ambiguous: Quaxwell | Paldean Wonders #023 -> Scarlet & Violet #53 | Paldea Evolved #51 | Paldea Evolved #207 | Surging Sparks #51 | Scarlet & Violet Black Star Promos #83
+ambiguous: Quaquaval | Paldean Wonders #024 -> Scarlet & Violet #54 | Surging Sparks #52 | Scarlet & Violet Black Star Promos #5
+ambiguous: Wiglett | Paldean Wonders #025 -> Scarlet & Violet #55 | Scarlet & Violet #56 | Scarlet & Violet #206 | Obsidian Flames #58 | Paradox Rift #51 | Paradox Rift #52 | Paldean Fates #121 | Temporal Forces #47
+ambiguous: Wugtrio | Paldean Wonders #026 -> Scarlet & Violet #57 | Obsidian Flames #59 | Paradox Rift #53 | Paldean Fates #122 | Paldean Fates #224
+ambiguous: Finizen | Paldean Wonders #027 -> Pitch Black #21 | Obsidian Flames #60 | Obsidian Flames #61 | Paldean Fates #123 | Temporal Forces #48 | Twilight Masquerade #59
+ambiguous: Palafin | Paldean Wonders #028 -> Pitch Black #22 | Obsidian Flames #62 | Obsidian Flames #200 | Paldean Fates #124 | Paldean Fates #225 | Temporal Forces #49 | Twilight Masquerade #60 | Scarlet & Violet Black Star Promos #36
+ambiguous: Cetoddle | Paldean Wonders #029 -> Scarlet & Violet #58 | Scarlet & Violet #59 | Destined Rivals #64 | Paldea Evolved #53 | Paldea Evolved #54 | Surging Sparks #53
+ambiguous: Cetitan | Paldean Wonders #030 -> Scarlet & Violet #60 | Paldea Evolved #55 | Surging Sparks #54 | Surging Sparks #201 | Scarlet & Violet Black Star Promos #63
+ambiguous: Veluza | Paldean Wonders #031 -> Paldea Evolved #56 | Paradox Rift #54 | Paradox Rift #192 | Paldean Fates #125 | Stellar Crown #45
+ambiguous: Dondozo | Paldean Wonders #032 -> Scarlet & Violet #61 | Scarlet & Violet #207 | Paradox Rift #55 | Paldean Fates #126 | Scarlet & Violet Black Star Promos #12
+ambiguous: Tatsugiri | Paldean Wonders #033 -> Scarlet & Violet #62 | Paradox Rift #141 | Paldean Fates #127 | Twilight Masquerade #131 | Twilight Masquerade #186 | Scarlet & Violet Black Star Promos #118
+ambiguous: Frigibax | Paldean Wonders #034 -> Paldea Evolved #57 | Paldea Evolved #58 | Paldea Evolved #208 | Paldean Fates #17 | Paldean Fates #128
+ambiguous: Arctibax | Paldean Wonders #035 -> Paldea Evolved #59 | Paldea Evolved #209 | Paldean Fates #129 | Scarlet & Violet Black Star Promos #64
+ambiguous: Baxcalibur | Paldean Wonders #036 -> Paldea Evolved #60 | Paldea Evolved #210 | Paldean Fates #130 | Scarlet & Violet Black Star Promos #19
+ambiguous: Chien-Pao | Paldean Wonders #037 -> Perfect Order #54 | Paradox Rift #57 | Surging Sparks #56 | Scarlet & Violet Black Star Promos #152
+ambiguous: Pawmi | Paldean Wonders #038 -> Phantasmal Flames #32 | Scarlet & Violet #73 | Scarlet & Violet #74 | Paldea Evolved #74 | Paldean Fates #142 | Paldean Fates #226 | Stellar Crown #56 | Scarlet & Violet Black Star Promos #40
+ambiguous: Pawmo | Paldean Wonders #039 -> Phantasmal Flames #33 | Scarlet & Violet #75 | Paldea Evolved #75 | Paldean Fates #143
+ambiguous: Pawmot | Paldean Wonders #040 -> Phantasmal Flames #34 | Scarlet & Violet #76 | Scarlet & Violet #209 | Paldea Evolved #76 | Paldean Fates #144 | Scarlet & Violet Black Star Promos #6
+ambiguous: Tadbulb | Paldean Wonders #041 -> Paldea Evolved #77 | Paldea Evolved #78 | Obsidian Flames #74 | Obsidian Flames #75 | Obsidian Flames #76 | Twilight Masquerade #73
+ambiguous: Bellibolt | Paldean Wonders #042 -> Obsidian Flames #77 | Obsidian Flames #78 | Obsidian Flames #201 | Twilight Masquerade #74 | Scarlet & Violet Black Star Promos #94
+ambiguous: Wattrel | Paldean Wonders #043 -> Scarlet & Violet #77 | Scarlet & Violet #78 | Paldea Evolved #80 | Paldea Evolved #81 | Paldean Fates #145 | Twilight Masquerade #75 | Twilight Masquerade #178 | Surging Sparks #66
+ambiguous: Kilowattrel | Paldean Wonders #044 -> Scarlet & Violet #79 | Paldea Evolved #82 | Paldean Fates #22 | Paldean Fates #146 | Twilight Masquerade #76 | Surging Sparks #67
+ambiguous: Miraidon | Paldean Wonders #045 -> Pitch Black #28 | 30th Celebration #62 | Scarlet & Violet #80 | Temporal Forces #121 | Surging Sparks #69 | Scarlet & Violet Black Star Promos #13 | Scarlet & Violet Black Star Promos #92 | Scarlet & Violet Black Star Promos #148
+ambiguous: Fidough | Paldean Wonders #046 -> Scarlet & Violet #97 | Scarlet & Violet #98 | Scarlet & Violet #213 | Paldean Fates #38 | Stellar Crown #66 | Scarlet & Violet Black Star Promos #69
+ambiguous: Dachsbun | Paldean Wonders #047 -> Scarlet & Violet #99 | Paldean Fates #39 | Paldean Fates #161
+ambiguous: Ceruledge | Paldean Wonders #048 -> Phantasmal Flames #20 | Paldea Evolved #98 | Paldean Fates #40 | Paldean Fates #162 | Surging Sparks #35 | Surging Sparks #197
+ambiguous: Rabsca | Paldean Wonders #049 -> Paldea Evolved #99 | Paldea Evolved #215 | Paldean Fates #163 | Temporal Forces #24 | Surging Sparks #14
+ambiguous: Flittle | Paldean Wonders #050 -> Scarlet & Violet #100 | Scarlet & Violet #101 | Scarlet & Violet #102 | Paradox Rift #79 | Paradox Rift #80 | Paldean Fates #41 | Paldean Fates #164 | Stellar Crown #68
+ambiguous: Espathra | Paldean Wonders #051 -> Scarlet & Violet #103 | Paradox Rift #81 | Paradox Rift #197 | Stellar Crown #69 | Surging Sparks #95 | Scarlet & Violet Black Star Promos #10
+ambiguous: Greavard | Paldean Wonders #052 -> Mega Evolution #65 | Scarlet & Violet #104 | Scarlet & Violet #105 | Scarlet & Violet #214 | Obsidian Flames #99 | Obsidian Flames #100 | Paldean Fates #42 | Stellar Crown #70
+ambiguous: Houndstone | Paldean Wonders #053 -> Mega Evolution #66 | Mega Evolution #145 | Scarlet & Violet #106 | Obsidian Flames #101 | Paldean Fates #43 | Paldean Fates #168 | Scarlet & Violet Black Star Promos #42
+ambiguous: Gimmighoul | Paldean Wonders #054 -> Mega Evolution #67 | 30th Celebration #81 | Paradox Rift #87 | Paradox Rift #88 | Paradox Rift #198 | Paldean Fates #44 | Surging Sparks #97
+ambiguous: Mankey | Paldean Wonders #055 -> Jungle #55 | Team Rocket #61 | Legendary Collection #81 | Plasma Freeze #59 | Great Encounters #79 | Aquapolis #92 | Holon Phantoms #70 | FireRed & LeafGreen #38
+ambiguous: Primeape | Paldean Wonders #056 -> Jungle #43 | Legendary Collection #59 | Plasma Freeze #60 | Great Encounters #27 | Aquapolis #29 | Holon Phantoms #50 | FireRed & LeafGreen #28 | HS—Unleashed #22
+ambiguous: Annihilape | Paldean Wonders #057 -> Pitch Black #41 | Scarlet & Violet #109 | Destined Rivals #92 | Paldean Fates #47 | Paldean Fates #171 | Surging Sparks #100
+ambiguous: Paldean Tauros | Paldean Wonders #058 -> Phantasmal Flames #48 | Paldea Evolved #28 | Paldea Evolved #41 | Paldea Evolved #108 | Paldea Evolved #218 | Paldean Fates #111 | Paldean Fates #120 | Paldean Fates #172
+ambiguous: Toedscool | Paldean Wonders #059 -> Scarlet & Violet #24 | Scarlet & Violet #25 | Scarlet & Violet #201 | Obsidian Flames #118 | Paradox Rift #15 | Paradox Rift #16 | Paldean Fates #4 | Paldean Fates #105
+ambiguous: Toedscruel | Paldean Wonders #060 -> Scarlet & Violet #26 | Obsidian Flames #119 | Paradox Rift #17 | Paradox Rift #185 | Stellar Crown #18 | Journey Together #89
+ambiguous: Klawf | Paldean Wonders #061 -> Scarlet & Violet #122 | Scarlet & Violet #217 | Paradox Rift #105 | Journey Together #90
+ambiguous: Ting-Lu | Paldean Wonders #062 -> Paradox Rift #109 | Twilight Masquerade #110
+ambiguous: Koraidon | Paldean Wonders #063 -> Pitch Black #47 | 30th Celebration #86 | Scarlet & Violet #124 | Temporal Forces #119 | Stellar Crown #90 | Surging Sparks #116 | Scarlet & Violet Black Star Promos #14 | Scarlet & Violet Black Star Promos #91
+ambiguous: Paldean Wooper | Paldean Wonders #064 -> Phantasmal Flames #102 | Paldea Evolved #128 | Paldea Evolved #129 | Paldea Evolved #221 | Obsidian Flames #126 | Obsidian Flames #127 | Paldean Fates #58 | Paldean Fates #180
+ambiguous: Paldean Clodsire | Paldean Wonders #065 -> Obsidian Flames #128 | Obsidian Flames #129
+ambiguous: Lokix | Paldean Wonders #066 -> Phantasmal Flames #10 | Paldea Evolved #21 | Paradox Rift #122 | Stellar Crown #16 | Journey Together #100
+ambiguous: Maschiff | Paldean Wonders #067 -> Pitch Black #57 | Scarlet & Violet #135 | Scarlet & Violet #136 | Paldea Evolved #141 | Paldea Evolved #142 | Paldean Fates #62 | Scarlet & Violet Black Star Promos #71
+ambiguous: Mabosstiff | Paldean Wonders #068 -> Pitch Black #58 | Scarlet & Violet #137 | Scarlet & Violet #218 | Paldea Evolved #143 | Paldean Fates #63 | Paldean Fates #188
+ambiguous: Shroodle | Paldean Wonders #069 -> Mega Evolution #91 | Mega Evolution #149 | Paldea Evolved #144 | Paldea Evolved #145 | Paldean Fates #189 | Surging Sparks #120 | Scarlet & Violet Black Star Promos #99
+ambiguous: Grafaiai | Paldean Wonders #070 -> Mega Evolution #92 | Paldea Evolved #146 | Paldea Evolved #223 | Paldean Fates #190 | Surging Sparks #121
+ambiguous: Bombirdier | Paldean Wonders #071 -> Pitch Black #71 | Scarlet & Violet #138 | Scarlet & Violet #219 | Paldea Evolved #147 | Stellar Crown #97 | Journey Together #101
+ambiguous: Tinkatink | Paldean Wonders #072 -> Mega Evolution #96 | Paldea Evolved #100 | Paldea Evolved #101 | Paldea Evolved #102 | Paldea Evolved #216 | Paradox Rift #82 | Paradox Rift #83 | Paldean Fates #165
+ambiguous: Tinkatuff | Paldean Wonders #073 -> Mega Evolution #97 | Paldea Evolved #103 | Paldea Evolved #104 | Paldea Evolved #217 | Paradox Rift #84 | Paldean Fates #166
+ambiguous: Tinkaton | Paldean Wonders #074 -> Mega Evolution #98 | Paldea Evolved #105 | Paradox Rift #85 | Paldean Fates #167 | Scarlet & Violet Black Star Promos #20 | Scarlet & Violet Black Star Promos #140
+ambiguous: Varoom | Paldean Wonders #075 -> Scarlet & Violet #140 | Scarlet & Violet #141 | Obsidian Flames #154 | Obsidian Flames #155 | Obsidian Flames #206 | Paldean Fates #64 | Paldean Fates #192 | Twilight Masquerade #124
+ambiguous: Revavroom | Paldean Wonders #076 -> Scarlet & Violet #142 | Paldean Fates #65 | Paldean Fates #193 | Twilight Masquerade #125 | Stellar Crown #109 | Scarlet & Violet Black Star Promos #8 | Scarlet & Violet Black Star Promos #121
+ambiguous: Orthworm | Paldean Wonders #077 -> Paldea Evolved #151 | Paldea Evolved #224 | Paradox Rift #138
+ambiguous: Gholdengo | Paldean Wonders #078 -> Mega Evolution #99 | 30th Celebration #108 | 30th Celebration #142 | Paldean Fates #67 | Surging Sparks #131
+ambiguous: Lechonk | Paldean Wonders #079 -> Scarlet & Violet #154 | Scarlet & Violet #155 | Scarlet & Violet #156 | Obsidian Flames #180 | Obsidian Flames #181 | Obsidian Flames #182 | Obsidian Flames #209 | Paldean Fates #71
+ambiguous: Oinkologne | Paldean Wonders #080 -> Scarlet & Violet #157 | Obsidian Flames #183 | Obsidian Flames #184 | Paldean Fates #72 | Paldean Fates #208 | Journey Together #140
+ambiguous: Tandemaus | Paldean Wonders #081 -> Scarlet & Violet #159 | Scarlet & Violet #160 | Paldea Evolved #166 | Paldea Evolved #167 | Paradox Rift #153 | Paradox Rift #154 | Paldean Fates #73 | Paldean Fates #209
+ambiguous: Maushold | Paldean Wonders #082 -> 30th Celebration #125 | 30th Celebration #146 | Scarlet & Violet #161 | Paldea Evolved #168 | Paldea Evolved #226 | Paldean Fates #74 | Paldean Fates #210 | Surging Sparks #158
+ambiguous: Squawkabilly | Paldean Wonders #083 -> Scarlet & Violet #162 | Destined Rivals #160 | Journey Together #141
+ambiguous: Cyclizar | Paldean Wonders #084 -> Scarlet & Violet #163 | Scarlet & Violet #164 | Paradox Rift #157 | Paradox Rift #215 | Paldean Fates #70 | Paldean Fates #195 | Stellar Crown #127 | Scarlet & Violet Black Star Promos #96
+ambiguous: Flamigo | Paldean Wonders #085 -> Scarlet & Violet #165 | Paldea Evolved #170 | Paldea Evolved #227 | Obsidian Flames #185 | Paradox Rift #106 | Paldean Fates #211
+ambiguous: Electric Generator | Paldean Wonders #086 -> Scarlet & Violet #170 | Paldean Fates #79
+ambiguous: Team Star Grunt | Paldean Wonders #088 -> Scarlet & Violet #195 | Scarlet & Violet #242 | Obsidian Flames #195
+ambiguous: Iono | Paldean Wonders #089 -> Paldea Evolved #185 | Paldea Evolved #254 | Paldea Evolved #269 | Paldean Fates #80 | Paldean Fates #237 | Scarlet & Violet Black Star Promos #124
+ambiguous: Nemona | Paldean Wonders #090 -> Scarlet & Violet #180 | Paldean Fates #82 | Paldean Fates #229 | Paldean Fates #238
+ambiguous: Arven | Paldean Wonders #091 -> Scarlet & Violet #166 | Scarlet & Violet #235 | Scarlet & Violet #249 | Obsidian Flames #186 | Paldean Fates #235
+ambiguous: Penny | Paldean Wonders #092 -> Scarlet & Violet #183 | Scarlet & Violet #239 | Scarlet & Violet #252 | Paldean Fates #239
+ambiguous: Fuecoco | Paldean Wonders #094 -> Scarlet & Violet #36 | Paldea Evolved #34 | Paldea Evolved #35 | Paldea Evolved #201 | Paradox Rift #23 | Surging Sparks #29 | Scarlet & Violet Black Star Promos #2 | Scarlet & Violet Black Star Promos #79
+ambiguous: Greavard | Paldean Wonders #095 -> Mega Evolution #65 | Scarlet & Violet #104 | Scarlet & Violet #105 | Scarlet & Violet #214 | Obsidian Flames #99 | Obsidian Flames #100 | Paldean Fates #42 | Stellar Crown #70
+ambiguous: Gimmighoul | Paldean Wonders #096 -> Mega Evolution #67 | 30th Celebration #81 | Paradox Rift #87 | Paradox Rift #88 | Paradox Rift #198 | Paldean Fates #44 | Surging Sparks #97
+ambiguous: Paldean Wooper | Paldean Wonders #097 -> Phantasmal Flames #102 | Paldea Evolved #128 | Paldea Evolved #129 | Paldea Evolved #221 | Obsidian Flames #126 | Obsidian Flames #127 | Paldean Fates #58 | Paldean Fates #180
+ambiguous: Orthworm | Paldean Wonders #098 -> Paldea Evolved #151 | Paldea Evolved #224 | Paradox Rift #138
+ambiguous: Maushold | Paldean Wonders #099 -> 30th Celebration #125 | 30th Celebration #146 | Scarlet & Violet #161 | Paldea Evolved #168 | Paldea Evolved #226 | Paldean Fates #74 | Paldean Fates #210 | Surging Sparks #158
+ambiguous: Meowscarada | Paldean Wonders #100 -> Scarlet & Violet #15 | Journey Together #18
+ambiguous: Armarouge | Paldean Wonders #101 -> Pitch Black #12 | Pitch Black #86 | Scarlet & Violet #41 | Scarlet & Violet #203 | Obsidian Flames #44 | Paldean Fates #15 | Paldean Fates #115 | Surging Sparks #34
+ambiguous: Chien-Pao | Paldean Wonders #102 -> Perfect Order #54 | Paradox Rift #57 | Surging Sparks #56 | Scarlet & Violet Black Star Promos #152
+ambiguous: Bellibolt | Paldean Wonders #103 -> Obsidian Flames #77 | Obsidian Flames #78 | Obsidian Flames #201 | Twilight Masquerade #74 | Scarlet & Violet Black Star Promos #94
+ambiguous: Gholdengo | Paldean Wonders #104 -> Mega Evolution #99 | 30th Celebration #108 | 30th Celebration #142 | Paldean Fates #67 | Surging Sparks #131
+ambiguous: Team Star Grunt | Paldean Wonders #105 -> Scarlet & Violet #195 | Scarlet & Violet #242 | Obsidian Flames #195
+ambiguous: Iono | Paldean Wonders #106 -> Paldea Evolved #185 | Paldea Evolved #254 | Paldea Evolved #269 | Paldean Fates #80 | Paldean Fates #237 | Scarlet & Violet Black Star Promos #124
+ambiguous: Nemona | Paldean Wonders #107 -> Scarlet & Violet #180 | Paldean Fates #82 | Paldean Fates #229 | Paldean Fates #238
+ambiguous: Arven | Paldean Wonders #108 -> Scarlet & Violet #166 | Scarlet & Violet #235 | Scarlet & Violet #249 | Obsidian Flames #186 | Paldean Fates #235
+ambiguous: Penny | Paldean Wonders #109 -> Scarlet & Violet #183 | Scarlet & Violet #239 | Scarlet & Violet #252 | Paldean Fates #239
+ambiguous: Meowscarada | Paldean Wonders #110 -> Scarlet & Violet #15 | Journey Together #18
+ambiguous: Armarouge | Paldean Wonders #111 -> Pitch Black #12 | Pitch Black #86 | Scarlet & Violet #41 | Scarlet & Violet #203 | Obsidian Flames #44 | Paldean Fates #15 | Paldean Fates #115 | Surging Sparks #34
+ambiguous: Chien-Pao | Paldean Wonders #112 -> Perfect Order #54 | Paradox Rift #57 | Surging Sparks #56 | Scarlet & Violet Black Star Promos #152
+ambiguous: Bellibolt | Paldean Wonders #113 -> Obsidian Flames #77 | Obsidian Flames #78 | Obsidian Flames #201 | Twilight Masquerade #74 | Scarlet & Violet Black Star Promos #94
+ambiguous: Gholdengo | Paldean Wonders #114 -> Mega Evolution #99 | 30th Celebration #108 | 30th Celebration #142 | Paldean Fates #67 | Surging Sparks #131
+ambiguous: Arven | Paldean Wonders #115 -> Scarlet & Violet #166 | Scarlet & Violet #235 | Scarlet & Violet #249 | Obsidian Flames #186 | Paldean Fates #235
+ambiguous: Sprigatito | Paldean Wonders #116 -> Scarlet & Violet #13 | Paldea Evolved #12 | Paldea Evolved #13 | Paldea Evolved #196 | Journey Together #16 | Scarlet & Violet Black Star Promos #1 | Scarlet & Violet Black Star Promos #76
+ambiguous: Floragato | Paldean Wonders #117 -> Scarlet & Violet #14 | Paldea Evolved #14 | Paldea Evolved #197 | Journey Together #17 | Scarlet & Violet Black Star Promos #77
+ambiguous: Meowscarada | Paldean Wonders #118 -> Scarlet & Violet #15 | Journey Together #18
+ambiguous: Pawmi | Paldean Wonders #119 -> Phantasmal Flames #32 | Scarlet & Violet #73 | Scarlet & Violet #74 | Paldea Evolved #74 | Paldean Fates #142 | Paldean Fates #226 | Stellar Crown #56 | Scarlet & Violet Black Star Promos #40
+ambiguous: Pawmo | Paldean Wonders #120 -> Phantasmal Flames #33 | Scarlet & Violet #75 | Paldea Evolved #75 | Paldean Fates #143
+ambiguous: Pawmot | Paldean Wonders #121 -> Phantasmal Flames #34 | Scarlet & Violet #76 | Scarlet & Violet #209 | Paldea Evolved #76 | Paldean Fates #144 | Scarlet & Violet Black Star Promos #6
+ambiguous: Gimmighoul | Paldean Wonders #122 -> Mega Evolution #67 | 30th Celebration #81 | Paradox Rift #87 | Paradox Rift #88 | Paradox Rift #198 | Paldean Fates #44 | Surging Sparks #97
+ambiguous: Tinkatink | Paldean Wonders #123 -> Mega Evolution #96 | Paldea Evolved #100 | Paldea Evolved #101 | Paldea Evolved #102 | Paldea Evolved #216 | Paradox Rift #82 | Paradox Rift #83 | Paldean Fates #165
+ambiguous: Tinkatuff | Paldean Wonders #124 -> Mega Evolution #97 | Paldea Evolved #103 | Paldea Evolved #104 | Paldea Evolved #217 | Paradox Rift #84 | Paldean Fates #166
+ambiguous: Gholdengo | Paldean Wonders #125 -> Mega Evolution #99 | 30th Celebration #108 | 30th Celebration #142 | Paldean Fates #67 | Surging Sparks #131
+ambiguous: Entei | Paldean Wonders #126 -> Wizards Black Star Promos #34 | Call of Legends #SL3 | Secret Wonders #4 | Aquapolis #10 | Aquapolis #H8 | Unseen Forces #113 | HGSS Black Star Promos #HGSS20 | Ascended Heroes #25
+ambiguous: Suicune | Paldean Wonders #127 -> Wizards Black Star Promos #53 | Plasma Blast #20 | Call of Legends #SL11 | Secret Wonders #19 | Aquapolis #37 | Aquapolis #H25 | Unseen Forces #115 | HGSS Black Star Promos #HGSS21
+ambiguous: Raikou | Paldean Wonders #128 -> Call of Legends #SL9 | Secret Wonders #16 | Skyridge #28 | Skyridge #H26 | Unseen Forces #114 | HGSS Black Star Promos #HGSS19 | Mega Evolution #48 | 30th Celebration: Classic Collection #50
+ambiguous: Tinkaton | Paldean Wonders #129 -> Mega Evolution #98 | Paldea Evolved #105 | Paradox Rift #85 | Paldean Fates #167 | Scarlet & Violet Black Star Promos #20 | Scarlet & Violet Black Star Promos #140
+ambiguous: Baxcalibur | Paldean Wonders #130 -> Paldea Evolved #60 | Paldea Evolved #210 | Paldean Fates #130 | Scarlet & Violet Black Star Promos #19
+ambiguous: Electric Generator | Paldean Wonders #131 -> Scarlet & Violet #170 | Paldean Fates #79
+ambiguous: Charizard | 30th Classic Collection #001 -> Base #4 | Base Set 2 #4 | Legendary Collection #3 | Legendary Treasures #19 | Boundaries Crossed #20 | Plasma Storm #136 | Celebrations: Classic Collection #4 | Detective Pikachu #5
+ambiguous: Delcatty | 30th Classic Collection #002 -> Boundaries Crossed #114 | Legends Awakened #23 | Ruby & Sapphire #5 | Ruby & Sapphire #29 | Legend Maker #4 | Power Keepers #8 | Sandstorm #34 | Ascended Heroes #166
+ambiguous: Metagross | 30th Classic Collection #003 -> Plasma Freeze #52 | BW Black Star Promos #BW75 | Legends Awakened #10 | Delta Species #11 | Delta Species #113 | Hidden Legends #11 | Deoxys #11 | HS—Unleashed #4
+ambiguous: Genesect EX | 30th Classic Collection #004 -> Plasma Blast #11 | Plasma Blast #97 | 30th Celebration: Classic Collection #11 | Fates Collide #64 | Fates Collide #120 | Black Bolt #67 | Black Bolt #161 | Black Bolt #169
+ambiguous: Misty | 30th Classic Collection #005 -> Gym Heroes #18 | Gym Heroes #102 | 30th Celebration: Classic Collection #18
+ambiguous: Dark Tyranitar | 30th Classic Collection #006 -> Team Rocket Returns #19 | Team Rocket Returns #20 | 30th Celebration: Classic Collection #19 | Neo Destiny #11
+ambiguous: Sneasel | 30th Classic Collection #007 -> Next Destinies #69 | Plasma Freeze #65 | Diamond & Pearl #100 | Legends Awakened #120 | Aquapolis #110 | HS—Undaunted #68 | Ascended Heroes #44 | 30th Celebration: Classic Collection #25
+ambiguous: Pikachu & Zekrom GX | 30th Classic Collection #008 -> 30th Celebration: Classic Collection #33 | Team Up #33 | Team Up #162 | Team Up #184 | SM Black Star Promos #SM168 | SM Black Star Promos #SM248
+ambiguous: Greninja BREAK | 30th Classic Collection #009 -> 30th Celebration: Classic Collection #41 | BREAKpoint #41
+ambiguous: Uxie | 30th Classic Collection #010 -> Plasma Blast #36 | Mysterious Treasures #18 | Legends Awakened #43 | 30th Celebration: Classic Collection #43 | Unified Minds #83 | Forbidden Light #41 | Surging Sparks #78 | Astral Radiance #65
+ambiguous: Crobat G | 30th Classic Collection #011 -> 30th Celebration: Classic Collection #47 | Platinum #47
+ambiguous: Raikou | 30th Classic Collection #012 -> Call of Legends #SL9 | Secret Wonders #16 | Skyridge #28 | Skyridge #H26 | Unseen Forces #114 | HGSS Black Star Promos #HGSS19 | Mega Evolution #48 | 30th Celebration: Classic Collection #50
+ambiguous: Buzzwole GX | 30th Classic Collection #013 -> 30th Celebration: Classic Collection #57 | Crimson Invasion #57 | Crimson Invasion #104 | Crimson Invasion #115 | Hidden Fates Shiny Vault #SV68 | SM Black Star Promos #SM69
+ambiguous: Pikachu | 30th Classic Collection #014 -> Base #58 | Jungle #60 | Base Set 2 #87 | Legendary Collection #86 | Wizards Black Star Promos #1 | Wizards Black Star Promos #4 | Wizards Black Star Promos #26 | Wizards Black Star Promos #27
+ambiguous: Erika's Jigglypuff | 30th Classic Collection #015 -> Gym Challenge #69 | 30th Celebration: Classic Collection #69
+ambiguous: Rayquaza EX | 30th Classic Collection #016 -> Dragons Exalted #85 | Dragons Exalted #123 | BW Black Star Promos #BW47 | Dragon Frontiers #97 | Dragon #97 | Deoxys #102 | 30th Celebration: Classic Collection #85 | Nintendo Black Star Promos #39
+ambiguous: Solgaleo GX | 30th Classic Collection #017 -> 30th Celebration: Classic Collection #89 | Sun & Moon #89 | Sun & Moon #143 | Sun & Moon #155 | Ultra Prism #173 | SM Black Star Promos #SM16 | SM Black Star Promos #SM104 | SM Black Star Promos #SM104A
+ambiguous: Gengar | 30th Classic Collection #018 -> Fossil #5 | Fossil #20 | Legendary Collection #11 | Diamond & Pearl #27 | Stormfront #18 | Expedition Base Set #13 | Expedition Base Set #48 | Skyridge #10
+ambiguous: Darkrai & Cresselia LEGEND | 30th Classic Collection #019 -> HS—Triumphant #99 | HS—Triumphant #100 | 30th Celebration: Classic Collection #99 | 30th Celebration: Classic Collection #100
+ambiguous: Darkrai & Cresselia LEGEND | 30th Classic Collection #020 -> HS—Triumphant #99 | HS—Triumphant #100 | 30th Celebration: Classic Collection #99 | 30th Celebration: Classic Collection #100
+ambiguous: N | 30th Classic Collection #021 -> Noble Victories #92 | Noble Victories #101 | Dark Explorers #96 | BW Black Star Promos #BW100 | 30th Celebration: Classic Collection #101 | Fates Collide #105 | Fates Collide #105A
+ambiguous: Palkia | 30th Classic Collection #022 -> Celebrations #4 | Call of Legends #19 | Call of Legends #SL8 | Diamond & Pearl #11 | Great Encounters #26 | Majestic Dawn #11 | DP Black Star Promos #DP27 | 30th Celebration #20
+ambiguous: M Gardevoir EX | 30th Classic Collection #023 -> Generations #RC31 | 30th Celebration: Classic Collection #106 | Steam Siege #79 | Steam Siege #112 | Primal Clash #106 | Primal Clash #156
+ambiguous: Shining Celebi | 30th Classic Collection #024 -> 30th Celebration: Classic Collection #106 | Neo Destiny #106 | SM Black Star Promos #SM79
+ambiguous: Scizor ex | 30th Classic Collection #025 -> Unseen Forces #108 | 30th Celebration: Classic Collection #108 | Temporal Forces #111 | Temporal Forces #195 | BREAKpoint #76 | BREAKpoint #119
+ambiguous: Mew VMAX | 30th Classic Collection #026 -> 30th Celebration: Classic Collection #114 | Lost Origin Trainer Gallery #TG30 | Fusion Strike #114 | Fusion Strike #268 | Fusion Strike #269
+ambiguous: Arceus VSTAR | 30th Classic Collection #027 -> 30th Celebration: Classic Collection #123 | Crown Zenith Galarian Gallery #GG70 | Brilliant Stars #123 | Brilliant Stars #176 | Brilliant Stars #184 | SWSH Black Star Promos #SWSH307
+ambiguous: Zacian V | 30th Classic Collection #028 -> Celebrations #16 | 30th Celebration: Classic Collection #138 | Sword & Shield #138 | Sword & Shield #195 | Sword & Shield #211 | Astral Radiance Trainer Gallery #TG21 | Crown Zenith #95 | Crown Zenith Galarian Gallery #GG48
+ambiguous: Lugia | 30th Classic Collection #029 -> Celebrations #22 | Call of Legends #15 | Call of Legends #SL7 | Secret Wonders #14 | Aquapolis #149 | Unseen Forces #29 | HGSS Black Star Promos #HGSS2 | 30th Celebration #121
+ambiguous: Magikarp | 30th Classic Collection #030 -> Base #35 | Base Set 2 #50 | Team Rocket #47 | Legendary Collection #52 | Legendary Treasures #30 | Dragons Exalted #23 | Call of Legends #61 | Detective Pikachu #8

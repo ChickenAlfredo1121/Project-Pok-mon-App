@@ -209,8 +209,20 @@
       font-size: 14px;
       color: var(--muted);
     }
-    #modalRemove { left: auto; right: 10px; background: var(--accent); color: #fff; border-color: var(--accent); font-size: 24px; }
-    #modalRemove:hover { background: #bf3d23; }
+
+    #modalRemove {
+      left: auto;
+      right: 10px;
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+      font-size: 24px;
+    }
+
+    #modalRemove:hover {
+      background: #bf3d23;
+    }
+
     .modal-btn {
       position: absolute;
       top: 10px;
@@ -263,6 +275,33 @@
         grid-template-columns: 1fr;
       }
     }
+
+    .no-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      aspect-ratio: 5 / 7;
+      /* same proportions as a real card */
+      padding: 16px;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .no-image small {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .no-image strong {
+      font-size: 17px;
+      font-weight: 500;
+    }
   </style>
 </head>
 
@@ -290,7 +329,8 @@
   <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Card preview">
     <div class="modal-box" id="modalBox">
       <button type="button" class="modal-btn" id="modalClose" aria-label="Close">&times;</button>
-      <button type="button" class="modal-btn" id="modalRemove" aria-label="Remove one from my collection">&minus;</button>
+      <button type="button" class="modal-btn" id="modalRemove"
+        aria-label="Remove one from my collection">&minus;</button>
       <div id="modalContent"></div>
     </div>
   </div>
@@ -313,18 +353,27 @@
       grid.appendChild(p);
     }
 
+    function noImage(card) {
+      const box = document.createElement('div');
+      box.className = 'no-image';
+      const label = document.createElement('small');
+      label.textContent = 'Image not available';
+      const name = document.createElement('strong');
+      name.textContent = card.cardName;
+      box.append(label, name);
+      return box;
+    }
+
     function cardImage(card, size, fallbackSize) {
       const img = document.createElement('img');
-      img.src = card.cardImage + '/' + size + '.webp';
+      img.src = card.cardImageFull ?? (card.cardImage + '/' + size + '.webp');
       img.alt = card.cardName;
       img.onerror = function () {
         img.onerror = null;
-        if (fallbackSize) {
+        if (fallbackSize && !card.cardImageFull) {
           img.src = card.cardImage + '/' + fallbackSize + '.webp';
         } else {
-          const h = document.createElement('h3');
-          h.textContent = card.cardName;
-          img.replaceWith(h);
+          img.replaceWith(noImage(card));
         }
       };
       return img;
@@ -342,14 +391,12 @@
         btn.dataset.index = i;
         btn.setAttribute('aria-label', 'View ' + c.cardName);
 
-        if (c.cardImage) {
+        if (c.cardImage || c.cardImageFull) {
           const img = cardImage(c, 'low');
           img.loading = 'lazy';
           btn.appendChild(img);
         } else {
-          const h = document.createElement('h3');
-          h.textContent = c.cardName;
-          btn.appendChild(h);
+          btn.appendChild(noImage(c));
         }
 
         if (c.quantity > 1) {   // change to `c.quantity` to always show the badge
@@ -370,12 +417,10 @@
     function openModal(card) {
       openCard = card;
       modalContent.innerHTML = '';
-      if (card.cardImage) {
+      if (card.cardImage || card.cardImageFull) {
         modalContent.appendChild(cardImage(card, 'high', 'low'));
       } else {
-        const h = document.createElement('h3');
-        h.textContent = card.cardName;
-        modalContent.appendChild(h);
+        modalContent.appendChild(noImage(card));
       }
 
       // price of a single copy, under the card
@@ -394,28 +439,28 @@
       document.getElementById('modalClose').focus();
     }
 
-document.getElementById('modalRemove').addEventListener('click', async function () {
-  if (!openCard) return;
+    document.getElementById('modalRemove').addEventListener('click', async function () {
+      if (!openCard) return;
 
-  // confirm before removing the last copy
-  
+      // confirm before removing the last copy
 
-  try {
-    const res = await fetch('/api/user/cards/' + encodeURIComponent(openCard._id), { method: 'DELETE' });
-    if (!res.ok) throw new Error('Remove failed');
-    const { quantity } = await res.json();
 
-    if (quantity === 0) {
-      closeModal();
-    } else {
-      openCard.quantity = quantity;   // popup stays open for more removals
-    }
-    onFiltersChanged(lastFilters);    // refresh the grid, badges and total worth
-  } catch (err) {
-    console.error(err);
-    alert('Could not remove the card.');
-  }
-});
+      try {
+        const res = await fetch('/api/user/cards/' + encodeURIComponent(openCard._id), { method: 'DELETE' });
+        if (!res.ok) throw new Error('Remove failed');
+        const { quantity } = await res.json();
+
+        if (quantity === 0) {
+          closeModal();
+        } else {
+          openCard.quantity = quantity;   // popup stays open for more removals
+        }
+        onFiltersChanged(lastFilters);    // refresh the grid, badges and total worth
+      } catch (err) {
+        console.error(err);
+        alert('Could not remove the card.');
+      }
+    });
 
 
 

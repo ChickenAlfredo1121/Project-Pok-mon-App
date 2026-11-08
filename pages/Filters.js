@@ -78,7 +78,7 @@
       clearTimeout(timer);
       timer = setTimeout(function () { if (onChange) onChange(get()); }, delay);
     }
-    
+
     series.addEventListener('change', () => notify(0));
     type.addEventListener('change', () => notify(0));
     name.addEventListener('input', () => notify(250));
@@ -89,17 +89,17 @@
       notify(0);
     });
 
-fetch('/api/cards/sets')
-  .then(r => r.json())
-  .then(sets => {
-    const list = host.querySelector('#seriesList');
-    for (const s of sets) {
-      const opt = document.createElement('option');
-      opt.value = s;
-      list.appendChild(opt);
-    }
-  })
-  .catch(err => console.error('Failed to load sets', err));
+    fetch('/api/cards/sets')
+      .then(r => r.json())
+      .then(sets => {
+        const list = host.querySelector('#seriesList');
+        for (const s of sets) {
+          const opt = document.createElement('option');
+          opt.value = s;
+          list.appendChild(opt);
+        }
+      })
+      .catch(err => console.error('Failed to load sets', err));
 
     return { get: get };
   };
