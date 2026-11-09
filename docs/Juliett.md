@@ -158,6 +158,7 @@ Start the camera, then press **Scan**. This feature is still **in development**:
 Text recognition uses **OCR** (optical character recognition) through [Tesseract.js](https://tesseract.projectnaptha.com/).
 
 [outline](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/3167ed6de311c6cfef9b4f56e18c98c95c39c6ea/pages/Home.html#L250-L257)
+
 [matching name](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/3167ed6de311c6cfef9b4f56e18c98c95c39c6ea/pages/Home.html#L349-L357)
  
 > If the live demo doesn't work [demo video](https://youtu.be/vPXsmZBbln4).
