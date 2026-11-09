@@ -1,0 +1,46 @@
+name: deploy-main-to-gcp.yml
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Prepare SSH
+        shell: bash
+        run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
+          # safer than StrictHostKeyChecking=no
+          # ssh-keyscan -H "${{ secrets.SSH_HOST }}" >> ~/.ssh/known_hosts
+          ssh-keyscan -H "35.238.228.90" >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
+
+      - name: Deploy over SSH
+        shell: bash
+        env:
+          SSH_USER: havandervort #${{ secrets.SSH_USER }}
+          SSH_HOST: 35.238.228.90 #${{ secrets.SSH_HOST }}
+          APP_DIR:  repo/Project-Pok-mon-App/server # ${{ vars.APP_DIR }}
+          PM2_NAME: mongo # ${{ vars.PM2_NAME }}
+        run: |
+          ssh -i ~/.ssh/deploy_key -T "$SSH_USER@$SSH_HOST" <<EOF
+            set -e
+
+            cd "$APP_DIR"
+          
+            git pull
+            npm ci
+
+            pm2 restart "$PM2_NAME" || pm2 start mongo.mjs --name "$PM2_NAME"
+
+            pm2 save
+          EOF

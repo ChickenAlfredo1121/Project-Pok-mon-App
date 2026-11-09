@@ -16,7 +16,7 @@ This project is aimed towards card collectors that would like a free and simple 
 ## WHY --- problem + project
 
 ### Problem / opportunity
-My goal is to learn more about/how to implement AI, database management, and full stack development. Additionally I would like to learn more about the developer side of apps and potentially deploy this as my first app. 
+Most existing options for pricing Pokémon cards are expensive and require manual searching. In response this app provides a quick and easy way to find the price of your Pokémon cards using your camera.
 
 ### Value proposition
 For card collectors, my application creates better solution to keeping up with personal collections because it is free and has camera capture capabilities avoiding time consuming manual searches for each card. 

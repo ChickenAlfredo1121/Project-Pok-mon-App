@@ -1,0 +1,470 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Card Database | Pokédex cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* style page for all elements */
+    :root {
+      --bg: #eef2ec;
+      --panel: #f6f8f4;
+      --ink: #173a34;
+      --muted: #7d8a84;
+      --line: #d9e0d9;
+      --accent: #d9482b;
+      --dark: #1f4a43;
+      --card: #fbfcf8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .12em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 500;
+      margin: 8px 0 20px;
+    }
+
+    .placeholder {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* results grid */
+    #grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    #grid .placeholder {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .card {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: pointer;
+      font: inherit;
+      color: inherit;
+      text-align: center;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(23, 58, 52, .12);
+    }
+
+    .card:focus-visible {
+      outline: 2px solid var(--dark);
+      outline-offset: 2px;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 500;
+      padding: 40px 0;
+    }
+
+    /* magnified popup */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(23, 58, 52, .65);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-box {
+      position: relative;
+      max-width: min(480px, 100%);
+      max-height: 100%;
+      padding: 16px;
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+      overflow: auto;
+    }
+
+    .modal-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .modal-box h3 {
+      margin: 0;
+      padding: 60px 40px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .modal-btn {
+      position: absolute;
+      top: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 24px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+    }
+
+    .modal-price {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .modal-price small {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .modal-price.none {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .modal-btn:hover {
+      background: #e4ece6;
+    }
+
+    .modal-btn:focus-visible {
+      outline: 2px solid var(--dark);
+      outline-offset: 2px;
+    }
+
+    #modalAdd {
+      right: 10px;
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    #modalAdd:hover {
+      background: #bf3d23;
+    }
+
+    #modalClose {
+      left: 10px;
+      font-size: 20px;
+    }
+
+    @media (max-width: 1000px) {
+      #grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 24px 16px;
+      }
+
+      #grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+
+    .no-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      aspect-ratio: 5 / 7;
+      /* this is the size of a pokemon card */
+      padding: 16px;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .no-image small {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .no-image strong {
+      font-size: 17px;
+      font-weight: 500;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="topbar"></div>
+  <script src="nav.js"></script>
+
+  <main class="page">
+    <!-- header section -->
+    <div class="eyebrow">Card Database</div>
+    <h1>Card Database</h1>
+
+    <!-- filter bar -->
+    <div id="filterbar"></div>
+
+    <!-- results -->
+    <div id="grid">
+      <p class="placeholder">Pick a filter to see cards.</p>
+    </div>
+  </main>
+
+  <!-- makes the card bigger when you click on it -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Card preview">
+    <div class="modal-box" id="modalBox">
+      <button type="button" class="modal-btn" id="modalClose" aria-label="Close">&times;</button>
+      <button type="button" class="modal-btn" id="modalAdd" aria-label="Add to my collection">+</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <script src="filters.js"></script>
+  <script>
+    //page layout
+    const grid = document.getElementById('grid');
+    const modal = document.getElementById('modal');
+    const modalBox = document.getElementById('modalBox');
+    const modalContent = document.getElementById('modalContent');
+
+    let currentCards = [];   // the cards currently on screen
+    let openCard = null;     // the card shown in popup
+
+    //displays message text
+    function showMessage(text) {
+      grid.innerHTML = '';
+      const p = document.createElement('p');
+      p.className = 'placeholder';
+      p.textContent = text;
+      grid.appendChild(p);
+    }
+
+    // makes the image, if there is no image it will say its not avaliable and put the cards name
+    function noImage(card) {
+      const box = document.createElement('div');
+      box.className = 'no-image';
+      const label = document.createElement('small');
+      label.textContent = 'Image not available';
+      const name = document.createElement('strong');
+      name.textContent = card.cardName;
+      box.append(label, name);
+      return box;
+    }
+
+    //this is the card image it takes the image field in the DB which is a URL and adds ".webp" so that it populates an image
+    function cardImage(card, size, fallbackSize) {
+      const img = document.createElement('img');
+      img.src = card.cardImageFull ?? (card.cardImage + '/' + size + '.webp');
+      img.alt = card.cardName;
+      img.onerror = function () {
+        img.onerror = null;
+        if (fallbackSize && !card.cardImageFull) {
+          img.src = card.cardImage + '/' + fallbackSize + '.webp';
+        } else {
+          img.replaceWith(noImage(card));
+        }
+      };
+      return img;
+    }
+
+    //this is what actually renders the image onto the browser
+    function render(cards) {
+      currentCards = cards;
+      grid.innerHTML = '';
+
+      //answer if no card
+      if (!cards.length) { showMessage('No cards found.'); return; }
+
+      //first tries to get the image using the helper function, but if i cant it will use the no image helper funciton.
+      cards.forEach(function (c, i) {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'card';
+        btn.dataset.index = i;
+        btn.setAttribute('aria-label', 'View ' + c.cardName);
+        if (c.cardImage || c.cardImageFull) {
+          const img = cardImage(c, 'low');
+          img.loading = 'lazy';
+          btn.appendChild(img);
+        } else {
+          btn.appendChild(noImage(c));
+        }
+        grid.appendChild(btn);
+        if (c.quantity > 1) { //if there is multiple of a matching parameter append the cards together
+          const q = document.createElement('span');
+          q.className = 'qty';
+          q.textContent = '×' + c.quantity;
+          btn.appendChild(q);
+        }
+      });
+    }
+
+    // one listener for every card
+    grid.addEventListener('click', function (e) {
+      const btn = e.target.closest('.card');
+      if (btn) openModal(currentCards[Number(btn.dataset.index)]);
+    });
+
+    //this is the helper function for pricing cards
+    function openModal(card) {
+      openCard = card;
+      modalContent.innerHTML = '';
+      if (card.cardImage || card.cardImageFull) {
+        modalContent.appendChild(cardImage(card, 'high', 'low')); //tries high quality of card and falls back to low
+      } else {
+        modalContent.appendChild(noImage(card)); //if that dosent work then use the no image
+      }
+
+      // price of a single copy, under the card
+      const price = document.createElement('div');
+      price.className = 'modal-price';
+      if (typeof card.priceUsd === 'number') {
+        price.innerHTML = '<small>Price per card</small>$' +
+          card.priceUsd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); //only show 2 digits of value
+      } else {
+        price.classList.add('none');
+        price.textContent = 'Price unavailable'; //if no price avaliable
+      }
+      modalContent.appendChild(price); //add price to card
+
+      modal.classList.add('open');
+      document.getElementById('modalClose').focus();
+    }
+
+    //this closes the card when its in pop up mode
+    function closeModal() {
+      modal.classList.remove('open');
+      openCard = null;
+    }
+
+    // ways to get out of pop up of card: click outside the box, X button, or Escape closes it
+    modal.addEventListener('click', function (e) {
+      if (!modalBox.contains(e.target)) closeModal();
+    });
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // this utilizes the + function to add cards to the users account
+    document.getElementById('modalAdd').addEventListener('click', async function () {
+      if (!openCard) return;
+      const btn = this;
+      try {
+        const res = await fetch('/api/user/cards', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ cardId: openCard._id })
+        });
+        if (!res.ok) throw new Error('Add failed');
+        const { quantity } = await res.json();
+
+        // confirmation it was added to user collection
+        btn.textContent = '✓';
+        btn.title = 'You now own ' + quantity;
+        setTimeout(() => { btn.textContent = '+'; }, 900);
+      } catch (err) {
+        console.error(err);
+        btn.textContent = '!';
+        setTimeout(() => { btn.textContent = '+'; }, 900);
+      }
+    });
+
+    // runs whenever a filter changes
+    async function onFiltersChanged(filters) {
+      const params = new URLSearchParams();
+      if (filters.series) params.set('set', filters.series);
+      if (filters.type) params.set('type', filters.type);
+      if (filters.name) params.set('name', filters.name);
+
+      if (!params.toString()) {
+        showMessage('Pick a filter to see cards.');
+        return;
+      }
+
+      try {
+        const response = await fetch('/api/cards/search?' + params);
+        if (!response.ok) throw new Error('Search failed');
+        render(await response.json());
+      } catch (err) {
+        console.error(err);
+        showMessage('Something went wrong.');
+      }
+    }
+
+    //function from Filter.js
+    initFilters(onFiltersChanged);
+  </script>
+
+</body>
+
+</html>

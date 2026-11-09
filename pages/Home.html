@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pokédex cards</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    /* all the styles for the page */
+    :root {
+      --bg: #eef2ec;
+      --panel: #f6f8f4;
+      --ink: #173a34;
+      --muted: #7d8a84;
+      --line: #d9e0d9;
+      --accent: #d9482b;
+      --dark: #1f4a43;
+      --card: #fbfcf8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Outfit', system-ui, sans-serif;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: .12em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+
+    #Search {
+      max-width: 560px;
+      margin: 0 auto 32px;
+      padding: 32px 24px;
+      text-align: center;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+    }
+
+    #Search h1 {
+      font-size: 22px;
+      font-weight: 500;
+      margin: 8px 0 4px;
+    }
+
+    #Search h3 {
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .btn {
+      height: 44px;
+      padding: 0 22px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: #e4ece6;
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #d8e3db;
+    }
+
+    .btn:focus-visible {
+      outline: 2px solid var(--dark);
+      outline-offset: 2px;
+    }
+
+    #camera {
+      max-width: 560px;
+      margin: 0 auto 32px;
+    }
+
+    .camera-frame {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      background: #dfe7e1;
+      border: 2px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    #video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .camera-guide {
+      position: absolute;
+      z-index: 1;
+      pointer-events: none;
+      top: 10%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 80%;
+      aspect-ratio: 5 / 7;
+      /* card-shaped target */
+      border: 2px solid var(--accent);
+      border-radius: 10px;
+      opacity: .8;
+    }
+
+    .camera-hint {
+      margin: 10px 0 0;
+      text-align: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .camera-actions {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 12px;
+    }
+
+    #ocrOut {
+      margin: 12px 0 0;
+      text-align: center;
+      font: inherit;
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+
+    #debug {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      align-items: flex-start;
+      margin-top: 10px;
+    }
+
+    #debug canvas {
+      max-width: 100%;
+      max-height: 260px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .page {
+        padding: 24px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- waffle navigation (see nav.js) -->
+  <div id="topbar"></div>
+  <script src="Nav.js"></script>
+
+  <main class="page">
+
+    <!-- page header with info for user -->
+    <section id="Search">
+      <div class="eyebrow">Pokédex</div>
+      <h1>Use your camera to search for any pokémon card you have!</h1>
+      <h3>Manually search cards using the Card Database!</h3>
+    </section>
+
+    <!-- camera box and buttons-->
+    <section id="camera" aria-label="Card scanner">
+      <div class="camera-frame" id="cameraFrame">
+        <video id="video" autoplay playsinline muted></video>
+        <div class="camera-guide"></div>
+      </div>
+      <p class="camera-hint">Fit the card's edges to the red frame</p>
+      <div class="camera-actions">
+        <button id="startBtn" class="btn" type="button">Start camera</button>
+        <button id="scanBtn" class="btn" type="button">Scan</button>
+      </div>
+      <pre id="ocrOut"></pre>
+      <div id="debug"></div>
+    </section>
+
+  </main>
+
+  <!-- this is the card reading OCR (optical characer recogonition) -->
+  <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+  <script>
+
+    //what is this for?????
+    const video = document.getElementById('video');
+    const out = document.getElementById('ocrOut');
+    const debug = document.getElementById('debug');
+    let worker = null;
+    let nameIndex = null;
+
+    // not all cards have the name at the same level (trainer to pokemon) so we are reading the entire top portion
+    const NAME_BOX = { x: 0.04, y: 0.02, w: 0.92, h: 0.20 }; //parameters for scan
+    const TRY_INVERTED = true;   //what does this do?????
+
+    //this starts the users camera
+    async function startCamera() {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: 'environment', width: { ideal: 1920 }, height: { ideal: 1080 } }, //size parameters of camera
+          audio: false
+        });
+        video.srcObject = stream;
+        await video.play();
+        out.textContent = '';
+      } catch (err) {
+        console.error(err);
+        out.textContent = 'Could not start the camera: ' + err.message;
+      }
+    }
+
+    // creates the worker from tesseract once this it has what it needs after
+    async function getWorker() {
+      if (!worker) {
+        worker = await Tesseract.createWorker('eng');
+        // find text in the entire box we specified
+        await worker.setParameters({ tessedit_pageseg_mode: Tesseract.PSM.SPARSE_TEXT });
+      }
+      return worker;
+    }
+
+    // this displays the actual shape (outline) of the box where the card should be so that the user knows where to put it for the scan
+    function grabCard() {
+      const vw = video.videoWidth, vh = video.videoHeight;
+      const h = vh * 0.8, w = h * 5 / 7;
+      const c = document.createElement('canvas');
+      c.width = w; c.height = h;
+      c.getContext('2d').drawImage(video, (vw - w) / 2, (vh - h) / 2, w, h, 0, 0, w, h);
+      return c;
+    }
+
+    // this displays the shape (outline) of what is being read (the top portion for name)
+    function crop(src, fx, fy, fw, fh) {
+      const c = document.createElement('canvas');
+      c.width = src.width * fw; c.height = src.height * fh;
+      c.getContext('2d').drawImage(src, src.width * fx, src.height * fy, c.width, c.height, 0, 0, c.width, c.height);
+      return c;
+    }
+
+    // enlarge, convert to grayscale, stretch contrast (optionally invert)
+    //i want to reword this, what does this do?????
+    function preprocess(src, scale, invert) {
+      const c = document.createElement('canvas');
+      c.width = src.width * scale; c.height = src.height * scale;
+      const ctx = c.getContext('2d');
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(src, 0, 0, c.width, c.height);
+
+      const img = ctx.getImageData(0, 0, c.width, c.height);
+      const d = img.data;
+      const gray = new Float32Array(d.length / 4);
+      let min = 255, max = 0;
+      for (let i = 0, j = 0; i < d.length; i += 4, j++) {
+        const v = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
+        gray[j] = v;
+        if (v < min) min = v;
+        if (v > max) max = v;
+      }
+      const range = Math.max(1, max - min);
+      for (let i = 0, j = 0; i < d.length; i += 4, j++) {
+        let v = (gray[j] - min) * 255 / range;
+        if (invert) v = 255 - v;
+        d[i] = d[i + 1] = d[i + 2] = v;
+        d[i + 3] = 255;
+      }
+      ctx.putImageData(img, 0, 0);
+      return c;
+    }
+
+    // read the strip normal (and inverted); matching decides which read is better
+    //what does this do????
+    async function readAll(strip) {
+      const w = await getWorker();
+      const reads = [];
+      for (const invert of TRY_INVERTED ? [false, true] : [false]) {
+        const canvas = preprocess(strip, 2, invert);
+        const { data } = await w.recognize(canvas);
+        reads.push({ text: data.text, confidence: data.confidence, canvas });
+      }
+      return reads;
+    }
+
+    // this is the bottom view for testing, it shows what tesseract actually reads, its confidence, and an image of what it read
+    function showDebug(card, readCanvas) {
+      const overlay = document.createElement('canvas');
+      overlay.width = card.width; overlay.height = card.height;
+      const ctx = overlay.getContext('2d');
+      ctx.drawImage(card, 0, 0);
+      ctx.strokeStyle = 'red';
+      ctx.lineWidth = Math.max(2, card.width / 120);
+      ctx.strokeRect(card.width * NAME_BOX.x, card.height * NAME_BOX.y,
+        card.width * NAME_BOX.w, card.height * NAME_BOX.h);
+      debug.replaceChildren(overlay, readCanvas);
+    }
+
+    //this works to find the actual text
+    //please explain how this is acutally working i want to know this very well
+    function lev(a, b) {
+      const dp = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
+      for (let j = 1; j <= b.length; j++) dp[0][j] = j;
+      for (let i = 1; i <= a.length; i++)
+        for (let j = 1; j <= b.length; j++)
+          dp[i][j] = Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1,
+            dp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+      return dp[a.length][b.length];
+    }
+
+    //this this change everything to lowercase and takes out odd characters for easier reading
+    const letters = s => s.toLowerCase().replace(/[^a-z]/g, '');
+
+    // this makes sure that if it is an evolved form it dosent take the pre-evolution name by accident
+    function stripEvolves(line) {
+      const tokens = line.trim().split(/\s+/);
+      const i = tokens.findIndex(t => {
+        const l = letters(t);
+        return l.length >= 5 && l.length <= 8 && lev(l, 'evolves') <= 2; //looking for "evolves"
+      });
+      return i === -1 ? tokens : tokens.slice(0, i); //takes it out if present
+    }
+
+    //this goes and gets the card name from the DB to see if it read the card correctly/has a match
+    async function loadNames() {
+      if (nameIndex) return;
+      const res = await fetch('/api/cards/names');
+      if (!res.ok) throw new Error('names route returned ' + res.status);
+      const names = await res.json();
+      nameIndex = names
+        .map(n => ({ name: n, key: letters(n) }))
+        .filter(n => n.key.length >= 3);
+    }
+
+    // looks for a real name by going by each line
+    async function bestNameMatch(raw) {
+      await loadNames();
+      let best = null;
+
+      raw.split('\n').forEach((line, lineNo) => {
+        const tokens = stripEvolves(line).map(letters).filter(Boolean); //splits the lines 
+
+        for (let n = 1; n <= 3; n++) {                       // runs every couple words
+          for (let i = 0; i + n <= tokens.length; i++) {
+            const q = tokens.slice(i, i + n).join('');
+            if (q.length < 3) continue;
+
+            const allowed = q.length <= 4 ? 1 : Math.floor(q.length / 3);   // the amount of typo accepted WHY????
+            for (const entry of nameIndex) {
+              if (Math.abs(entry.key.length - q.length) > allowed) continue; // built in cheat skip WHY?????
+              const dist = lev(q, entry.key);
+              if (dist > allowed) continue;
+
+              const score = dist / entry.key.length;
+              // lowest error wins, if there is a tie it goes to the one with a longer name
+              const better = !best || score < best.score ||
+                (score === best.score && entry.key.length > best.len) ||
+                (score === best.score && entry.key.length === best.len && lineNo < best.lineNo);
+              if (better) best = { name: entry.name, distance: dist, score, len: entry.key.length, lineNo };
+            }
+          }
+        }
+      });
+      return best;
+    }
+
+    //listener for starting the camera
+    document.getElementById('startBtn').addEventListener('click', startCamera);
+
+    //listener for scanning a card
+    document.getElementById('scanBtn').addEventListener('click', async () => {
+      if (!video.videoWidth) { out.textContent = 'Start the camera first.'; return; }
+      out.textContent = 'Reading...';
+      try {
+        const card = grabCard(); //getting shape of box
+        const strip = crop(card, NAME_BOX.x, NAME_BOX.y, NAME_BOX.w, NAME_BOX.h);
+        const reads = await readAll(strip);
+
+        // uses best match helper function
+        let best = null, shown = reads[0], lookupError = null;
+        for (const r of reads) {
+          try {
+            const m = await bestNameMatch(r.text);
+            if (m && (!best || m.score < best.score)) { best = m; shown = r; }
+          } catch (err) { lookupError = err; break; }
+        }
+        showDebug(card, shown.canvas); //gives us the tesseract details
+
+        //gives the details from tesseract, displayed
+        const lines = shown.text.split('\n').map(s => s.trim()).filter(Boolean).join(' | ');
+        let msg = 'Read: ' + (lines || '(nothing)');
+        if (lookupError) msg += '\nName lookup failed: ' + lookupError.message;
+        else msg += '\n' + (best ? 'Closest card name: ' + best.name : 'No close match - adjust the card and scan again');
+        out.textContent = msg;
+      } catch (err) {
+        console.error(err);
+        out.textContent = 'Scan failed: ' + err.message;
+      }
+    });
+
+    document.getElementById('startBtn').addEventListener('click', startCamera);
+  </script>
+
+</body>
+
+</html>
