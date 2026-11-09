@@ -30,7 +30,7 @@ jobs:
           SSH_USER: havandervort #${{ secrets.SSH_USER }}
           SSH_HOST: 35.238.228.90 #${{ secrets.SSH_HOST }}
           APP_DIR:  repo/Project-Pok-mon-App/server # ${{ vars.APP_DIR }}
-          PM2_NAME: app # ${{ vars.PM2_NAME }}
+          PM2_NAME: mongo # ${{ vars.PM2_NAME }}
         run: |
           ssh -i ~/.ssh/deploy_key -T "$SSH_USER@$SSH_HOST" <<EOF
             set -e
@@ -40,7 +40,7 @@ jobs:
             git pull
             npm ci
 
-            pm2 restart "$PM2_NAME" || pm2 start app.mjs --name "$PM2_NAME"
+            pm2 restart "$PM2_NAME" || pm2 start mongo.mjs --name "$PM2_NAME"
 
             pm2 save
           EOF
