@@ -5,9 +5,11 @@
     { name: 'User', href: 'User.html' },
     { name: 'Card Database', href: 'CardCollection.html' },
   ];
-  const current = location.pathname.split('/').pop() || 'Home.html'; //changed
+  const current = location.pathname.split('/').pop() || 'Home.html'; //start page
 
   const style = document.createElement('style');
+
+  // the style
   style.textContent = `
     #topbar { position: sticky; top: 0; z-index: 10; background: var(--bg, #eef2ec); border-bottom: 1px solid var(--line, #d9e0d9); }
     .topbar-inner { max-width: 1100px; margin: 0 auto; padding: 12px 32px; display: flex; align-items: center; gap: 14px; position: relative; }
@@ -36,11 +38,12 @@
   `;
   document.head.appendChild(style);
 
+  //this is the waffle for navigation, spans make the 9 dots (3x3)
   const host = document.getElementById('topbar');
   host.innerHTML = `
     <div class="topbar-inner">
       <button class="waffle" id="waffleBtn" aria-label="Open navigation menu" aria-expanded="false" aria-controls="waffleMenu">
-        <span></span><span></span><span></span>
+        <span></span><span></span><span></span> 
         <span></span><span></span><span></span>
         <span></span><span></span><span></span>
       </button>
@@ -52,9 +55,11 @@
       </nav>
     </div>`;
 
+  //what does this do???
   const btn = document.getElementById('waffleBtn');
   const menu = document.getElementById('waffleMenu');
 
+  //opens the menu
   function setOpen(open) {
     menu.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));

@@ -17,28 +17,22 @@ const uri = process.env.MONGO_URI;
 app.use(express.static(join(__dirname, '../pages')));
 app.use(express.json());
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+
 //accesses the database
 const db = client.db('pokedata');
 const collection = db.collection('cards');
 
 const userCards = db.collection('usercards');
-const DEMO_USER = 'stone';
+const DEMO_USER = 'stone'; //my first user, my roommate
 
 await userCards.createIndex({ userId: 1, cardId: 1 }, { unique: true });
 
-
+//helper function for the filter
 function buildCardFilter({ name = '', set = '', type = '' }) {
   const filter = {};
   name = name.trim(); set = set.trim(); type = type.trim();
 
+  //convet all special characters
   if (name) {
     const safe = name
       .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -50,10 +44,12 @@ function buildCardFilter({ name = '', set = '', type = '' }) {
   return filter;
 }
 
-// ---- EUR -> USD conversion, cached so we don't call the rate API on every request ----
+//money conversion cached so its not pulled every time
 let fxCache = { rate: null, fetchedAt: 0 };
-const FX_TTL = 12 * 60 * 60 * 1000; // refresh at most every 12 hours
+const FX_TTL = 12 * 60 * 60 * 1000; //refreshed at most once every 12 hours
 
+
+//converts card price from EUR to USD
 async function getEurToUsd() {
   if (fxCache.rate && Date.now() - fxCache.fetchedAt < FX_TTL) return fxCache.rate;
   try {
@@ -66,11 +62,12 @@ async function getEurToUsd() {
     return rate;
   } catch (err) {
     console.error('FX fetch failed:', err);
-    return fxCache.rate; // last known rate if we have one, otherwise null
+    return fxCache.rate; // last known rate if we have one, if not its null
   }
 }
 
-// one USD price per card, or null if there's no usable price
+// one USD price per card or null if no price available
+//what is cardmarket????
 function cardPriceUsd(card, eurToUsd) {
   const cm = card.cardPrice?.cardmarket;
   const eur = cm?.trend ?? cm?.avg;
@@ -78,7 +75,7 @@ function cardPriceUsd(card, eurToUsd) {
     return Math.round(eur * eurToUsd * 100) / 100;
   }
 
-  // fallback: TCGplayer is already USD, use the first variant that has a market price
+  // fallback: use TCGDex USD prices (holo prices)
   const tcg = card.cardPrice?.tcgplayer;
   if (tcg) {
     for (const v of Object.values(tcg)) {
@@ -88,14 +85,14 @@ function cardPriceUsd(card, eurToUsd) {
   return null;
 }
 
-//connects to the start pahe Home
+//connects to the start file Home
 app.get('/', (req, res) => {
   res.sendFile(join(__dirname, '../pages', 'Home.html'));
 })
 
 
 
-//search function, checks if there is a name. if there is it seraches for the card and prints the results in an array
+//search function, checks if there is a name. if there is it searches for the card and prints the results in an array
 app.get('/api/cards/search', async (req, res) => {
   const name = (req.query.name ?? '').trim();
   const set = (req.query.set ?? '').trim();
@@ -108,7 +105,7 @@ app.get('/api/cards/search', async (req, res) => {
   const filter = {};
   if (name) {
     const safe = name
-      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&') //can limit array amount for testing. took out during deployment
       .replace(/[\s-]+/g, '[\\s-]*');
     filter.cardName = { $regex: safe, $options: 'i' };
   }
@@ -117,7 +114,7 @@ app.get('/api/cards/search', async (req, res) => {
 
   try {
     const cards = await collection.find(filter).toArray();
-    const eurToUsd = await getEurToUsd();
+    const eurToUsd = await getEurToUsd(); //price conversion
     res.json(cards.map(c => ({ ...c, priceUsd: cardPriceUsd(c, eurToUsd) })));
   } catch (err) {
     console.error(err);
@@ -126,6 +123,7 @@ app.get('/api/cards/search', async (req, res) => {
 });
 
 //this is used for the set filter
+//help me undserstand this?????
 app.get('/api/cards/sets', async (req, res) => {
   try {
     const rows = await collection.aggregate([
@@ -197,7 +195,7 @@ app.get('/api/user/cards', async (req, res) => {
   }
 });
 
-
+//for removing a card from a users account
 app.delete('/api/user/cards/:cardId', async (req, res) => {
   const { cardId } = req.params;
   if (!ObjectId.isValid(cardId)) {
@@ -207,7 +205,7 @@ app.delete('/api/user/cards/:cardId', async (req, res) => {
   try {
     const id = new ObjectId(cardId);
 
-    // more than one copy: just decrement
+    // more than one copy, decrement
     const updated = await userCards.findOneAndUpdate(
       { userId: DEMO_USER, cardId: id, quantity: { $gt: 1 } },
       { $inc: { quantity: -1 } },
@@ -215,7 +213,7 @@ app.delete('/api/user/cards/:cardId', async (req, res) => {
     );
     if (updated) return res.json({ quantity: updated.quantity });
 
-    // otherwise it's the last copy (or not owned): delete the row
+    // if last copy, delete row
     const del = await userCards.deleteOne({ userId: DEMO_USER, cardId: id, quantity: { $lte: 1 } });
     if (!del.deletedCount) return res.status(404).json({ error: 'card not in collection' });
 
@@ -225,6 +223,7 @@ app.delete('/api/user/cards/:cardId', async (req, res) => {
     res.status(500).json({ error: 'Could not remove card' });
   }
 });
+
 // every distinct card name, used by the scanner to snap OCR text to a real name
 app.get('/api/cards/names', async (req, res) => {
   try {

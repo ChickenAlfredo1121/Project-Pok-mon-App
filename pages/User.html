@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
+    /* all the styles */
     :root {
       --bg: #eef2ec;
       --panel: #f6f8f4;
@@ -307,9 +308,11 @@
 
 <body>
 
+  <!-- getting the navigation bar -->
   <div id="topbar"></div>
   <script src="nav.js"></script>
 
+  <!-- the contents -->
   <main class="page">
     <div class="eyebrow">User</div>
     <h1>My collection</h1>
@@ -335,8 +338,10 @@
     </div>
   </div>
 
+  <!-- getting the filer for searches of personal collection -->
   <script src="filters.js"></script>
   <script>
+    //what does this do????
     const grid = document.getElementById('grid');
     const modal = document.getElementById('modal');
     const modalBox = document.getElementById('modalBox');
@@ -345,6 +350,7 @@
     let openCard = null;
     let lastFilters = {};
 
+    //displays message text
     function showMessage(text) {
       grid.innerHTML = '';
       const p = document.createElement('p');
@@ -353,6 +359,7 @@
       grid.appendChild(p);
     }
 
+    // makes the image, if there is no image it will say its not avaliable and put the cards name
     function noImage(card) {
       const box = document.createElement('div');
       box.className = 'no-image';
@@ -364,6 +371,7 @@
       return box;
     }
 
+    //this is the card image it takes the image field in the DB which is a URL and adds ".webp" so that it populates an image
     function cardImage(card, size, fallbackSize) {
       const img = document.createElement('img');
       img.src = card.cardImageFull ?? (card.cardImage + '/' + size + '.webp');
@@ -379,6 +387,7 @@
       return img;
     }
 
+    //this is what acutally renders the image onto the browser
     function render(cards) {
       currentCards = cards;
       grid.innerHTML = '';
@@ -399,7 +408,7 @@
           btn.appendChild(noImage(c));
         }
 
-        if (c.quantity > 1) {   // change to `c.quantity` to always show the badge
+        if (c.quantity > 1) {   //if there is multiple of a matching parameter append the cards together
           const q = document.createElement('span');
           q.className = 'qty';
           q.textContent = '×' + c.quantity;
@@ -409,18 +418,20 @@
       });
     }
 
+    //one lister for every card
     grid.addEventListener('click', function (e) {
       const btn = e.target.closest('.card');
       if (btn) openModal(currentCards[Number(btn.dataset.index)]);
     });
 
+    //this is the helper funciton for pricing cards
     function openModal(card) {
       openCard = card;
       modalContent.innerHTML = '';
       if (card.cardImage || card.cardImageFull) {
-        modalContent.appendChild(cardImage(card, 'high', 'low'));
+        modalContent.appendChild(cardImage(card, 'high', 'low'));//tries high quality of card and falls back to low
       } else {
-        modalContent.appendChild(noImage(card));
+        modalContent.appendChild(noImage(card));//if that dosent work then use the no image
       }
 
       // price of a single copy, under the card
@@ -431,20 +442,17 @@
           card.priceUsd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
       } else {
         price.classList.add('none');
-        price.textContent = 'Price unavailable';
+        price.textContent = 'Price unavailable'; //if no price avaliable
       }
-      modalContent.appendChild(price);
+      modalContent.appendChild(price);//add price to card
 
       modal.classList.add('open');
       document.getElementById('modalClose').focus();
     }
 
+    //this is for removing a card 
     document.getElementById('modalRemove').addEventListener('click', async function () {
       if (!openCard) return;
-
-      // confirm before removing the last copy
-
-
       try {
         const res = await fetch('/api/user/cards/' + encodeURIComponent(openCard._id), { method: 'DELETE' });
         if (!res.ok) throw new Error('Remove failed');
@@ -453,9 +461,9 @@
         if (quantity === 0) {
           closeModal();
         } else {
-          openCard.quantity = quantity;   // popup stays open for more removals
+          openCard.quantity = quantity;   // if there is still more of that card, the pop up stays
         }
-        onFiltersChanged(lastFilters);    // refresh the grid, badges and total worth
+        onFiltersChanged(lastFilters);    // refresh everything
       } catch (err) {
         console.error(err);
         alert('Could not remove the card.');
@@ -463,9 +471,13 @@
     });
 
 
+    //this closes the card when its in the pop up mode
+    function closeModal() {
+      modal.classList.remove('open');
+      openCard = null;
+    }
 
-    function closeModal() { modal.classList.remove('open'); openCard = null; }
-
+    //ways to get out of pop up of card: click outside the box, X button, or Escape closes it
     modal.addEventListener('click', function (e) {
       if (!modalBox.contains(e.target)) closeModal();
     });
@@ -474,7 +486,7 @@
       if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
     });
 
-    // runs whenever a filter changes; no filters = show the whole collection
+    // runs whenever a filter changes, if there is no filter show the whole user collection
     async function onFiltersChanged(filters) {
       lastFilters = filters;
       const params = new URLSearchParams();
@@ -483,21 +495,22 @@
       if (filters.name) params.set('name', filters.name);
 
       try {
-        const response = await fetch('/api/user/cards?' + params);
+        const response = await fetch('/api/user/cards?' + params); //tries to get cards from user collection
         if (!response.ok) throw new Error('Load failed');
 
-        const cards = await response.json();   // read the body once
+        const cards = await response.json();
         render(cards);
 
-        const total = cards.reduce((sum, c) => sum + (c.priceUsd ?? 0) * (c.quantity ?? 1), 0);
+        const total = cards.reduce((sum, c) => sum + (c.priceUsd ?? 0) * (c.quantity ?? 1), 0); //getting cards total worth (including copies)
         document.getElementById('worthValue').textContent =
-          total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+          total.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 }); //price
       } catch (err) {
         console.error(err);
         showMessage('Could not load your collection.');
       }
     }
 
+    //funciton from Filter.js
     initFilters(onFiltersChanged);
     onFiltersChanged({});   // load everything when the page opens
   </script>

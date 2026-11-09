@@ -1,5 +1,7 @@
 // Shared filter bar: Series, Type, Name.
 (function () {
+
+  // filter style and contents
   const TYPES = ['Colorless', 'Darkness', 'Dragon', 'Fairy', 'Fighting', 'Fire', 'Grass', 'Lightning', 'Metal', 'Psychic', 'Water'];
 
   const style = document.createElement('style');
@@ -39,6 +41,7 @@
   `;
   document.head.appendChild(style);
 
+  //this is the search bar at the top of the card colleciton and user pages
   window.initFilters = function (onChange) {
     const host = document.getElementById('filterbar');
     host.innerHTML = `
@@ -60,6 +63,7 @@
         <button type="button" class="clear" id="fSearch">Search</button>
       </div>`;
 
+    //what does this do?????
     const series = host.querySelector('#fSeries');
     const type = host.querySelector('#fType');
     const name = host.querySelector('#fName');
@@ -67,18 +71,19 @@
     const search = host.querySelector('#fSearch');
     search.addEventListener('click', () => notify(0));
 
-
+    //retrieves the parameters selected in filter
     function get() {
       return { series: series.value, type: type.value, name: name.value.trim() };
     }
 
-    // wait a moment while typing so we don't fire on every keystroke
+    // waits a little before doing searches so it dosen't do it mid type
     let timer;
     function notify(delay) {
       clearTimeout(timer);
       timer = setTimeout(function () { if (onChange) onChange(get()); }, delay);
     }
 
+    //delay based on different parameters
     series.addEventListener('change', () => notify(0));
     type.addEventListener('change', () => notify(0));
     name.addEventListener('input', () => notify(250));
@@ -89,6 +94,7 @@
       notify(0);
     });
 
+    //fetches all sets which in turn has all of the card information in the same fetch to answer the other fields
     fetch('/api/cards/sets')
       .then(r => r.json())
       .then(sets => {
