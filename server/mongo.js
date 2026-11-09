@@ -17,6 +17,13 @@ const uri = process.env.MONGO_URI;
 app.use(express.static(join(__dirname, '../pages')));
 app.use(express.json());
 
+const client = new MongoClient(uri, {
+  serverApi: {
+    version: ServerApiVersion.v1,
+    strict: true,
+    deprecationErrors: true,
+  }
+});
 
 //accesses the database
 const db = client.db('pokedata');
