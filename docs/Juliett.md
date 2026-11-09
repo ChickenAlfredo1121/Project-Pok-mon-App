@@ -3,11 +3,12 @@
 **Scan your Pokémon cards with your camera and see what they're worth.**
  
 ## The Problem
-There are few apps that allow users to use their cameras to search the price of their Pokemon cards. Apps that offer Pokemon price charting have 1 of 3 problems
+There are few apps that allow users to use their cameras to search the price of their Pokemon cards. Apps that offer Pokemon price charting usually have 1 of 3 problems:
 
 1. They're **expensive**
 2. They have **no camera support**
 3. They're **not user friendly**
+
 Users should be able to quickly and easily see the price of their cards, especially users with large collections, where searching for each card by hand can take a long time.
  
 **This app was created to solve those problems.**
@@ -41,8 +42,6 @@ Selecting a card shows its **image**, its **price**, and a button to **add it to
  
 All card results are sourced from [TCGdex](https://tcgdex.dev/) and stored in MongoDB. Each card document looks like this:
  
-<details>
-<summary><b>Click to expand: sample card document</b></summary>
 ```js
 {
   _id: ObjectId('6adce80e5d292c4b434feff9'),
@@ -105,8 +104,7 @@ All card results are sourced from [TCGdex](https://tcgdex.dev/) and stored in Mo
   ]
 }
 ```
- 
-</details>
+
 #### Images
  
 Card images are loaded by taking the card's image URL and adding `/high.webp` or `/low.webp`.
@@ -133,7 +131,7 @@ This page has the same filtered search as the Card Collection page, but it only 
 - Clicking a card lets you **remove it** from your collection
 #### How a collection entry is stored
  
-Each card in a user's collection is a small document that points to the full card by its `ObjectId`:
+Each card in a user's collection is a small entry that correlates to a card using its `ObjectId`:
  
 ```js
 {
@@ -153,11 +151,14 @@ See how cards are removed from a collection: [`server/mongo.js` (lines 198–225
  
 ### 3. Home
  
-**Purpose:** Use your camera to look up cards and at them to your account.
+**Purpose:** Use your camera to look up cards and add them to your account.
  
 Start the camera, then press **Scan**. This feature is still **in development**: right now a scan will, in most cases, return the card's **name**.
  
 Text recognition uses **OCR** (optical character recognition) through [Tesseract.js](https://tesseract.projectnaptha.com/).
+
+[outline](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/3167ed6de311c6cfef9b4f56e18c98c95c39c6ea/pages/Home.html#L250-L257)
+[matching name](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/3167ed6de311c6cfef9b4f56e18c98c95c39c6ea/pages/Home.html#L349-L357)
  
 > If the live demo doesn't work [demo video](https://youtu.be/vPXsmZBbln4).
  
