@@ -63,7 +63,7 @@
         <button type="button" class="clear" id="fSearch">Search</button>
       </div>`;
 
-    //what does this do?????
+    //references to inputs and bottons that were created
     const series = host.querySelector('#fSeries');
     const type = host.querySelector('#fType');
     const name = host.querySelector('#fName');
@@ -71,7 +71,7 @@
     const search = host.querySelector('#fSearch');
     search.addEventListener('click', () => notify(0));
 
-    //retrieves the parameters selected in filter
+    //retrieves the parameters selected in filter trimmed
     function get() {
       return { series: series.value, type: type.value, name: name.value.trim() };
     }
@@ -94,7 +94,7 @@
       notify(0);
     });
 
-    //fetches all sets which in turn has all of the card information in the same fetch to answer the other fields
+    //fethces list of set names 
     fetch('/api/cards/sets')
       .then(r => r.json())
       .then(sets => {
