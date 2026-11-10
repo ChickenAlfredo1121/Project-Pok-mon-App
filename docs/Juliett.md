@@ -180,5 +180,5 @@ This is **not a finished product** and needs more development to be anywhere clo
 - [ ] Support **multiple users** (currently only a default user)
 - [ ] Show more information on cards (like set)
 - [ ] Find a way to **update prices** and add **new cards**
-
+- [ ] Fix mobile version's camera
 
