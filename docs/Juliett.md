@@ -115,7 +115,7 @@ Card images are loaded by taking the card's image URL and adding `/high.webp` or
  
 The card prices in the database are in **euros (EUR)**. To show US dollars, the back end converts it with [Frankfurter](https://api.frankfurter.dev/v1/latest?base=EUR&symbols=USD) exchange-rate API, which updates once a day.
  
-See how it's done in the backend: [`server/mongo.js` (lines 96–123)](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/b8030be1232442cbd7391b6fd21878eb410caae5/server/mongo.js#L96-L123)
+See how it's done in the backend: [`server/mongo.js` (lines 96–123)](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/9cba31be27cb2d57339acaf17cc1b073dfd2ee8c/server/mongo.js#L101-L129)
  
 ---
  
@@ -145,7 +145,7 @@ Each card in a user's collection is a small entry that correlates to a card usin
 }
 ```
  
-See how cards are removed from a collection: [`server/mongo.js` (lines 198–225)](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/b8030be1232442cbd7391b6fd21878eb410caae5/server/mongo.js#L198-L225)
+See how cards are removed from a collection: [`server/mongo.js` (lines 198–225)](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/9cba31be27cb2d57339acaf17cc1b073dfd2ee8c/server/mongo.js#L203-L230)
  
 ---
  
@@ -157,9 +157,9 @@ Start the camera, then press **Scan**. This feature is still **in development**:
  
 Text recognition uses **OCR** (optical character recognition) through [Tesseract.js](https://tesseract.projectnaptha.com/).
 
-[outline](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/3167ed6de311c6cfef9b4f56e18c98c95c39c6ea/pages/Home.html#L250-L257)
+[outline](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/9cba31be27cb2d57339acaf17cc1b073dfd2ee8c/pages/Home.html#L249-L257)
 
-[matching name](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/3167ed6de311c6cfef9b4f56e18c98c95c39c6ea/pages/Home.html#L349-L357)
+[matching name](https://github.com/ChickenAlfredo1121/Project-Pok-mon-App/blob/9cba31be27cb2d57339acaf17cc1b073dfd2ee8c/pages/Home.html#L346-L355)
  
 > If the live demo doesn't work [demo video](https://youtu.be/vPXsmZBbln4).
  
