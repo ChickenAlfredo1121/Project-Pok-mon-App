@@ -238,7 +238,7 @@
       justify-content: center;
       gap: 8px;
       aspect-ratio: 5 / 7;
-      /* this is the size of a pokemon card */
+      /* this is the shape of a pokemon card */
       padding: 16px;
       border: 1px dashed var(--line);
       border-radius: 8px;
@@ -290,7 +290,7 @@
 
   <script src="filters.js"></script>
   <script>
-    //page layout
+    //HTML elements that will be used
     const grid = document.getElementById('grid');
     const modal = document.getElementById('modal');
     const modalBox = document.getElementById('modalBox');
@@ -308,7 +308,7 @@
       grid.appendChild(p);
     }
 
-    // makes the image, if there is no image it will say its not avaliable and put the cards name
+    // makes the placeholder box for an image, if there is no image it will say its not avaliable and put the cards name
     function noImage(card) {
       const box = document.createElement('div');
       box.className = 'no-image';
@@ -320,7 +320,7 @@
       return box;
     }
 
-    //this is the card image it takes the image field in the DB which is a URL and adds ".webp" so that it populates an image
+    //this is the card image it takes the image field in the DB which is a URL and adds ".webp" so that it populates an image, unless it has the cardImageFull (from images)
     function cardImage(card, size, fallbackSize) {
       const img = document.createElement('img');
       img.src = card.cardImageFull ?? (card.cardImage + '/' + size + '.webp');
@@ -336,7 +336,7 @@
       return img;
     }
 
-    //this is what actually renders the image onto the browser
+    //this is what actually renders the image onto the browser as clickable tiles
     function render(cards) {
       currentCards = cards;
       grid.innerHTML = '';
@@ -344,7 +344,7 @@
       //answer if no card
       if (!cards.length) { showMessage('No cards found.'); return; }
 
-      //first tries to get the image using the helper function, but if i cant it will use the no image helper funciton.
+      //check if there is an image field
       cards.forEach(function (c, i) {
         const btn = document.createElement('button');
         btn.type = 'button';
@@ -359,7 +359,7 @@
           btn.appendChild(noImage(c));
         }
         grid.appendChild(btn);
-        if (c.quantity > 1) { //if there is multiple of a matching parameter append the cards together
+        if (c.quantity > 1) {
           const q = document.createElement('span');
           q.className = 'qty';
           q.textContent = '×' + c.quantity;
@@ -374,14 +374,14 @@
       if (btn) openModal(currentCards[Number(btn.dataset.index)]);
     });
 
-    //this is the helper function for pricing cards
+    //this opens the popup of the card with all information
     function openModal(card) {
       openCard = card;
       modalContent.innerHTML = '';
       if (card.cardImage || card.cardImageFull) {
         modalContent.appendChild(cardImage(card, 'high', 'low')); //tries high quality of card and falls back to low
       } else {
-        modalContent.appendChild(noImage(card)); //if that dosent work then use the no image
+        modalContent.appendChild(noImage(card)); //handles failures
       }
 
       // price of a single copy, under the card
