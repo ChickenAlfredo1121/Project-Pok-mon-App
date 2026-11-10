@@ -177,7 +177,7 @@
 
   <!-- waffle navigation (see nav.js) -->
   <div id="topbar"></div>
-  <script src="Nav.js"></script>
+  <script src="nav.js"></script>
 
   <main class="page">
 
@@ -209,7 +209,7 @@
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
   <script>
 
-    //what is this for?????
+    //creates set up for later use
     const video = document.getElementById('video');
     const out = document.getElementById('ocrOut');
     const debug = document.getElementById('debug');
@@ -218,13 +218,13 @@
 
     // not all cards have the name at the same level (trainer to pokemon) so we are reading the entire top portion
     const NAME_BOX = { x: 0.04, y: 0.02, w: 0.92, h: 0.20 }; //parameters for scan
-    const TRY_INVERTED = true;   //what does this do?????
+    const TRY_INVERTED = true;   //this is for swapping between normal and black and white becauase OCR can read black and white better
 
     //this starts the users camera
     async function startCamera() {
       try {
         const stream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: 'environment', width: { ideal: 1920 }, height: { ideal: 1080 } }, //size parameters of camera
+          video: { facingMode: 'environment', width: { ideal: 1920 }, height: { ideal: 1080 } }, //size parameters of camera, can give preferance based on device (if phone)
           audio: false
         });
         video.srcObject = stream;
@@ -236,7 +236,7 @@
       }
     }
 
-    // creates the worker from tesseract once this it has what it needs after
+    // creates the worker from tesseract once, then it is reused
     async function getWorker() {
       if (!worker) {
         worker = await Tesseract.createWorker('eng');
@@ -246,7 +246,7 @@
       return worker;
     }
 
-    // this displays the actual shape (outline) of the box where the card should be so that the user knows where to put it for the scan
+    // this grabs a copy of the pixels within the outline into a new canvas to scan
     function grabCard() {
       const vw = video.videoWidth, vh = video.videoHeight;
       const h = vh * 0.8, w = h * 5 / 7;
@@ -256,7 +256,7 @@
       return c;
     }
 
-    // this displays the shape (outline) of what is being read (the top portion for name)
+    // this cuts out a rectangle in the canvas as fractions and returns it as a new canvas
     function crop(src, fx, fy, fw, fh) {
       const c = document.createElement('canvas');
       c.width = src.width * fw; c.height = src.height * fh;
@@ -265,7 +265,6 @@
     }
 
     // enlarge, convert to grayscale, stretch contrast (optionally invert)
-    //i want to reword this, what does this do?????
     function preprocess(src, scale, invert) {
       const c = document.createElement('canvas');
       c.width = src.width * scale; c.height = src.height * scale;
@@ -295,7 +294,7 @@
     }
 
     // read the strip normal (and inverted); matching decides which read is better
-    //what does this do????
+    //returning one normal and one inverted
     async function readAll(strip) {
       const w = await getWorker();
       const reads = [];
@@ -307,7 +306,7 @@
       return reads;
     }
 
-    // this is the bottom view for testing, it shows what tesseract actually reads, its confidence, and an image of what it read
+    // this is the bottom view for testing, it shows what tesseract actually reads (the 2 images whole card and registered at top of card)
     function showDebug(card, readCanvas) {
       const overlay = document.createElement('canvas');
       overlay.width = card.width; overlay.height = card.height;
@@ -320,8 +319,7 @@
       debug.replaceChildren(overlay, readCanvas);
     }
 
-    //this works to find the actual text
-    //please explain how this is acutally working i want to know this very well
+    //this works to measure how different 2 strings are
     function lev(a, b) {
       const dp = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
       for (let j = 1; j <= b.length; j++) dp[0][j] = j;
@@ -335,14 +333,14 @@
     //this this change everything to lowercase and takes out odd characters for easier reading
     const letters = s => s.toLowerCase().replace(/[^a-z]/g, '');
 
-    // this makes sure that if it is an evolved form it dosent take the pre-evolution name by accident
+    // this makes sure that if it is an evolved form it dosent take the pre-evolution name by accident (by looking for "evolved")
     function stripEvolves(line) {
       const tokens = line.trim().split(/\s+/);
       const i = tokens.findIndex(t => {
         const l = letters(t);
         return l.length >= 5 && l.length <= 8 && lev(l, 'evolves') <= 2; //looking for "evolves"
       });
-      return i === -1 ? tokens : tokens.slice(0, i); //takes it out if present
+      return i === -1 ? tokens : tokens.slice(0, i); //returns all if "evolved" not present and only before if it is
     }
 
     //this goes and gets the card name from the DB to see if it read the card correctly/has a match
@@ -362,16 +360,16 @@
       let best = null;
 
       raw.split('\n').forEach((line, lineNo) => {
-        const tokens = stripEvolves(line).map(letters).filter(Boolean); //splits the lines 
+        const tokens = stripEvolves(line).map(letters).filter(Boolean);//removes empty words (like 70&) 
 
         for (let n = 1; n <= 3; n++) {                       // runs every couple words
           for (let i = 0; i + n <= tokens.length; i++) {
             const q = tokens.slice(i, i + n).join('');
             if (q.length < 3) continue;
 
-            const allowed = q.length <= 4 ? 1 : Math.floor(q.length / 3);   // the amount of typo accepted WHY????
+            const allowed = q.length <= 4 ? 1 : Math.floor(q.length / 3);   // the amount of typo accepted
             for (const entry of nameIndex) {
-              if (Math.abs(entry.key.length - q.length) > allowed) continue; // built in cheat skip WHY?????
+              if (Math.abs(entry.key.length - q.length) > allowed) continue; // skips names that arent even close
               const dist = lev(q, entry.key);
               if (dist > allowed) continue;
 
@@ -396,7 +394,7 @@
       if (!video.videoWidth) { out.textContent = 'Start the camera first.'; return; }
       out.textContent = 'Reading...';
       try {
-        const card = grabCard(); //getting shape of box
+        const card = grabCard(); //getting pixes from card area
         const strip = crop(card, NAME_BOX.x, NAME_BOX.y, NAME_BOX.w, NAME_BOX.h);
         const reads = await readAll(strip);
 
@@ -408,9 +406,9 @@
             if (m && (!best || m.score < best.score)) { best = m; shown = r; }
           } catch (err) { lookupError = err; break; }
         }
-        showDebug(card, shown.canvas); //gives us the tesseract details
+        showDebug(card, shown.canvas); //gives us the tesseract details (the 2 images)
 
-        //gives the details from tesseract, displayed
+        //gives the details from tesseract, displayed (names and how close they are)
         const lines = shown.text.split('\n').map(s => s.trim()).filter(Boolean).join(' | ');
         let msg = 'Read: ' + (lines || '(nothing)');
         if (lookupError) msg += '\nName lookup failed: ' + lookupError.message;

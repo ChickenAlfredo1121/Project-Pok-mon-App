@@ -341,7 +341,7 @@
   <!-- getting the filer for searches of personal collection -->
   <script src="filters.js"></script>
   <script>
-    //what does this do????
+    //Finds HTML elements that will be used
     const grid = document.getElementById('grid');
     const modal = document.getElementById('modal');
     const modalBox = document.getElementById('modalBox');
@@ -359,7 +359,7 @@
       grid.appendChild(p);
     }
 
-    // makes the image, if there is no image it will say its not avaliable and put the cards name
+    // makes the placeholder box
     function noImage(card) {
       const box = document.createElement('div');
       box.className = 'no-image';
@@ -371,7 +371,7 @@
       return box;
     }
 
-    //this is the card image it takes the image field in the DB which is a URL and adds ".webp" so that it populates an image
+    //this is the card image it takes the image field in the DB which is a URL and adds ".webp" so that it populates an image, or if cardImageFull is present in images use that
     function cardImage(card, size, fallbackSize) {
       const img = document.createElement('img');
       img.src = card.cardImageFull ?? (card.cardImage + '/' + size + '.webp');
@@ -387,7 +387,7 @@
       return img;
     }
 
-    //this is what acutally renders the image onto the browser
+    //this is what renders the image onto the browser
     function render(cards) {
       currentCards = cards;
       grid.innerHTML = '';
@@ -408,7 +408,7 @@
           btn.appendChild(noImage(c));
         }
 
-        if (c.quantity > 1) {   //if there is multiple of a matching parameter append the cards together
+        if (c.quantity > 1) {   //one listener covers every card, it sits on the grid
           const q = document.createElement('span');
           q.className = 'qty';
           q.textContent = '×' + c.quantity;
@@ -418,20 +418,20 @@
       });
     }
 
-    //one lister for every card
+    //one listener for every card
     grid.addEventListener('click', function (e) {
       const btn = e.target.closest('.card');
       if (btn) openModal(currentCards[Number(btn.dataset.index)]);
     });
 
-    //this is the helper funciton for pricing cards
+    //adds all the information to the pop up
     function openModal(card) {
       openCard = card;
       modalContent.innerHTML = '';
       if (card.cardImage || card.cardImageFull) {
         modalContent.appendChild(cardImage(card, 'high', 'low'));//tries high quality of card and falls back to low
       } else {
-        modalContent.appendChild(noImage(card));//if that dosent work then use the no image
+        modalContent.appendChild(noImage(card));//if there isnt an image its handeled here
       }
 
       // price of a single copy, under the card
