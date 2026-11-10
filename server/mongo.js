@@ -39,7 +39,7 @@ function buildCardFilter({ name = '', set = '', type = '' }) {
   const filter = {};
   name = name.trim(); set = set.trim(); type = type.trim();
 
-  //convet all special characters
+  //replaces all special characters
   if (name) {
     const safe = name
       .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -56,7 +56,7 @@ let fxCache = { rate: null, fetchedAt: 0 };
 const FX_TTL = 12 * 60 * 60 * 1000; //refreshed at most once every 12 hours
 
 
-//converts card price from EUR to USD
+//fetches exchange rate from EUR to USD
 async function getEurToUsd() {
   if (fxCache.rate && Date.now() - fxCache.fetchedAt < FX_TTL) return fxCache.rate;
   try {
@@ -74,7 +74,6 @@ async function getEurToUsd() {
 }
 
 // one USD price per card or null if no price available
-//what is cardmarket????
 function cardPriceUsd(card, eurToUsd) {
   const cm = card.cardPrice?.cardmarket;
   const eur = cm?.trend ?? cm?.avg;
@@ -99,7 +98,7 @@ app.get('/', (req, res) => {
 
 
 
-//search function, checks if there is a name. if there is it searches for the card and prints the results in an array
+//search function, checks if there is any type of match. if there is it sends it back as JSON
 app.get('/api/cards/search', async (req, res) => {
   const name = (req.query.name ?? '').trim();
   const set = (req.query.set ?? '').trim();
@@ -116,8 +115,8 @@ app.get('/api/cards/search', async (req, res) => {
       .replace(/[\s-]+/g, '[\\s-]*');
     filter.cardName = { $regex: safe, $options: 'i' };
   }
-  if (set) filter.cardSetName = set;   // exact match, the value came from your list
-  if (type) filter.cardType = type;     // matches if the array contains it
+  if (set) filter.cardSetName = set;   // matches if the array contains it
+  if (type) filter.cardType = type;    // matches if the array contains it
 
   try {
     const cards = await collection.find(filter).toArray();
@@ -130,7 +129,6 @@ app.get('/api/cards/search', async (req, res) => {
 });
 
 //this is used for the set filter
-//help me undserstand this?????
 app.get('/api/cards/sets', async (req, res) => {
   try {
     const rows = await collection.aggregate([
