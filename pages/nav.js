@@ -5,7 +5,7 @@
     { name: 'User', href: 'User.html' },
     { name: 'Card Database', href: 'CardCollection.html' },
   ];
-  const current = location.pathname.split('/').pop() || 'Home.html'; //start page
+  const current = location.pathname.split('/').pop() || 'Home.html'; //current file
 
   const style = document.createElement('style');
 
@@ -55,11 +55,11 @@
       </nav>
     </div>`;
 
-  //what does this do???
+  //references buttons and menu
   const btn = document.getElementById('waffleBtn');
   const menu = document.getElementById('waffleMenu');
 
-  //opens the menu
+  //opens/closes the menu
   function setOpen(open) {
     menu.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));
