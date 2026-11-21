@@ -337,6 +337,13 @@
       font-size: 17px;
       font-weight: 500;
     }
+
+
+    /* fix for phones */
+    @media (max-aspect-ratio: 1/1) {
+      .camera-frame { aspect-ratio: 3 / 4; }
+    }
+
   </style>
 </head>
 
@@ -385,7 +392,7 @@
   <!-- this is the card reading OCR (optical characer recogonition) -->
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
   <script>
-    // ===================== page elements and shared state =====================
+    // page elements
     const video = document.getElementById('video');
     const out = document.getElementById('ocrOut');
     const debug = document.getElementById('debug');
@@ -405,7 +412,7 @@
       low: { x: 0.06, y: 0.045, w: 0.72, h: 0.09 }    // a bit lower and wider, for Trainer cards
     };
 
-    // trying to read in different way (invert makes it black and white) to train for best results
+    // trying to read in different ways for more accuracy 
     const NAME_PASSES = [
       { box: 'line', px: 110, invert: false, psm: 'SINGLE_LINE' },
       { box: 'line', px: 110, invert: true, psm: 'SINGLE_LINE' },
@@ -414,22 +421,22 @@
       { box: 'wide', px: 260, invert: false, psm: 'SPARSE_TEXT' },
       { box: 'wide', px: 260, invert: true, psm: 'SPARSE_TEXT' }
     ];
-    const NEEDED = 2;
-    const NAME_NEEDED = 3;   // how many passes must agree on a name before approving
+    const NEEDED = 2;   //number of reads needed to agree
+    const NAME_NEEDED = 3;   // point where scanner will stop looking at views
 
     // the number is bottom-left on newer cards and bottom-right on older ones, so both sides are read.
     const NUMBER_SIDES = { left: { x: 0.02, w: 0.34 }, right: { x: 0.64, w: 0.34 } };
 
-    // trying to find the number by doing passes similar to the name
+    // cuts strip, resizes, reads
     const NUMBER_PASSES = [
       { y: 0.875, h: 0.125, px: 250, psm: 'SPARSE_TEXT' },
       { y: 0.890, h: 0.100, px: 210, psm: 'SPARSE_TEXT' },
       { y: 0.900, h: 0.080, px: 170, psm: 'SINGLE_BLOCK' }
     ];
-    const DESC_WORDS_LIMIT = 3;   // a corner with this many ordinary lowercase words is treated as the wrong answer, there is usually a description at the bottom of cards
+    const DESC_WORDS_LIMIT = 3;   // a corner with this many ordinary lowercase words is treated as flavor text, there is usually a description at the bottom of cards
     const COPYRIGHT_WORDS = ['pokemon', 'nintendo', 'creatures', 'game', 'freak'];   // printed on every card, so dont count it like the description
 
-    // the card wont always be perfect, so changing where it reads slightly throught iterations for more dynamic reading
+    // the card wont always be perfect, so changing where it reads slightly through views for more dynamic reading
     const FRAMES = [
       { dx: 0, dy: 0, s: 1.00 },
       { dx: 0, dy: 0, s: 1.07 },
@@ -484,7 +491,7 @@
 
       const num = document.createElement('span');
       const local = card.cardLocalId ?? '';
-      // sets it with a slash if the number is known, (like the 40/100)
+      // sets it with a slash if the cardCount is known, (like the 40/100)
       num.textContent = local === '' ? '' : (card.cardCount ? local + '/' + card.cardCount : String(local));
 
       meta.append(set, num);
@@ -499,13 +506,27 @@
       return c;
     }
 
+    
+
+    //this scales frame pixes to camera pixels to make them match in a 1:1 ratio
+    function guideArea(sw, sh) {
+      const frame = document.getElementById('cameraFrame');
+      const guide = frame.querySelector('.camera-guide');
+      const scale = Math.max(frame.clientWidth / sw, frame.clientHeight / sh);
+      if (!scale || !guide.offsetWidth) {   // frame not measurable: fall back to a landscape guess
+        const h = sh * 0.8;
+        return { w: h * 5 / 7, h };
+      }
+      return { w: guide.offsetWidth / scale, h: guide.offsetHeight / scale };
+    }
+
     // copies the card-shaped area (under the red guide) out of a video or a still into a new canvas.
     //f shifts and zooms to get best results
     function grabCard(src, f = FRAMES[0]) {
       const sw = src.videoWidth || src.width, sh = src.videoHeight || src.height;
-      const baseH = sh * 0.8, baseW = baseH * 5 / 7;                   // the area under the red guide
-      const w = baseW * f.s, h = baseH * f.s;                          // zoomed
-      const cx = sw / 2 + f.dx * baseW, cy = sh / 2 + f.dy * baseH;    // shifted
+      const { w: baseW, h: baseH } = guideArea(sw, sh);               
+      const w = baseW * f.s, h = baseH * f.s;                         
+      const cx = sw / 2 + f.dx * baseW, cy = sh / 2 + f.dy * baseH;    
       const c = document.createElement('canvas');
       c.width = Math.round(baseW); c.height = Math.round(baseH);
       c.getContext('2d').drawImage(src, cx - w / 2, cy - h / 2, w, h, 0, 0, c.width, c.height);
@@ -553,7 +574,7 @@
 
     // getting the image ready for OCR
 
-    // enlarges or shrinks, converts to grayscale, stretches contrast (optionally inverts), elimiates glare
+    // enlarges or shrinks, converts to grayscale, stretches contrast (optionally inverts), lowers glare
     function preprocess(src, scale, invert) {
       const c = document.createElement('canvas');
       c.width = src.width * scale; c.height = src.height * scale;
@@ -589,7 +610,7 @@
       return c;
     }
 
-    // the average brightness to compare to background to make gradient
+    // the average brightness to compare to background which will be used to fill the margin so that borders match background
     function edgeColor(canvas) {
       const ctx = canvas.getContext('2d');
       const w = canvas.width, h = canvas.height;
@@ -602,7 +623,7 @@
     }
 
     // resizes a strip to exact pixels tall (so it works the same at any camera resolution), cleans it,
-    // and adds a margin of its own background color. Tesseract will most likely miss letters that touch the edge of an image
+    // margin is added after so final image is taller, tesseract dosent read well sometimes if card isnt on edge 
     function prepare(strip, px, invert) {
       const clean = preprocess(strip, px / strip.height, invert);
       const padY = Math.round(clean.height * 0.35), padX = Math.round(clean.height * 0.6);
@@ -668,7 +689,8 @@
       return null;
     }
 
-    // decide which side has the description
+    // decide which side has the description by judging one strip at a time
+    //skip says when it looks like flavor text
     // the illustrator line has words too, so a strip that says "Illus" is never rejected (usually on side of number)
     function judgeStrip(text) {
       const words = text.split(/[^A-Za-z]+/).filter(w => w.length >= 3);
@@ -689,7 +711,7 @@
       return { hasIllus, descWords: desc.length, skip: !hasIllus && desc.length >= DESC_WORDS_LIMIT };
     }
 
-    // finds the card number in OCR text, ignore copyright line (year gets mixed in sometimes)
+    // cut s the copy right bottom line for parseCardNumber to find the card number
     function cleanNumberLine(line) {
       const cut = line.search(/©|(^|\D)0?(19|20)\d\d(\D|$)/);
       if (cut !== -1) line = line.slice(0, cut);
@@ -794,7 +816,7 @@
         .filter(n => n.key.length >= 3);
     }
 
-    // looks through OCR text for the closest real card name, line by line, trying runs of 1 to 3 words
+    // looks through OCR text for the closest real card name, line by line, trying runs of 1 to 5 words
     async function bestNameMatch(raw) {
       await loadNames();
       let best = null;
@@ -923,7 +945,7 @@
           let found = parseCardNumber(data.text);
           if (found) candidates.push({ ...found, side, confidence: data.confidence, raw: data.text });
 
-          // second opinion from the digits-only reader
+          // second opinion from the digits-only reader, only a number/total is trusted 
           if (!found || (!found.anchored && found.kind !== 'slash')) {
             data = await ocr(digitsW, canvas, p.psm);
             found = parseCardNumber(data.text);
@@ -967,7 +989,7 @@
       return cardIndex;
     }
 
-    // finds the card in `cards` whose name is closest to anything in the name reads the card name it thinks is right
+    // cards is the shortest list with right numbers, allowing more mistakes than bestNameMatch
     function closestAmong(cards, nameTexts) {
       let best = null;
       for (const text of nameTexts) {
@@ -992,7 +1014,7 @@
       return best;
     }
 
-    // combines the name reads and the number reads into one answer by checking them against database
+    // combines the name reads and the number reads into one answer by checking them against the database
     async function resolveCard(nameVotes, numberVotes, nameTexts) {
       const { rows, byNumber } = await loadIndex();
       const names = rankNames(nameVotes).slice(0, 5);
@@ -1012,7 +1034,7 @@
       }
       if (best) return best;
 
-      //a solid number but no matching name, find closest match to the name that is thought to be right
+      //a solid number but no matching name, finds card with with number whose name is closest to what was read
       const texts = [...new Set(nameTexts)];
       for (const num of nums.filter(n => isConfirmed(n) || n.kind === 'slash')) {
         const m = closestAmong(byNumber.get(normCode(num.number)) ?? [], texts);

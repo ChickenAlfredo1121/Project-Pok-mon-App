@@ -1,6 +1,4 @@
-// require('dotenv').config()
 import 'dotenv/config';
-// const { MongoClient, ServerApiVersion } = require('mongodb');
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import express from 'express'
 import { fileURLToPath } from 'url';
@@ -47,7 +45,7 @@ function buildCardFilter({ name = '', set = '', type = '' }) {
   const filter = {};
   name = name.trim(); set = set.trim(); type = type.trim();
 
-  //replaces all special characters
+  //reads special characters as literals
   if (name) {
     const safe = name
       .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -68,7 +66,7 @@ const FX_TTL = 12 * 60 * 60 * 1000; //refreshed at most once every 12 hours
 async function getEurToUsd() {
   if (fxCache.rate && Date.now() - fxCache.fetchedAt < FX_TTL) return fxCache.rate;
   try {
-    const r = await fetch('https://api.frankfurter.dev/v1/latest?base=EUR&symbols=USD'); ///found this link for conversion from EUR to USD since API only had EUR prices
+    const r = await fetch('https://api.frankfurter.dev/v1/latest?base=EUR&symbols=USD'); //found this link for conversion from EUR to USD since API only had EUR prices
     if (!r.ok) throw new Error('FX status ' + r.status);
     const data = await r.json();
     const rate = data?.rates?.USD;
@@ -103,9 +101,9 @@ const scrypt = promisify(crypto.scrypt);
 const SESSION_MS = 30 * 24 * 60 * 60 * 1000;   // a login lasts 30 days
 const COOKIE = { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', path: '/' };
 const USERNAME_RE = /^[A-Za-z0-9_]{3,24}$/;
-const DUMMY_SALT = crypto.randomBytes(16);   // used to waste the same time when a username doesn't exist, what does this mean????
+const DUMMY_SALT = crypto.randomBytes(16);   
 
-// a salted hash 
+// a slow hash with salt
 async function hashPassword(password) {
   const salt = crypto.randomBytes(16);
   const hash = await scrypt(password, salt, 64);
@@ -244,7 +242,7 @@ app.get('/', (req, res) => {
 
 
 
-//search function, checks if there is any type of match. if there is it sends it back as JSON
+//search function, checks if there is any type of match, needs at least one parameter. if there is it sends it back as JSON
 app.get('/api/cards/search', async (req, res) => {
   const name = (req.query.name ?? '').trim();
   const set = (req.query.set ?? '').trim();
@@ -262,7 +260,7 @@ app.get('/api/cards/search', async (req, res) => {
     filter.cardName = { $regex: safe, $options: 'i' };
   }
   if (set) filter.cardSetName = set;   // matches if the array contains it
-  if (type) filter.cardType = type;    // matches if the array contains it
+  if (type) filter.cardType = type;
 
   try {
     const cards = await collection.find(filter).toArray();
@@ -274,7 +272,7 @@ app.get('/api/cards/search', async (req, res) => {
   }
 });
 
-//this is used for the set filter
+//this is used for the set filter, returns set name once (A-Z)
 app.get('/api/cards/sets', async (req, res) => {
   try {
     const rows = await collection.aggregate([

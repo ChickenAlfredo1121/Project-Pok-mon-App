@@ -353,7 +353,7 @@
       return box;
     }
 
-    //this is the card image
+    //builds card image
     function cardImage(card, size, fallbackSize) {
       const img = document.createElement('img');
       img.src = card.cardImageFull ?? (card.cardImage + '/' + size + '.webp');
@@ -414,7 +414,7 @@
       if (card.cardImage || card.cardImageFull) {
         modalContent.appendChild(cardImage(card, 'high', 'low')); //tries high quality of card and falls back to low
       } else {
-        modalContent.appendChild(noImage(card)); //handles failures
+        modalContent.appendChild(noImage(card)); //ran with there is no image
       }
 
       // price of a single copy, under the card
@@ -496,7 +496,7 @@
       }
     }
 
-    //function from Filter.js
+    //function from filters.js
     initFilters(onFiltersChanged);
   </script>
 

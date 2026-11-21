@@ -392,7 +392,7 @@
       return box;
     }
 
-    //this is the card image
+    //this builds the card image
     function cardImage(card, size, fallbackSize) {
       const img = document.createElement('img');
       img.src = card.cardImageFull ?? (card.cardImage + '/' + size + '.webp');
@@ -452,7 +452,7 @@
       if (card.cardImage || card.cardImageFull) {
         modalContent.appendChild(cardImage(card, 'high', 'low'));//tries high quality of card and falls back to low
       } else {
-        modalContent.appendChild(noImage(card));//if there isnt an image its handeled here
+        modalContent.appendChild(noImage(card));//if there isnt an image its handled here
       }
 
       // price of a single copy, under the card

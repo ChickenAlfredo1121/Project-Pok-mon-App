@@ -34,7 +34,7 @@ function toCardDoc(c) {
 }
 
 try {
-  // what the database has now card_id and does it have an image
+  // reads cardId and wheteher it has image, it will do tables below
   const have = new Map();
   const countBySet = new Map();
   const setsMissingImages = new Set();
@@ -77,7 +77,7 @@ try {
         stats.imagesFilled += imageOps.length;
       }
 
-      // new card, fetch each one in full, then insert them together
+      // new cards, fetch each one in full, then insert them together
       if (fresh.length) {
         log(set.name + ':', fresh.length, 'new cards:',
           fresh.slice(0, 5).map(b => b.name).join(', ') + (fresh.length > 5 ? ', ...' : ''));
