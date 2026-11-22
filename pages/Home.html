@@ -398,6 +398,7 @@
     const debug = document.getElementById('debug');
     const scanBtn = document.getElementById('scanBtn');
     let imageCapture = null;    // takes a full-quality photo instead of video frame
+    let photoNote = '';         // why a real photo wasn't used, shown in the debug text
     let photoCaps = null;       // what the camera can do when taking a photo
     let cameraInfo = '';        // which camera and resolution the browser actually gives
     let worker = null;          // Tesseract reader for the card name (made on first use)
@@ -453,6 +454,9 @@
     // when scan is clicked it takes this many shots and keeps the best one 
     const BURST = { shots: 6, gapMs: 90, photos: 1 };
     const HOLD_MS = 700; //holding before the shot
+    //altering zoom based on camera
+    const PHOTO_ZOOM = 0.90;
+    let zoomFix = 1;   // PHOTO_ZOOM for photos, 1 for video frames
 
     // the shapes a card number can have, not all cards have the same number system so this accounts for that
     const SLASH_RE = /^([A-Z]{0,4}\d{1,3}[A-Z]?)\/([A-Z]{0,4}\d{1,3})/;
@@ -550,7 +554,8 @@
       const k = Math.min(sw / video.videoWidth, sh / video.videoHeight);
       const g = guideArea();
       const baseW = g.w * k, baseH = g.h * k;                          
-      const w = baseW * f.s, h = baseH * f.s;                         
+      const z = f.s * zoomFix;
+      const w = baseW * z, h = baseH * z;
       const cx = sw / 2 + f.dx * baseW, cy = sh / 2 + f.dy * baseH;    
       const c = document.createElement('canvas');
       c.width = Math.round(baseW); c.height = Math.round(baseH);
@@ -636,19 +641,24 @@
 
     // takes ONE stil photo with camera support, fallback is frame from the live video
     async function takeStill() {
-      if (imageCapture) {
+      photoNote = '';
+      if (!imageCapture) {
+        photoNote = 'this browser has no photo capture (Chrome on Android has it)';
+      } else {
         try {
           await focusOnCard();
           let blob;
           try {
             blob = await imageCapture.takePhoto(photoSettings());
-          } catch {
-            blob = await imageCapture.takePhoto({ fillLightMode: 'off' });   //if camera refuses, use default size
+          } catch (e) {
+            photoNote = 'big photo refused (' + e.name + '), took a default-size one';
+            blob = await imageCapture.takePhoto({ fillLightMode: 'off' });
           }
           const { img, turned } = matchOrientation(await createImageBitmap(blob));
           return { img, kind: turned ? 'photo (turned)' : 'photo' };
         } catch (err) {
-          console.warn('takePhoto failed, using a video frame instead:', err);
+          photoNote = 'takePhoto failed: ' + err.name + ' ' + err.message;
+          console.warn(photoNote);
         } finally {
           resumeAutofocus();
         }
@@ -1168,7 +1178,7 @@
       const p0 = NUMBER_PASSES[0];
       for (const s of Object.values(NUMBER_SIDES)) box({ x: s.x, y: p0.y, w: s.w, h: p0.h });
 
-      const parts = [labeled(overlay, 'photo (view used)')];
+      const parts = [labeled(overlay, 'photo (view used) ' + card.width + 'x' + card.height + ' px')];
       if (nameShown) parts.push(labeled(nameShown.canvas, nameShown.label));
 
       const strips = numberStrips ? Object.values(numberStrips) : [];
@@ -1316,6 +1326,7 @@
       try {
         await new Promise(r => setTimeout(r, HOLD_MS));   // time to steady the phone and let autofocus settle
         const { still, kind } = await captureSharpest((n, total) => status('Taking photo ' + n + ' of ' + total + '...'));
+        zoomFix = kind.startsWith('photo') ? PHOTO_ZOOM : 1;
         video.pause();       // freeze the preview on what was captured
         out.textContent = 'Got it - reading the card...';
 
@@ -1382,6 +1393,7 @@
             : 'No card number found after ' + stats.numberPasses + ' reads');
           details += '\nSource: ' + kind + ' ' + (still.videoWidth || still.width) + 'x' + (still.videoHeight || still.height);
           details += '\nCamera: ' + cameraInfo;
+          details += '\nPhoto note: ' + (photoNote || 'none');
           details += '\n(used ' + stats.frames + ' of ' + FRAMES.length + ' views; ' + (resolved ? resolved.how : 'no match') + ')';
         }
 
