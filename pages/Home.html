@@ -398,13 +398,15 @@
     const debug = document.getElementById('debug');
     const scanBtn = document.getElementById('scanBtn');
     let imageCapture = null;    // takes a full-quality photo instead of video frame
+    let photoCaps = null;       // what the camera can do when taking a photo
+    let cameraInfo = '';        // which camera and resolution the browser actually gives
     let worker = null;          // Tesseract reader for the card name (made on first use)
     let nameIndex = null;
     let cardIndex = null;       // every card as { id, n (name), l (printed number), s (set), key }, grouped by number
     const numberWorkers = {};   // reads card number
 
     //testing tools
-    const DEBUG = false;   // true shows the debug images, the raw OCR text, and iteration number
+   const DEBUG = new URLSearchParams(location.search).has('debug');   // true shows the debug images, the raw OCR text, and iteration number
     // where the card name can be, as fractions of the card (x, y = top-left corner, w, h = size)
     //normal, trainers, and evolved cards all have different placements
     const NAME_BOXES = {
@@ -478,20 +480,28 @@
         await video.play();
 
         const track = stream.getVideoTracks()[0];
-        // keep autofocus running when allowed by browser
+        // keep autofocus running when the browser allows it
         if (track.getCapabilities?.().focusMode?.includes('continuous')) {
           await track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] }).catch(() => {});
         }
-        // ImageCapture can take a real photo, better than video frame
+        // ImageCapture can take a real photo, much sharper than a video frame
         imageCapture = 'ImageCapture' in window ? new ImageCapture(track) : null;
+        photoCaps = null;
+        if (imageCapture) {
+          try { photoCaps = await imageCapture.getPhotoCapabilities(); } catch { /* not supported on this phone */ }
+        }
 
+        // what the browser actually gave us, for the debug text
+        const s = track.getSettings();
+        cameraInfo = (track.label || 'camera') + ' - preview ' + s.width + 'x' + s.height +
+          (photoCaps?.imageWidth ? ', largest photo ' + photoCaps.imageWidth.max + 'x' + photoCaps.imageHeight.max
+                                 : ', no photo capture');
         out.textContent = '';
       } catch (err) {
         console.error(err);
         out.textContent = 'Could not start the camera: ' + err.message;
       }
     }
-
     // set name and printed number (like 40/100), shown directly under the card in the popup
     function cardMeta(card) {
       const meta = document.createElement('div');
@@ -574,21 +584,79 @@
       return sum;
     }
 
-    //takes one still photo, if not possible live video frame
+        // the largest photo we ask the camera for
+    const PHOTO_MAX_SIDE = 4032;
+
+    // the live camera feed
+    const cameraTrack = () => video.srcObject?.getVideoTracks?.()[0];
+
+    // asks the camera to focus once on the middle of the picture and gives it time to settle
+    async function focusOnCard() {
+      const track = cameraTrack();
+      if (!track?.getCapabilities?.().focusMode?.includes('single-shot')) return;   // not supported: continuous autofocus keeps working
+      try {
+        await track.applyConstraints({ advanced: [{ focusMode: 'single-shot', pointsOfInterest: [{ x: 0.5, y: 0.5 }] }] });
+        await new Promise(r => setTimeout(r, 500));
+      } catch { /* the camera refused: ignore */ }
+    }
+
+    // puts continuous autofocus back after the photo, so the live preview keeps focusing
+    async function resumeAutofocus() {
+      const track = cameraTrack();
+      if (!track?.getCapabilities?.().focusMode?.includes('continuous')) return;
+      try { await track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] }); } catch { /* ignore */ }
+    }
+
+    // the photo settings asked for, no flash, biggest size of camera and photo
+    function photoSettings() {
+      const settings = { fillLightMode: 'off' };
+      const mw = photoCaps?.imageWidth?.max, mh = photoCaps?.imageHeight?.max;
+      if (mw && mh) {
+        const s = Math.min(1, PHOTO_MAX_SIDE / Math.max(mw, mh));
+        settings.imageWidth = Math.round(mw * s);
+        settings.imageHeight = Math.round(mh * s);
+      }
+      return settings;
+    }
+
+    // the preview and the photo must be turned the same way, or the crop boxes land in the wrong places.
+    // if the photo is sideways compared with the preview, it is turned 90 degrees clockwise (the usual fix for a
+    // phone held upright) instead of being thrown away
+    function matchOrientation(photo) {
+      if ((photo.height > photo.width) === (video.videoHeight > video.videoWidth)) return { img: photo, turned: false };
+      const c = document.createElement('canvas');
+      c.width = photo.height; c.height = photo.width;
+      const ctx = c.getContext('2d');
+      ctx.translate(c.width, 0);
+      ctx.rotate(Math.PI / 2);
+      ctx.drawImage(photo, 0, 0);
+      photo.close?.();
+      return { img: c, turned: true };
+    }
+
+    // takes ONE stil photo with camera support, fallback is frame from the live video
     async function takeStill() {
       if (imageCapture) {
         try {
-          const blob = await imageCapture.takePhoto({ fillLightMode: 'off' });   // no flash
-          const img = await createImageBitmap(blob);                              
-          // the photo must be turned the same way as the preview, otherwise the crop boxes is wrong
-          if ((img.height > img.width) === (video.videoHeight > video.videoWidth)) return { img, kind: 'photo' };
-          img.close();
+          await focusOnCard();
+          let blob;
+          try {
+            blob = await imageCapture.takePhoto(photoSettings());
+          } catch {
+            blob = await imageCapture.takePhoto({ fillLightMode: 'off' });   //if camera refuses, use default size
+          }
+          const { img, turned } = matchOrientation(await createImageBitmap(blob));
+          return { img, kind: turned ? 'photo (turned)' : 'photo' };
         } catch (err) {
-          console.warn('takePhoto failed, using video frames instead:', err);
+          console.warn('takePhoto failed, using a video frame instead:', err);
+        } finally {
+          resumeAutofocus();
         }
       }
       return { img: captureStill(), kind: 'video' };
     }
+
+
     // takes several quick photos and returns the sharpest one, only the best is kept in memory
     async function captureSharpest(onShot) {
       const count = imageCapture ? BURST.photos : BURST.shots;
@@ -1313,6 +1381,7 @@
             '\nNumber text: ' + numberBest.raw.replace(/\s+/g, ' ').trim()
             : 'No card number found after ' + stats.numberPasses + ' reads');
           details += '\nSource: ' + kind + ' ' + (still.videoWidth || still.width) + 'x' + (still.videoHeight || still.height);
+          details += '\nCamera: ' + cameraInfo;
           details += '\n(used ' + stats.frames + ' of ' + FRAMES.length + ' views; ' + (resolved ? resolved.how : 'no match') + ')';
         }
 
