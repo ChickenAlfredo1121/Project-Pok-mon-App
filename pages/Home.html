@@ -341,9 +341,45 @@
 
     /* fix for phones */
     @media (max-aspect-ratio: 1/1) {
-      .camera-frame { aspect-ratio: 3 / 4; }
+      .camera-frame {
+        aspect-ratio: 3 / 4;
+      }
     }
 
+    /* ring shown where the user tapped to focus */
+    .focus-ring {
+      position: absolute;
+      z-index: 2;
+      width: 64px;
+      height: 64px;
+      margin: -32px 0 0 -32px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .4);
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .focus-ring.go {
+      animation: focusPing .9s ease-out;
+    }
+
+    @keyframes focusPing {
+      0% {
+        opacity: 1;
+        transform: scale(1.4);
+      }
+
+      40% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1);
+      }
+    }
   </style>
 </head>
 
@@ -367,11 +403,13 @@
       <div class="camera-frame" id="cameraFrame">
         <video id="video" autoplay playsinline muted></video>
         <div class="camera-guide"></div>
+        <div class="focus-ring" id="focusRing"></div>
       </div>
       <p class="camera-hint">Fit the card's edges to the red frame</p>
       <div class="camera-actions">
         <button id="startBtn" class="btn" type="button">Start camera</button>
         <button id="scanBtn" class="btn" type="button">Scan</button>
+        <button id="camBtn" class="btn" type="button" hidden>Switch camera</button>
       </div>
       <pre id="ocrOut"></pre>
       <div id="debug"></div>
@@ -398,6 +436,11 @@
     const debug = document.getElementById('debug');
     const scanBtn = document.getElementById('scanBtn');
     let imageCapture = null;    // takes a full-quality photo instead of video frame
+    const camBtn = document.getElementById('camBtn');
+    let backCameras = [];       // the phone's back cameras
+    let cameraId = (() => { try { return localStorage.getItem('pokedexCameraId'); } catch { return null; } })();
+    let tapPoint = null;        // where the user last tapped to focus
+    let focusNote = '';         // what happened with focusing, shown in the debug text
     let photoNote = '';         // why a real photo wasn't used, shown in the debug text
     let photoCaps = null;       // what the camera can do when taking a photo
     let cameraInfo = '';        // which camera and resolution the browser actually gives
@@ -407,7 +450,7 @@
     const numberWorkers = {};   // reads card number
 
     //testing tools
-   const DEBUG = new URLSearchParams(location.search).has('debug');   // true shows the debug images, the raw OCR text, and iteration number
+    const DEBUG = new URLSearchParams(location.search).has('debug');   // true shows the debug images, the raw OCR text, and iteration number
     // where the card name can be, as fractions of the card (x, y = top-left corner, w, h = size)
     //normal, trainers, and evolved cards all have different placements
     const NAME_BOXES = {
@@ -473,20 +516,49 @@
 
     //camera
 
-    // asks for camera permission and show live video
-    async function startCamera() {
+    // stops the current camera so another one can be started
+    function stopCamera() {
+      video.srcObject?.getTracks().forEach(t => t.stop());
+      video.srcObject = null;
+      imageCapture = null;
+    }
+
+    // finds the phone's back cameras, only available after permission granted
+    async function listBackCameras() {
+      const all = await navigator.mediaDevices.enumerateDevices();
+      backCameras = all
+        .filter(d => d.kind === 'videoinput' && /back|rear|environment/i.test(d.label))
+        .map(d => ({ id: d.deviceId, label: d.label }))
+        .sort((a, b) => a.label.localeCompare(b.label));
+      camBtn.hidden = backCameras.length < 2;   // only show "Switch camera" if there's a choice
+    }
+
+    // asks for camera permission and shows the live video
+    async function startCamera(deviceId = cameraId) {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: 'environment', width: { ideal: 3840 }, height: { ideal: 2160 } },
-          audio: false
-        });
+        stopCamera();
+        const size = { width: { ideal: 3840 }, height: { ideal: 2160 } };
+        let stream;
+        try {
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: deviceId ? { deviceId: { exact: deviceId }, ...size } : { facingMode: 'environment', ...size },
+            audio: false
+          });
+        } catch (err) {
+          if (!deviceId) throw err;   // "the back camera" failed too
+          stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment', ...size }, audio: false });   // the saved camera isn't available any more
+        }
         video.srcObject = stream;
         await video.play();
 
         const track = stream.getVideoTracks()[0];
+        cameraId = track.getSettings().deviceId ?? null;
+        await listBackCameras();
+
         // keep autofocus running when the browser allows it
-        if (track.getCapabilities?.().focusMode?.includes('continuous')) {
-          await track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] }).catch(() => {});
+        const caps = track.getCapabilities?.() ?? {};
+        if (caps.focusMode?.includes('continuous')) {
+          await track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] }).catch(() => { });
         }
         // ImageCapture can take a real photo, much sharper than a video frame
         imageCapture = 'ImageCapture' in window ? new ImageCapture(track) : null;
@@ -499,13 +571,15 @@
         const s = track.getSettings();
         cameraInfo = (track.label || 'camera') + ' - preview ' + s.width + 'x' + s.height +
           (photoCaps?.imageWidth ? ', largest photo ' + photoCaps.imageWidth.max + 'x' + photoCaps.imageHeight.max
-                                 : ', no photo capture');
+            : ', no photo capture') +
+          ', focus modes: ' + (caps.focusMode?.join('/') ?? 'none');
         out.textContent = '';
       } catch (err) {
         console.error(err);
         out.textContent = 'Could not start the camera: ' + err.message;
       }
     }
+
     // set name and printed number (like 40/100), shown directly under the card in the popup
     function cardMeta(card) {
       const meta = document.createElement('div');
@@ -531,7 +605,7 @@
       return c;
     }
 
-    
+
 
     //this scales frame pixes to camera pixels to make them match in a 1:1 ratio
     function guideArea() {
@@ -553,10 +627,10 @@
       //phone has more pixels than video frame, finding out how many photo pixels there are per video pixel
       const k = Math.min(sw / video.videoWidth, sh / video.videoHeight);
       const g = guideArea();
-      const baseW = g.w * k, baseH = g.h * k;                          
+      const baseW = g.w * k, baseH = g.h * k;
       const z = f.s * zoomFix;
       const w = baseW * z, h = baseH * z;
-      const cx = sw / 2 + f.dx * baseW, cy = sh / 2 + f.dy * baseH;    
+      const cx = sw / 2 + f.dx * baseW, cy = sh / 2 + f.dy * baseH;
       const c = document.createElement('canvas');
       c.width = Math.round(baseW); c.height = Math.round(baseH);
       c.getContext('2d').drawImage(src, cx - w / 2, cy - h / 2, w, h, 0, 0, c.width, c.height);
@@ -589,21 +663,55 @@
       return sum;
     }
 
-        // the largest photo we ask the camera for
+    // the largest photo we ask the camera for
     const PHOTO_MAX_SIDE = 4032;
 
     // the live camera feed
     const cameraTrack = () => video.srcObject?.getVideoTracks?.()[0];
 
+    // asks the camera to focus once on a point of the picture, returns whether it accepted
+    async function focusAt(x, y) {
+      const track = cameraTrack();
+      if (!track?.getCapabilities?.().focusMode?.includes('single-shot')) { focusNote = 'this camera has no tap focus'; return false; }
+      try {
+        await track.applyConstraints({ advanced: [{ focusMode: 'single-shot', pointsOfInterest: [{ x, y }] }] });
+        focusNote = 'focused at ' + x.toFixed(2) + ', ' + y.toFixed(2);
+        return true;
+      } catch (err) {
+        focusNote = 'focus refused: ' + err.name;
+        return false;
+      }
+    }
+
     // asks the camera to focus once on the middle of the picture and gives it time to settle
     async function focusOnCard() {
-      const track = cameraTrack();
-      if (!track?.getCapabilities?.().focusMode?.includes('single-shot')) return;   // not supported: continuous autofocus keeps working
-      try {
-        await track.applyConstraints({ advanced: [{ focusMode: 'single-shot', pointsOfInterest: [{ x: 0.5, y: 0.5 }] }] });
-        await new Promise(r => setTimeout(r, 500));
-      } catch { /* the camera refused: ignore */ }
+      const p = tapPoint && Date.now() - tapPoint.at < 15000 ? tapPoint : { x: 0.5, y: 0.5 };
+      if (await focusAt(p.x, p.y)) await new Promise(r => setTimeout(r, 600));
     }
+
+    // shows the small ring where the user tapped
+    function showFocusRing(px, py) {
+      const ring = document.getElementById('focusRing');
+      ring.style.left = px + 'px'; ring.style.top = py + 'px';
+      ring.classList.remove('go');
+      void ring.offsetWidth;  
+      ring.classList.add('go');
+    }
+
+    // tap the camera picture to focus there, like in the phone's own camera app
+    document.getElementById('cameraFrame').addEventListener('click', async (e) => {
+      if (!cameraTrack() || !video.videoWidth) return;
+      const rect = e.currentTarget.getBoundingClientRect();
+      const px = e.clientX - rect.left, py = e.clientY - rect.top;
+      showFocusRing(px, py);
+      // the video fills the frame like a "cover" background, so turn the tap into a position in the camera picture
+      const scale = Math.max(rect.width / video.videoWidth, rect.height / video.videoHeight);
+      const dw = video.videoWidth * scale, dh = video.videoHeight * scale;
+      const x = Math.min(1, Math.max(0, (px - (rect.width - dw) / 2) / dw));
+      const y = Math.min(1, Math.max(0, (py - (rect.height - dh) / 2) / dh));
+      tapPoint = { x, y, at: Date.now() };
+      await focusAt(x, y);
+    });
 
     // puts continuous autofocus back after the photo, so the live preview keeps focusing
     async function resumeAutofocus() {
@@ -1314,7 +1422,17 @@
       addFlashTimer = setTimeout(() => { btn.textContent = '+'; }, 500);
     });
     // button
-    document.getElementById('startBtn').addEventListener('click', startCamera);
+    document.getElementById('startBtn').addEventListener('click', () => startCamera());
+
+    // Switch camera cycle cameras and save choice made
+    camBtn.addEventListener('click', async () => {
+      if (backCameras.length < 2) return;
+      const i = backCameras.findIndex(c => c.id === cameraId);
+      const next = backCameras[(i + 1) % backCameras.length];
+      try { localStorage.setItem('pokedexCameraId', next.id); } catch { /* saving isn't possible: ignore */ }
+      await startCamera(next.id);
+      out.textContent = 'Camera ' + (backCameras.findIndex(c => c.id === next.id) + 1) + ' of ' + backCameras.length + ' (' + next.label + ')';
+    });
 
     // scan button that performs everything above
     scanBtn.addEventListener('click', async () => {
@@ -1394,6 +1512,7 @@
           details += '\nSource: ' + kind + ' ' + (still.videoWidth || still.width) + 'x' + (still.videoHeight || still.height);
           details += '\nCamera: ' + cameraInfo;
           details += '\nPhoto note: ' + (photoNote || 'none');
+          details += '\nFocus: ' + (focusNote || 'not tried');
           details += '\n(used ' + stats.frames + ' of ' + FRAMES.length + ' views; ' + (resolved ? resolved.how : 'no match') + ')';
         }
 
