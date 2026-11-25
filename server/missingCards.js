@@ -6,7 +6,7 @@ import { MongoClient, ServerApiVersion } from 'mongodb';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const IMAGES_DIR = join(__dirname, '../pages/images');
-const DATA_DIR = 'C:/Users/BakedPotato/Desktop/cardList/pokemon-tcg-data';   // <-- where you cloned it
+const DATA_DIR = 'C:/Users/BakedPotato/Desktop/cardList/pokemon-tcg-data';   
 
 const client = new MongoClient(process.env.MONGO_URI, {
   serverApi: { version: ServerApiVersion.v1, strict: true, deprecationErrors: true }
@@ -50,7 +50,7 @@ for (const file of await fs.readdir(join(DATA_DIR, 'cards/en'))) {
 }
 console.log(`Loaded ${byId.size} cards from the dump`);
 
-// ---- matching ----
+// matching
 const learned = new Map();   // your cardSetName -> dump set id (filled in below)
 
 function findImage(card) {
@@ -80,7 +80,7 @@ function findImage(card) {
   return { how: 'ambiguous', hits };
 }
 
-// ---- learn set mappings from every card that already matches confidently ----
+//learns set mapping from cards that it is already confident about
 const everyCard = await cards.find({}, {
   projection: { cardId: 1, cardName: 1, cardSetName: 1, cardLocalId: 1 }
 }).toArray();
@@ -99,7 +99,7 @@ for (const [name, m] of votes) {
 }
 console.log('Learned set mappings:', Object.fromEntries(learned));
 
-// ---- cards that still need an image ----
+//cards that need images
 const missingFilter = {
   cardImageFull: { $exists: false },
   $or: [{ cardImage: null }, { cardImage: '' }, { cardImage: { $exists: false } }]
