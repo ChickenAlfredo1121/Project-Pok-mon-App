@@ -165,9 +165,219 @@
       border-radius: 6px;
     }
 
+    #debug figure {
+      margin: 0;
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      max-width: 260px;
+    }
+
     @media (max-width: 600px) {
       .page {
         padding: 24px 16px;
+      }
+    }
+
+    .modal-meta {
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .modal-meta strong {
+      display: block;
+      font-size: 15px;
+      font-weight: 500;
+    }
+
+    .modal-meta span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+
+    /* which-printing buttons */
+    #choices {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    /* card popup (same look as the Card Database page) */
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(23, 58, 52, .65);
+    }
+
+    .modal.open {
+      display: flex;
+    }
+
+    .modal-box {
+      position: relative;
+      max-width: min(480px, 100%);
+      max-height: 100%;
+      padding: 16px;
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+      overflow: auto;
+    }
+
+    .modal-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .modal-btn {
+      position: absolute;
+      top: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 24px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+    }
+
+    .modal-btn:hover {
+      background: #e4ece6;
+    }
+
+    .modal-btn:focus-visible {
+      outline: 2px solid var(--dark);
+      outline-offset: 2px;
+    }
+
+    #modalAdd {
+      right: 10px;
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    #modalAdd:hover {
+      background: #bf3d23;
+    }
+
+    #modalClose {
+      left: 10px;
+      font-size: 20px;
+    }
+
+    .modal-price {
+      margin-top: 14px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    .modal-price small {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .modal-price.none {
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .modal-owned {
+      margin-top: 8px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+      min-height: 1.2em;
+    }
+
+    .no-image {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      aspect-ratio: 5 / 7;
+      padding: 16px;
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .no-image small {
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .no-image strong {
+      font-size: 17px;
+      font-weight: 500;
+    }
+
+
+    /* fix for phones */
+    @media (max-aspect-ratio: 1/1) {
+      .camera-frame {
+        aspect-ratio: 3 / 4;
+      }
+    }
+
+    /* ring shown where the user tapped to focus */
+    .focus-ring {
+      position: absolute;
+      z-index: 2;
+      width: 64px;
+      height: 64px;
+      margin: -32px 0 0 -32px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .4);
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .focus-ring.go {
+      animation: focusPing .9s ease-out;
+    }
+
+    @keyframes focusPing {
+      0% {
+        opacity: 1;
+        transform: scale(1.4);
+      }
+
+      40% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1);
       }
     }
   </style>
@@ -193,42 +403,176 @@
       <div class="camera-frame" id="cameraFrame">
         <video id="video" autoplay playsinline muted></video>
         <div class="camera-guide"></div>
+        <div class="focus-ring" id="focusRing"></div>
       </div>
       <p class="camera-hint">Fit the card's edges to the red frame</p>
       <div class="camera-actions">
         <button id="startBtn" class="btn" type="button">Start camera</button>
         <button id="scanBtn" class="btn" type="button">Scan</button>
+        <button id="camBtn" class="btn" type="button" hidden>Switch camera</button>
       </div>
       <pre id="ocrOut"></pre>
       <div id="debug"></div>
+      <div id="choices"></div>
     </section>
 
   </main>
 
+  <!-- card popup -->
+  <div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Card preview">
+    <div class="modal-box" id="modalBox">
+      <button type="button" class="modal-btn" id="modalClose" aria-label="Close">&times;</button>
+      <button type="button" class="modal-btn" id="modalAdd" aria-label="Add to my collection">+</button>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
   <!-- this is the card reading OCR (optical characer recogonition) -->
   <script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
   <script>
-
-    //creates set up for later use
+    // page elements
     const video = document.getElementById('video');
     const out = document.getElementById('ocrOut');
     const debug = document.getElementById('debug');
-    let worker = null;
+    const scanBtn = document.getElementById('scanBtn');
+    let imageCapture = null;    // takes a full-quality photo instead of video frame
+    const camBtn = document.getElementById('camBtn');
+    let backCameras = [];       // the phone's back cameras
+    let cameraId = (() => { try { return localStorage.getItem('pokedexCameraId'); } catch { return null; } })();
+    let tapPoint = null;        // where the user last tapped to focus
+    let focusNote = '';         // what happened with focusing, shown in the debug text
+    let photoNote = '';         // why a real photo wasn't used, shown in the debug text
+    let photoCaps = null;       // what the camera can do when taking a photo
+    let cameraInfo = '';        // which camera and resolution the browser actually gives
+    let worker = null;          // Tesseract reader for the card name (made on first use)
     let nameIndex = null;
+    let cardIndex = null;       // every card as { id, n (name), l (printed number), s (set), key }, grouped by number
+    const numberWorkers = {};   // reads card number
 
-    // not all cards have the name at the same level (trainer to pokemon) so we are reading the entire top portion
-    const NAME_BOX = { x: 0.04, y: 0.02, w: 0.92, h: 0.20 }; //parameters for scan
-    const TRY_INVERTED = true;   //this is for swapping between normal and black and white becauase OCR can read black and white better
+    //testing tools
+    const DEBUG = new URLSearchParams(location.search).has('debug');   // true shows the debug images, the raw OCR text, and iteration number
+    // where the card name can be, as fractions of the card (x, y = top-left corner, w, h = size)
+    //normal, trainers, and evolved cards all have different placements
+    const NAME_BOXES = {
+      wide: { x: 0.04, y: 0.02, w: 0.92, h: 0.20 },   // the whole top of the card
+      line: { x: 0.17, y: 0.025, w: 0.60, h: 0.08 },   // just the name line on most Pokémon cards
+      low: { x: 0.06, y: 0.045, w: 0.72, h: 0.09 }    // a bit lower and wider, for Trainer cards
+    };
 
-    //this starts the users camera
-    async function startCamera() {
+    // trying to read in different ways for more accuracy 
+    const NAME_PASSES = [
+      { box: 'line', px: 110, invert: false, psm: 'SINGLE_LINE' },
+      { box: 'line', px: 110, invert: true, psm: 'SINGLE_LINE' },
+      { box: 'low', px: 110, invert: false, psm: 'SINGLE_LINE' },
+      { box: 'low', px: 110, invert: true, psm: 'SINGLE_LINE' },
+      { box: 'wide', px: 260, invert: false, psm: 'SPARSE_TEXT' },
+      { box: 'wide', px: 260, invert: true, psm: 'SPARSE_TEXT' }
+    ];
+    const NEEDED = 2;   //number of reads needed to agree
+    const NAME_NEEDED = 3;   // point where scanner will stop looking at views
+
+    // the number is bottom-left on newer cards and bottom-right on older ones, so both sides are read.
+    const NUMBER_SIDES = { left: { x: 0.02, w: 0.34 }, right: { x: 0.64, w: 0.34 } };
+
+    // cuts strip, resizes, reads
+    const NUMBER_PASSES = [
+      { y: 0.875, h: 0.125, px: 250, psm: 'SPARSE_TEXT' },
+      { y: 0.890, h: 0.100, px: 210, psm: 'SPARSE_TEXT' },
+      { y: 0.900, h: 0.080, px: 170, psm: 'SINGLE_BLOCK' }
+    ];
+    const DESC_WORDS_LIMIT = 3;   // a corner with this many ordinary lowercase words is treated as flavor text, there is usually a description at the bottom of cards
+    const COPYRIGHT_WORDS = ['pokemon', 'nintendo', 'creatures', 'game', 'freak'];   // printed on every card, so dont count it like the description
+
+    // the card wont always be perfect, so changing where it reads slightly through views for more dynamic reading
+    const FRAMES = [
+      { dx: 0, dy: 0, s: 1.00 },
+      { dx: 0, dy: 0, s: 1.07 },
+      { dx: 0, dy: 0, s: 0.93 },
+      { dx: -0.04, dy: 0, s: 1.00 },
+      { dx: 0.04, dy: 0, s: 1.00 },
+      { dx: 0, dy: -0.03, s: 1.00 },
+      { dx: 0, dy: 0.03, s: 1.00 }
+    ];
+
+    // when scan is clicked it takes this many shots and keeps the best one 
+    const BURST = { shots: 6, gapMs: 90, photos: 1 };
+    const HOLD_MS = 700; //holding before the shot
+    //altering zoom based on camera
+    const PHOTO_ZOOM = 0.90;
+    let zoomFix = 1;   // PHOTO_ZOOM for photos, 1 for video frames
+
+    // the shapes a card number can have, not all cards have the same number system so this accounts for that
+    const SLASH_RE = /^([A-Z]{0,4}\d{1,3}[A-Z]?)\/([A-Z]{0,4}\d{1,3})/;
+    const CODE_RE = /^[A-Z]{1,5}\d{2,3}[A-Z]{0,2}$/;
+    const BARE_RE = /^\d{2,3}$/;
+    const RANK = { slash: 3, code: 1, bare: 1 };   // slash numbers are the most distinctive, to try and not get mixed up with descriptions
+    const NUMBER_CHARS = {
+      digits: '0123456789/',                                  // can only answer with digits and "/"
+      alnum: '0123456789/ABCDEFGHIJKLMNOPQRSTUVWXYZ'          // also capital letters, for promos and gallery cards
+    };
+
+    // how trustworthy a reading is: its shape, plus a bonus if it sat right after an anchor (EN or a letter), most new cards have anchors per set
+    const trust = c => RANK[c.kind] + (c.anchored ? 3 : 0);
+
+    //camera
+
+    // stops the current camera so another one can be started
+    function stopCamera() {
+      video.srcObject?.getTracks().forEach(t => t.stop());
+      video.srcObject = null;
+      imageCapture = null;
+    }
+
+    // finds the phone's back cameras, only available after permission granted
+    async function listBackCameras() {
+      const all = await navigator.mediaDevices.enumerateDevices();
+      backCameras = all
+        .filter(d => d.kind === 'videoinput' && /back|rear|environment/i.test(d.label))
+        .map(d => ({ id: d.deviceId, label: d.label }))
+        .sort((a, b) => a.label.localeCompare(b.label));
+      camBtn.hidden = backCameras.length < 2;   // only show "Switch camera" if there's a choice
+    }
+
+    // asks for camera permission and shows the live video
+    async function startCamera(deviceId = cameraId) {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({
-          video: { facingMode: 'environment', width: { ideal: 1920 }, height: { ideal: 1080 } }, //size parameters of camera, can give preferance based on device (if phone)
-          audio: false
-        });
+        stopCamera();
+        const size = { width: { ideal: 3840 }, height: { ideal: 2160 } };
+        let stream;
+        try {
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: deviceId ? { deviceId: { exact: deviceId }, ...size } : { facingMode: 'environment', ...size },
+            audio: false
+          });
+        } catch (err) {
+          if (!deviceId) throw err;   // "the back camera" failed too
+          stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment', ...size }, audio: false });   // the saved camera isn't available any more
+        }
         video.srcObject = stream;
         await video.play();
+
+        const track = stream.getVideoTracks()[0];
+        cameraId = track.getSettings().deviceId ?? null;
+        await listBackCameras();
+
+        // keep autofocus running when the browser allows it
+        const caps = track.getCapabilities?.() ?? {};
+        if (caps.focusMode?.includes('continuous')) {
+          await track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] }).catch(() => { });
+        }
+        // ImageCapture can take a real photo, much sharper than a video frame
+        imageCapture = 'ImageCapture' in window ? new ImageCapture(track) : null;
+        photoCaps = null;
+        if (imageCapture) {
+          try { photoCaps = await imageCapture.getPhotoCapabilities(); } catch { /* not supported on this phone */ }
+        }
+
+        // what the browser actually gave us, for the debug text
+        const s = track.getSettings();
+        cameraInfo = (track.label || 'camera') + ' - preview ' + s.width + 'x' + s.height +
+          (photoCaps?.imageWidth ? ', largest photo ' + photoCaps.imageWidth.max + 'x' + photoCaps.imageHeight.max
+            : ', no photo capture') +
+          ', focus modes: ' + (caps.focusMode?.join('/') ?? 'none');
         out.textContent = '';
       } catch (err) {
         console.error(err);
@@ -236,27 +580,64 @@
       }
     }
 
-    // creates the worker from tesseract once, then it is reused
-    async function getWorker() {
-      if (!worker) {
-        worker = await Tesseract.createWorker('eng');
-        // find text in the entire box we specified
-        await worker.setParameters({ tessedit_pageseg_mode: Tesseract.PSM.SPARSE_TEXT });
-      }
-      return worker;
+    // set name and printed number (like 40/100), shown directly under the card in the popup
+    function cardMeta(card) {
+      const meta = document.createElement('div');
+      meta.className = 'modal-meta';
+
+      const set = document.createElement('strong');
+      set.textContent = card.cardSetName || 'Unknown set';
+
+      const num = document.createElement('span');
+      const local = card.cardLocalId ?? '';
+      // sets it with a slash if the cardCount is known, (like the 40/100)
+      num.textContent = local === '' ? '' : (card.cardCount ? local + '/' + card.cardCount : String(local));
+
+      meta.append(set, num);
+      return meta;
     }
 
-    // this grabs a copy of the pixels within the outline into a new canvas to scan
-    function grabCard() {
-      const vw = video.videoWidth, vh = video.videoHeight;
-      const h = vh * 0.8, w = h * 5 / 7;
+    // freezes the live video into one still image (the whole camera frame at full resolution)
+    function captureStill() {
       const c = document.createElement('canvas');
-      c.width = w; c.height = h;
-      c.getContext('2d').drawImage(video, (vw - w) / 2, (vh - h) / 2, w, h, 0, 0, w, h);
+      c.width = video.videoWidth; c.height = video.videoHeight;
+      c.getContext('2d').drawImage(video, 0, 0);
       return c;
     }
 
-    // this cuts out a rectangle in the canvas as fractions and returns it as a new canvas
+
+
+    //this scales frame pixes to camera pixels to make them match in a 1:1 ratio
+    function guideArea() {
+      const vw = video.videoWidth, vh = video.videoHeight;
+      const frame = document.getElementById('cameraFrame');
+      const guide = frame.querySelector('.camera-guide');
+      const scale = Math.max(frame.clientWidth / vw, frame.clientHeight / vh);
+      if (!scale || !guide.offsetWidth) {   // frame not measurable: fall back to a landscape guess
+        const h = vh * 0.8;
+        return { w: h * 5 / 7, h };
+      }
+      return { w: guide.offsetWidth / scale, h: guide.offsetHeight / scale };
+    }
+
+    // copies the card-shaped area (under the red guide) out of a video or a still into a new canvas.
+    //f shifts and zooms to get best results
+    function grabCard(src, f = FRAMES[0]) {
+      const sw = src.videoWidth || src.width, sh = src.videoHeight || src.height;
+      //phone has more pixels than video frame, finding out how many photo pixels there are per video pixel
+      const k = Math.min(sw / video.videoWidth, sh / video.videoHeight);
+      const g = guideArea();
+      const baseW = g.w * k, baseH = g.h * k;
+      const z = f.s * zoomFix;
+      const w = baseW * z, h = baseH * z;
+      const cx = sw / 2 + f.dx * baseW, cy = sh / 2 + f.dy * baseH;
+      const c = document.createElement('canvas');
+      c.width = Math.round(baseW); c.height = Math.round(baseH);
+      c.getContext('2d').drawImage(src, cx - w / 2, cy - h / 2, w, h, 0, 0, c.width, c.height);
+      return c;
+    }
+
+    // cuts a rectangle out of a canvas, given as fractions (0 to 1) of its size, as a new canvas
     function crop(src, fx, fy, fw, fh) {
       const c = document.createElement('canvas');
       c.width = src.width * fw; c.height = src.height * fh;
@@ -264,7 +645,154 @@
       return c;
     }
 
-    // enlarge, convert to grayscale, stretch contrast (optionally invert)
+    // scores how sharp an image is, blurry dosent have big differences usually but good shots do
+    function sharpness(canvas) {
+      const w = 480, h = Math.round(canvas.height * w / canvas.width);
+      const c = document.createElement('canvas');
+      c.width = w; c.height = h;
+      const ctx = c.getContext('2d');
+      ctx.drawImage(canvas, 0, 0, w, h);
+      const d = ctx.getImageData(0, 0, w, h).data;
+      let sum = 0;
+      for (let y = 1; y < h; y++) {
+        for (let x = 1; x < w; x++) {
+          const i = (y * w + x) * 4;
+          sum += Math.abs(d[i] - d[i - 4]) + Math.abs(d[i] - d[i - w * 4]);   // red channel is enough here
+        }
+      }
+      return sum;
+    }
+
+    // the largest photo we ask the camera for
+    const PHOTO_MAX_SIDE = 4032;
+
+    // the live camera feed
+    const cameraTrack = () => video.srcObject?.getVideoTracks?.()[0];
+
+    // asks the camera to focus once on a point of the picture, returns whether it accepted
+    async function focusAt(x, y) {
+      const track = cameraTrack();
+      if (!track?.getCapabilities?.().focusMode?.includes('single-shot')) { focusNote = 'this camera has no tap focus'; return false; }
+      try {
+        await track.applyConstraints({ advanced: [{ focusMode: 'single-shot', pointsOfInterest: [{ x, y }] }] });
+        focusNote = 'focused at ' + x.toFixed(2) + ', ' + y.toFixed(2);
+        return true;
+      } catch (err) {
+        focusNote = 'focus refused: ' + err.name;
+        return false;
+      }
+    }
+
+    // asks the camera to focus once on the middle of the picture and gives it time to settle
+    async function focusOnCard() {
+      const p = tapPoint && Date.now() - tapPoint.at < 15000 ? tapPoint : { x: 0.5, y: 0.5 };
+      if (await focusAt(p.x, p.y)) await new Promise(r => setTimeout(r, 600));
+    }
+
+    // shows the small ring where the user tapped
+    function showFocusRing(px, py) {
+      const ring = document.getElementById('focusRing');
+      ring.style.left = px + 'px'; ring.style.top = py + 'px';
+      ring.classList.remove('go');
+      void ring.offsetWidth;  
+      ring.classList.add('go');
+    }
+
+    // tap the camera picture to focus there, like in the phone's own camera app
+    document.getElementById('cameraFrame').addEventListener('click', async (e) => {
+      if (!cameraTrack() || !video.videoWidth) return;
+      const rect = e.currentTarget.getBoundingClientRect();
+      const px = e.clientX - rect.left, py = e.clientY - rect.top;
+      showFocusRing(px, py);
+      // the video fills the frame like a "cover" background, so turn the tap into a position in the camera picture
+      const scale = Math.max(rect.width / video.videoWidth, rect.height / video.videoHeight);
+      const dw = video.videoWidth * scale, dh = video.videoHeight * scale;
+      const x = Math.min(1, Math.max(0, (px - (rect.width - dw) / 2) / dw));
+      const y = Math.min(1, Math.max(0, (py - (rect.height - dh) / 2) / dh));
+      tapPoint = { x, y, at: Date.now() };
+      await focusAt(x, y);
+    });
+
+    // puts continuous autofocus back after the photo, so the live preview keeps focusing
+    async function resumeAutofocus() {
+      const track = cameraTrack();
+      if (!track?.getCapabilities?.().focusMode?.includes('continuous')) return;
+      try { await track.applyConstraints({ advanced: [{ focusMode: 'continuous' }] }); } catch { /* ignore */ }
+    }
+
+    // the photo settings asked for, no flash, biggest size of camera and photo
+    function photoSettings() {
+      const settings = { fillLightMode: 'off' };
+      const mw = photoCaps?.imageWidth?.max, mh = photoCaps?.imageHeight?.max;
+      if (mw && mh) {
+        const s = Math.min(1, PHOTO_MAX_SIDE / Math.max(mw, mh));
+        settings.imageWidth = Math.round(mw * s);
+        settings.imageHeight = Math.round(mh * s);
+      }
+      return settings;
+    }
+
+    // the preview and the photo must be turned the same way, or the crop boxes land in the wrong places.
+    // if the photo is sideways compared with the preview, it is turned 90 degrees clockwise (the usual fix for a
+    // phone held upright) instead of being thrown away
+    function matchOrientation(photo) {
+      if ((photo.height > photo.width) === (video.videoHeight > video.videoWidth)) return { img: photo, turned: false };
+      const c = document.createElement('canvas');
+      c.width = photo.height; c.height = photo.width;
+      const ctx = c.getContext('2d');
+      ctx.translate(c.width, 0);
+      ctx.rotate(Math.PI / 2);
+      ctx.drawImage(photo, 0, 0);
+      photo.close?.();
+      return { img: c, turned: true };
+    }
+
+    // takes ONE stil photo with camera support, fallback is frame from the live video
+    async function takeStill() {
+      photoNote = '';
+      if (!imageCapture) {
+        photoNote = 'this browser has no photo capture (Chrome on Android has it)';
+      } else {
+        try {
+          await focusOnCard();
+          let blob;
+          try {
+            blob = await imageCapture.takePhoto(photoSettings());
+          } catch (e) {
+            photoNote = 'big photo refused (' + e.name + '), took a default-size one';
+            blob = await imageCapture.takePhoto({ fillLightMode: 'off' });
+          }
+          const { img, turned } = matchOrientation(await createImageBitmap(blob));
+          return { img, kind: turned ? 'photo (turned)' : 'photo' };
+        } catch (err) {
+          photoNote = 'takePhoto failed: ' + err.name + ' ' + err.message;
+          console.warn(photoNote);
+        } finally {
+          resumeAutofocus();
+        }
+      }
+      return { img: captureStill(), kind: 'video' };
+    }
+
+
+    // takes several quick photos and returns the sharpest one, only the best is kept in memory
+    async function captureSharpest(onShot) {
+      const count = imageCapture ? BURST.photos : BURST.shots;
+      let best = null;
+      for (let i = 0; i < count; i++) {
+        onShot(i + 1, count);
+        const shot = await takeStill();
+        const score = sharpness(grabCard(shot.img));
+        if (!best || score > best.score) { best?.img.close?.(); best = { ...shot, score }; }
+        else shot.img.close?.();
+        await new Promise(r => setTimeout(r, BURST.gapMs));
+      }
+      return { still: best.img, kind: best.kind };
+    }
+
+    // getting the image ready for OCR
+
+    // enlarges or shrinks, converts to grayscale, stretches contrast (optionally inverts), lowers glare
     function preprocess(src, scale, invert) {
       const c = document.createElement('canvas');
       c.width = src.width * scale; c.height = src.height * scale;
@@ -275,16 +803,23 @@
       const img = ctx.getImageData(0, 0, c.width, c.height);
       const d = img.data;
       const gray = new Float32Array(d.length / 4);
-      let min = 255, max = 0;
+      const hist = new Array(256).fill(0);
       for (let i = 0, j = 0; i < d.length; i += 4, j++) {
         const v = 0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2];
         gray[j] = v;
-        if (v < min) min = v;
-        if (v > max) max = v;
+        hist[Math.round(v)]++;
       }
-      const range = Math.max(1, max - min);
+
+      // find the brightness by comparing the high and low of light contrast
+      const cut = gray.length * 0.01;
+      let lo = 0, hi = 255, acc = 0;
+      for (let t = 0; t < 256; t++) { acc += hist[t]; if (acc >= cut) { lo = t; break; } }
+      acc = 0;
+      for (let t = 255; t >= 0; t--) { acc += hist[t]; if (acc >= cut) { hi = t; break; } }
+      const range = Math.max(1, hi - lo);
+
       for (let i = 0, j = 0; i < d.length; i += 4, j++) {
-        let v = (gray[j] - min) * 255 / range;
+        let v = Math.min(255, Math.max(0, (gray[j] - lo) * 255 / range));
         if (invert) v = 255 - v;
         d[i] = d[i + 1] = d[i + 2] = v;
         d[i + 3] = 255;
@@ -293,33 +828,177 @@
       return c;
     }
 
-    // read the strip normal (and inverted); matching decides which read is better
-    //returning one normal and one inverted
-    async function readAll(strip) {
-      const w = await getWorker();
-      const reads = [];
-      for (const invert of TRY_INVERTED ? [false, true] : [false]) {
-        const canvas = preprocess(strip, 2, invert);
-        const { data } = await w.recognize(canvas);
-        reads.push({ text: data.text, confidence: data.confidence, canvas });
+    // the average brightness to compare to background which will be used to fill the margin so that borders match background
+    function edgeColor(canvas) {
+      const ctx = canvas.getContext('2d');
+      const w = canvas.width, h = canvas.height;
+      let sum = 0, n = 0;
+      for (const row of [ctx.getImageData(0, 0, w, 1).data, ctx.getImageData(0, h - 1, w, 1).data]) {
+        for (let i = 0; i < row.length; i += 4) { sum += row[i]; n++; }
       }
-      return reads;
+      const v = Math.round(sum / n);
+      return 'rgb(' + v + ',' + v + ',' + v + ')';
     }
 
-    // this is the bottom view for testing, it shows what tesseract actually reads (the 2 images whole card and registered at top of card)
-    function showDebug(card, readCanvas) {
-      const overlay = document.createElement('canvas');
-      overlay.width = card.width; overlay.height = card.height;
-      const ctx = overlay.getContext('2d');
-      ctx.drawImage(card, 0, 0);
-      ctx.strokeStyle = 'red';
-      ctx.lineWidth = Math.max(2, card.width / 120);
-      ctx.strokeRect(card.width * NAME_BOX.x, card.height * NAME_BOX.y,
-        card.width * NAME_BOX.w, card.height * NAME_BOX.h);
-      debug.replaceChildren(overlay, readCanvas);
+    // resizes a strip to exact pixels tall (so it works the same at any camera resolution), cleans it,
+    // margin is added after so final image is taller, tesseract dosent read well sometimes if card isnt on edge 
+    function prepare(strip, px, invert) {
+      const clean = preprocess(strip, px / strip.height, invert);
+      const padY = Math.round(clean.height * 0.35), padX = Math.round(clean.height * 0.6);
+      const padded = document.createElement('canvas');
+      padded.width = clean.width + padX * 2; padded.height = clean.height + padY * 2;
+      const ctx = padded.getContext('2d');
+      ctx.fillStyle = edgeColor(clean);
+      ctx.fillRect(0, 0, padded.width, padded.height);
+      ctx.drawImage(clean, padX, padY);
+      return padded;
     }
 
-    //this works to measure how different 2 strings are
+    // tesseract reader 
+
+    // the name reader: made once
+    async function getWorker() {
+      if (!worker) worker = await Tesseract.createWorker('eng');
+      return worker;
+    }
+
+    // number readers: 'digits' can only answer with 0-9 and "/" (accurate), 'alnum' also allows capital letters
+    async function getNumberWorker(mode) {
+      if (!numberWorkers[mode]) {
+        const w = await Tesseract.createWorker('eng');
+        await w.setParameters({ tessedit_char_whitelist: NUMBER_CHARS[mode] });
+        numberWorkers[mode] = w;
+      }
+      return numberWorkers[mode];
+    }
+
+    // runs OCR on a canvas
+    async function ocr(w, canvas, psm) {
+      await w.setParameters({ tessedit_pageseg_mode: Tesseract.PSM[psm] });
+      const { data } = await w.recognize(canvas);
+      return data;
+    }
+
+    // wraps a canvas with a caption, for debug view
+    function labeled(canvas, caption) {
+      const fig = document.createElement('figure');
+      fig.append(canvas);
+      const cap = document.createElement('figcaption');
+      cap.textContent = caption;
+      fig.append(cap);
+      return fig;
+    }
+
+    // number in OCR
+
+    // turns one word into a number reading, or null if it isn't number-shaped
+    function numberFromToken(tok) {
+      tok = tok.replace(/^EN(?=\d)/, '');
+      const m = tok.match(SLASH_RE);
+      if (m) {
+        let number = m[1];
+        const total = m[2];
+        if (parseInt(total.replace(/\D/g, ''), 10) < 10) return null;   // skips junk like 1/2
+        if (/^[A-Z]\d/.test(number) && /^\d/.test(total)) number = number.slice(1);
+        return { number, total, kind: 'slash' };
+      }
+      if (CODE_RE.test(tok)) return { number: tok, total: null, kind: 'code' };
+      if (BARE_RE.test(tok)) return { number: tok, total: null, kind: 'bare' };
+      return null;
+    }
+
+    // decide which side has the description by judging one strip at a time
+    //skip says when it looks like flavor text
+    // the illustrator line has words too, so a strip that says "Illus" is never rejected (usually on side of number)
+    function judgeStrip(text) {
+      const words = text.split(/[^A-Za-z]+/).filter(w => w.length >= 3);
+
+      // "Illus." is often misread ("llus", "Ilus", "Illu"), so allow a couple of letter errors
+      const hasIllus = words.some(w => {
+        const l = w.toLowerCase();
+        return l.length >= 4 && l.length <= 6 && lev(l, 'illus') <= 2;
+      });
+
+      // description words: ordinary words with several lowercase letters (so "EN", "DLR" and "FREAK" don't count),
+      // minus the copyright words that are printed on every card
+      const desc = words.filter(w =>
+        w.length >= 4 &&
+        (w.match(/[a-z]/g) ?? []).length >= 3 &&
+        !COPYRIGHT_WORDS.some(c => lev(w.toLowerCase(), c) <= 1));
+
+      return { hasIllus, descWords: desc.length, skip: !hasIllus && desc.length >= DESC_WORDS_LIMIT };
+    }
+
+    // cut s the copy right bottom line for parseCardNumber to find the card number
+    function cleanNumberLine(line) {
+      const cut = line.search(/©|(^|\D)0?(19|20)\d\d(\D|$)/);
+      if (cut !== -1) line = line.slice(0, cut);
+
+      const words = line.split(/[^A-Za-z]+/).filter(w => w.length >= 4);
+      if (words.some(w => COPYRIGHT_WORDS.some(c => lev(w.toLowerCase(), c) <= 1))) return '';
+      if (judgeStrip(line).skip) return '';
+      return line;
+    }
+
+    // finds the card number in OCR text but reads result from cleanNumberLine
+    function parseCardNumber(text) {
+      let best = null;
+      const consider = c => {
+        if (!best || trust(c) > trust(best) || (trust(c) === trust(best) && c.pos < best.pos)) best = c;
+      };
+
+      text.split('\n').forEach((rawLine, lineNo) => {
+        const cleaned = cleanNumberLine(rawLine);
+        if (!cleaned) return;
+
+        // tidy the line (spaces between numbers and such)
+        const line = cleaned.toUpperCase().replace(/[^A-Z0-9/\s]/g, ' ').replace(/\s*\/\s*/g, '/');
+        const tokens = line.split(/\s+/).filter(Boolean);
+
+        // anchor 1: the language code "EN". the number is the first number-shaped word after it,
+        // and the word just before EN is the set code (SCR, ASC, MEP...)
+        //this is common with newer sets 
+        const en = tokens.indexOf('EN');
+        if (en !== -1) {
+          for (let i = en + 1; i < tokens.length; i++) {
+            const found = numberFromToken(tokens[i]);
+            if (found) {
+              const before = tokens[en - 1] ?? '';
+              consider({
+                ...found, anchored: true, pos: lineNo * 100 + i,
+                setCode: /^[A-Z]{2,4}$/.test(before) ? before : null
+              });
+              break;
+            }
+          }
+        }
+
+        // anchor 2: the regulation mark, a single letter (G, F, J...) right before the number
+        for (let i = 0; i + 1 < tokens.length; i++) {
+          if (/^[A-Z]$/.test(tokens[i])) {
+            const found = numberFromToken(tokens[i + 1]);
+            if (found) consider({ ...found, anchored: true, setCode: null, pos: lineNo * 100 + i + 1 });
+          }
+        }
+
+        // no anchor: any number-shaped word. the leftmost wins ties
+        tokens.forEach((tok, i) => {
+          const found = numberFromToken(tok);
+          if (found) consider({ ...found, anchored: false, setCode: null, pos: lineNo * 100 + i });
+        });
+      });
+      return best;
+    }
+
+    // "025" and "25" count as the same number; "TG05" and "TG5" too
+    const normCode = s => String(s).replace(/^([A-Z]*)0+(?=\d)/, '$1');
+
+    // a reading is confirmed once enough passes agree on it (a bare number that isn't anchored needs one more)
+    const isConfirmed = v => v.count >= ((v.kind === 'bare' && !v.anchored) ? NEEDED + 1 : NEEDED);
+
+    // matching name
+
+    // measures how different two strings are: the fewest single-letter edits to turn one into the other
     function lev(a, b) {
       const dp = Array.from({ length: a.length + 1 }, (_, i) => [i, ...Array(b.length).fill(0)]);
       for (let j = 1; j <= b.length; j++) dp[0][j] = j;
@@ -330,20 +1009,21 @@
       return dp[a.length][b.length];
     }
 
-    //this this change everything to lowercase and takes out odd characters for easier reading
+    // lowercases and removes everything except a-z, so names compare the same way on both sides
     const letters = s => s.toLowerCase().replace(/[^a-z]/g, '');
 
-    // this makes sure that if it is an evolved form it dosent take the pre-evolution name by accident (by looking for "evolved")
+    // drops the word "Evolves" and everything after it on a line, because the pre-evolution name that
+    // follows ("Evolves from Lampent") is a real card name that would otherwise match by mistake this was a huge problem T-T
     function stripEvolves(line) {
       const tokens = line.trim().split(/\s+/);
       const i = tokens.findIndex(t => {
         const l = letters(t);
-        return l.length >= 5 && l.length <= 8 && lev(l, 'evolves') <= 2; //looking for "evolves"
+        return l.length >= 5 && l.length <= 8 && lev(l, 'evolves') <= 2;
       });
-      return i === -1 ? tokens : tokens.slice(0, i); //returns all if "evolved" not present and only before if it is
+      return i === -1 ? tokens : tokens.slice(0, i);   // all the words if "Evolves" isn't there, else only those before it
     }
 
-    //this goes and gets the card name from the DB to see if it read the card correctly/has a match
+    // loads every real card name from the server once, with a cleaned-up key for comparing
     async function loadNames() {
       if (nameIndex) return;
       const res = await fetch('/api/cards/names');
@@ -354,27 +1034,27 @@
         .filter(n => n.key.length >= 3);
     }
 
-    // looks for a real name by going by each line
+    // looks through OCR text for the closest real card name, line by line, trying runs of 1 to 5 words
     async function bestNameMatch(raw) {
       await loadNames();
       let best = null;
 
       raw.split('\n').forEach((line, lineNo) => {
-        const tokens = stripEvolves(line).map(letters).filter(Boolean);//removes empty words (like 70&) 
+        const tokens = stripEvolves(line).map(letters).filter(Boolean);   // cleaned words, empties removed
 
-        for (let n = 1; n <= 3; n++) {                       // runs every couple words
+        for (let n = 1; n <= 5; n++) {
           for (let i = 0; i + n <= tokens.length; i++) {
             const q = tokens.slice(i, i + n).join('');
             if (q.length < 3) continue;
 
-            const allowed = q.length <= 4 ? 1 : Math.floor(q.length / 3);   // the amount of typo accepted
+            const allowed = q.length <= 4 ? 1 : Math.floor(q.length / 3);  // how many letter typos we tolerate
             for (const entry of nameIndex) {
-              if (Math.abs(entry.key.length - q.length) > allowed) continue; // skips names that arent even close
+              if (Math.abs(entry.key.length - q.length) > allowed) continue; // quick skip if length too different
               const dist = lev(q, entry.key);
               if (dist > allowed) continue;
 
-              const score = dist / entry.key.length;
-              // lowest error wins, if there is a tie it goes to the one with a longer name
+              const score = dist / entry.key.length;                       // typos as a share of the name's length
+              // lowest score wins; a tie goes to the longer name, then to the earlier line
               const better = !best || score < best.score ||
                 (score === best.score && entry.key.length > best.len) ||
                 (score === best.score && entry.key.length === best.len && lineNo < best.lineNo);
@@ -386,41 +1066,477 @@
       return best;
     }
 
-    //listener for starting the camera
-    document.getElementById('startBtn').addEventListener('click', startCamera);
+    // reading a view of still image
 
-    //listener for scanning a card
-    document.getElementById('scanBtn').addEventListener('click', async () => {
-      if (!video.videoWidth) { out.textContent = 'Start the camera first.'; return; }
-      out.textContent = 'Reading...';
-      try {
-        const card = grabCard(); //getting pixes from card area
-        const strip = crop(card, NAME_BOX.x, NAME_BOX.y, NAME_BOX.w, NAME_BOX.h);
-        const reads = await readAll(strip);
+    // reads the name from one view of the card several ways, matches each read to a real card name, and adds
+    // a vote for that name in `votes`. a name that several passes agree on beats a one-off read.
+    // returns the first read (used for the debug view if nothing matched)
+    //this way a poll is used to find the best match
+    async function readNameFromStill(card, votes, stats) {
+      await loadNames();   // throws if the server's names route is down
+      const w = await getWorker();
+      let first = null;
 
-        // uses best match helper function
-        let best = null, shown = reads[0], lookupError = null;
-        for (const r of reads) {
-          try {
-            const m = await bestNameMatch(r.text);
-            if (m && (!best || m.score < best.score)) { best = m; shown = r; }
-          } catch (err) { lookupError = err; break; }
+      for (const p of NAME_PASSES) {
+        const b = NAME_BOXES[p.box];
+        const canvas = prepare(crop(card, b.x, b.y, b.w, b.h), p.px, p.invert);
+        const data = await ocr(w, canvas, p.psm);
+        stats.namePasses++;
+        stats.nameTexts.push(data.text);   // kept so a badly read name can be rematched once the number is known
+        const label = 'name / ' + p.box + (p.invert ? ' inverted' : '') + ': ' +
+          (data.text.replace(/\s+/g, ' ').trim() || '(nothing)');
+        if (!first) first = { text: data.text, canvas, label, card };
+
+        const m = await bestNameMatch(data.text);
+        if (!m) continue;
+        const v = votes.get(m.name) ?? { name: m.name, count: 0, score: Infinity };
+        v.count++;
+        if (m.score < v.score) Object.assign(v, { score: m.score, text: data.text, canvas, label, card });
+        votes.set(m.name, v);
+      }
+      return first;
+    }
+
+    // reads the number from one view of the card, each time it strips the image and casts votes for what is most likely the number it needs
+    async function readNumberFromStill(card, votes, stats, onProgress) {
+      const alnumW = await getNumberWorker('alnum');
+      const digitsW = await getNumberWorker('digits');
+      const textW = await getWorker();  //this makes it to where lowercase words can be read
+      let first = null;
+      const strips = {};
+
+      // adds one reading to the vote counts, keeping the best-looking version of it
+      const addVote = (c, canvas, label) => {
+        const key = normCode(c.number) + (c.total ? '/' + normCode(c.total) : '');
+        const v = votes.get(key) ?? { ...c, count: 0, canvas, label, card };
+        v.count++;
+        if (trust(c) > trust(v) || (trust(c) === trust(v) && c.confidence > v.confidence)) {
+          Object.assign(v, c, { canvas, label, card });
         }
-        showDebug(card, shown.canvas); //gives us the tesseract details (the 2 images)
+        votes.set(key, v);
+      };
 
-        //gives the details from tesseract, displayed (names and how close they are)
-        const lines = shown.text.split('\n').map(s => s.trim()).filter(Boolean).join(' | ');
-        let msg = 'Read: ' + (lines || '(nothing)');
-        if (lookupError) msg += '\nName lookup failed: ' + lookupError.message;
-        else msg += '\n' + (best ? 'Closest card name: ' + best.name : 'No close match - adjust the card and scan again');
-        out.textContent = msg;
+      // read each corner once, then judge it
+      const p0 = NUMBER_PASSES[0];
+      const sides = {};
+      for (const [side, s] of Object.entries(NUMBER_SIDES)) {
+        const canvas = prepare(crop(card, s.x, p0.y, s.w, p0.h), p0.px, false);
+        const data = await ocr(textW, canvas, 'SPARSE_TEXT');
+        stats.numberPasses++;
+        sides[side] = { ...judgeStrip(data.text), canvas, data };
+      }
+      // if every corner looks like description text, the rule can't help, so ignore it for this view
+      if (Object.values(sides).every(v => v.skip)) for (const v of Object.values(sides)) v.skip = false;
+
+      for (const [side, v] of Object.entries(sides)) {
+        const kind = v.skip ? 'SKIPPED, description text (' + v.descWords + ' words)'
+          : v.hasIllus ? 'illustrator strip' : 'checked';
+        const label = 'number / ' + side + ' ' + kind + ': ' +
+          (v.data.text.replace(/\s+/g, ' ').trim() || '(nothing)');
+        strips[side] = { canvas: v.canvas, label };
+        if (!first) first = { canvas: v.canvas, label, card };
+
+        // the unrestricted read may already contain the number ("J DLR EN 107/103")
+        if (!v.skip) {
+          const found = parseCardNumber(v.data.text);
+          if (found) addVote({ ...found, side, confidence: v.data.confidence, raw: v.data.text }, v.canvas, label);
+        }
+      }
+
+      //the number passes, only on corners that weren't skipped
+      for (const [i, p] of NUMBER_PASSES.entries()) {
+        if (numberDone(votes)) break;   // enough agreement: no need for more passes
+        onProgress(i + 1);
+
+        for (const [side, s] of Object.entries(NUMBER_SIDES)) {
+          if (sides[side].skip) continue;
+
+          const canvas = prepare(crop(card, s.x, p.y, s.w, p.h), p.px, false);
+          const candidates = [];
+
+          // the letters+digits reader goes first so it can see the anchors
+          let data = await ocr(alnumW, canvas, p.psm);
+          stats.numberPasses++;
+          const label = 'number / ' + side + ' pass ' + (i + 1) + ': ' +
+            (data.text.replace(/\s+/g, ' ').trim() || '(nothing)');
+
+          let found = parseCardNumber(data.text);
+          if (found) candidates.push({ ...found, side, confidence: data.confidence, raw: data.text });
+
+          // second opinion from the digits-only reader, only a number/total is trusted 
+          if (!found || (!found.anchored && found.kind !== 'slash')) {
+            data = await ocr(digitsW, canvas, p.psm);
+            found = parseCardNumber(data.text);
+            if (found && found.kind === 'slash') candidates.push({ ...found, side, confidence: data.confidence, raw: data.text });
+          }
+
+          for (const c of candidates) addVote(c, canvas, label);
+        }
+      }
+      if (first) first.strips = strips;
+      return first;
+    }
+
+    // names, (order) best first: most passes agreeing, then fewest typos, then the longer name
+    const rankNames = votes => [...votes.values()].sort((a, b) =>
+      b.count - a.count || a.score - b.score || b.name.length - a.name.length);
+
+    // numbers, best first: confirmed ones, then the most trustworthy shape, then most-seen, then most confident
+    const rankNumbers = votes => [...votes.values()].sort((a, b) =>
+      Number(isConfirmed(b)) - Number(isConfirmed(a)) ||
+      trust(b) - trust(a) || b.count - a.count || b.confidence - a.confidence);
+
+    const nameDone = votes => (rankNames(votes)[0]?.count ?? 0) >= NAME_NEEDED;
+    const numberDone = votes => { const top = rankNumbers(votes)[0]; return !!top && isConfirmed(top); };
+
+
+    // loads every card (name, printed number, set) once, and groups them by printed number
+    async function loadIndex() {
+      if (cardIndex) return cardIndex;
+      const res = await fetch('/api/cards/index');
+      if (!res.ok) throw new Error('index route returned ' + res.status);
+      const rows = await res.json();
+      const byNumber = new Map();   // "107" -> every card whose printed number is 107
+      for (const r of rows) {
+        r.key = letters(r.n);
+        const k = normCode(String(r.l ?? '').toUpperCase());
+        if (!byNumber.has(k)) byNumber.set(k, []);
+        byNumber.get(k).push(r);
+      }
+      cardIndex = { rows, byNumber };
+      return cardIndex;
+    }
+
+    // cards is the shortest list with right numbers, allowing more mistakes than bestNameMatch
+    function closestAmong(cards, nameTexts) {
+      let best = null;
+      for (const text of nameTexts) {
+        for (const line of text.split('\n')) {
+          const tokens = stripEvolves(line).map(letters).filter(Boolean);
+          for (let n = 1; n <= 5; n++) {
+            for (let i = 0; i + n <= tokens.length; i++) {
+              const q = tokens.slice(i, i + n).join('');
+              if (q.length < 3) continue;
+              const allowed = Math.max(1, Math.floor(q.length / 2.5));
+              for (const c of cards) {
+                if (Math.abs(c.key.length - q.length) > allowed) continue;   // quick skip if the length is toodifferent
+                const dist = lev(q, c.key);
+                if (dist > allowed) continue;
+                const score = dist / c.key.length;
+                if (score <= 0.4 && (!best || score < best.score)) best = { card: c, score };
+              }
+            }
+          }
+        }
+      }
+      return best;
+    }
+
+    // combines the name reads and the number reads into one answer by checking them against the database
+    async function resolveCard(nameVotes, numberVotes, nameTexts) {
+      const { rows, byNumber } = await loadIndex();
+      const names = rankNames(nameVotes).slice(0, 5);
+      const nums = rankNumbers(numberVotes).slice(0, 5);
+
+      // a name and a number that belong to the same card
+      let best = null;
+      for (const num of nums) {
+        const sameNumber = byNumber.get(normCode(num.number)) ?? [];
+        for (const nm of names) {
+          const key = letters(nm.name);
+          const cards = sameNumber.filter(c => c.key === key);
+          if (!cards.length) continue;
+          const score = nm.count + num.count + trust(num);
+          if (!best || score > best.score) best = { cards, score, how: 'name and number agree' };
+        }
+      }
+      if (best) return best;
+
+      //a solid number but no matching name, finds card with with number whose name is closest to what was read
+      const texts = [...new Set(nameTexts)];
+      for (const num of nums.filter(n => isConfirmed(n) || n.kind === 'slash')) {
+        const m = closestAmong(byNumber.get(normCode(num.number)) ?? [], texts);
+        if (m) return { cards: [m.card], score: 0, how: 'number found it, name matched loosely' };
+      }
+
+      // if there is just a name ask user to pick which it is
+      if (names.length) {
+        const key = letters(names[0].name);
+        const cards = rows.filter(c => c.key === key);
+        if (cards.length) return { cards, score: 0, how: 'name only - pick the printing' };
+      }
+      return null;
+    }
+
+    // debug view
+
+    // shows the card view red boxes is for name, blue boxes are for number
+    function showDebug(card, nameShown, numberShown, numberStrips) {
+      const overlay = document.createElement('canvas');
+      overlay.width = card.width; overlay.height = card.height;
+      const ctx = overlay.getContext('2d');
+      ctx.drawImage(card, 0, 0);
+      ctx.lineWidth = Math.max(2, card.width / 120);
+      const box = b => ctx.strokeRect(card.width * b.x, card.height * b.y, card.width * b.w, card.height * b.h);
+
+      ctx.strokeStyle = 'red';
+      box(NAME_BOXES.line); box(NAME_BOXES.low);
+
+      ctx.strokeStyle = 'blue';
+      const p0 = NUMBER_PASSES[0];
+      for (const s of Object.values(NUMBER_SIDES)) box({ x: s.x, y: p0.y, w: s.w, h: p0.h });
+
+      const parts = [labeled(overlay, 'photo (view used) ' + card.width + 'x' + card.height + ' px')];
+      if (nameShown) parts.push(labeled(nameShown.canvas, nameShown.label));
+
+      const strips = numberStrips ? Object.values(numberStrips) : [];
+      for (const s of strips) parts.push(labeled(s.canvas, s.label));
+      if (numberShown && !strips.some(s => s.canvas === numberShown.canvas)) {
+        parts.push(labeled(numberShown.canvas, 'winning number strip - ' + numberShown.label));
+      }
+      debug.replaceChildren(...parts);
+    }
+
+
+    // the card pop up for when it finds a match
+    const modal = document.getElementById('modal');
+    const modalBox = document.getElementById('modalBox');
+    const modalContent = document.getElementById('modalContent');
+    const choices = document.getElementById('choices');
+    let openCard = null;       // the card shown in the popup
+    let modalOwned = null;
+    let ownedShown = 0;
+    let addFlashTimer = null;  // resets the + button after its ✓ flash
+
+    // builds the "Image not available" placeholder with the card's name
+    function noImage(card) {
+      const box = document.createElement('div');
+      box.className = 'no-image';
+      const label = document.createElement('small');
+      label.textContent = 'Image not available';
+      const name = document.createElement('strong');
+      name.textContent = card.cardName;
+      box.append(label, name);
+      return box;
+    }
+
+    // gets image
+    function popupImage(card) {
+      const img = document.createElement('img');
+      img.alt = card.cardName;
+      if (card.cardImageFull) {
+        img.src = card.cardImageFull;
+        img.onerror = () => img.replaceWith(noImage(card));
+        return img;
+      }
+      img.src = card.cardImage + '/low.webp';
+      img.onerror = () => { img.onerror = null; img.replaceWith(noImage(card)); };
+      const big = new Image();
+      big.onload = () => { img.src = big.src; };
+      big.src = card.cardImage + '/high.webp';
+      return img;
+    }
+
+    // opens the popup for one card: image, price of a single copy, and a line for how many you own
+    function openModal(card) {
+      openCard = card;
+      ownedShown = 0;
+      modalContent.innerHTML = '';
+      modalContent.appendChild(card.cardImage || card.cardImageFull ? popupImage(card) : noImage(card));
+      modalContent.appendChild(cardMeta(card));
+      const price = document.createElement('div');
+      price.className = 'modal-price';
+      if (typeof card.priceUsd === 'number') {
+        price.innerHTML = '<small>Price per card</small>$' +
+          card.priceUsd.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      } else {
+        price.classList.add('none');
+        price.textContent = 'Price unavailable';
+      }
+      modalContent.appendChild(price);
+
+      modalOwned = document.createElement('div');
+      modalOwned.className = 'modal-owned';
+      modalContent.appendChild(modalOwned);
+
+      modal.classList.add('open');
+      document.getElementById('modalClose').focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      openCard = null;
+    }
+
+    // loads the full card (image, price) from the server and opens it
+    async function openCardById(id) {
+      const res = await fetch('/api/card/' + encodeURIComponent(id));
+      if (!res.ok) throw new Error('card route returned ' + res.status);
+      openModal(await res.json());
+    }
+
+    // when several printings share a name, shows buttons to pick the right one (max 8)
+    function showChoices(cards) {
+      choices.replaceChildren();
+      const sorted = [...cards].sort((a, b) => a.s.localeCompare(b.s));
+      for (const c of sorted.slice(0, 8)) {
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'btn';
+        b.textContent = c.s + ' #' + c.l;
+        b.addEventListener('click', () => openCardById(c.id).catch(err => {
+          console.error(err);
+          out.textContent = 'Could not load that card: ' + err.message;
+        }));
+        choices.appendChild(b);
+      }
+    }
+
+    // ways to close: click outside the box, the X button, or Escape
+    modal.addEventListener('click', e => { if (!modalBox.contains(e.target)) closeModal(); });
+    document.getElementById('modalClose').addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    // adds one copy per click
+    document.getElementById('modalAdd').addEventListener('click', async function () {
+      if (!openCard) return;
+      const btn = this;
+      try {
+        const res = await fetch('/api/user/cards', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ cardId: openCard._id })
+        });
+        if (!res.ok) throw new Error('Add failed');
+        const { quantity } = await res.json();
+        ownedShown = Math.max(ownedShown, quantity);
+        if (modalOwned) modalOwned.textContent = 'In your collection: ' + ownedShown;
+        btn.textContent = '✓';
+      } catch (err) {
+        console.error(err);
+        btn.textContent = '!';
+      }
+      clearTimeout(addFlashTimer);
+      addFlashTimer = setTimeout(() => { btn.textContent = '+'; }, 500);
+    });
+    // button
+    document.getElementById('startBtn').addEventListener('click', () => startCamera());
+
+    // Switch camera cycle cameras and save choice made
+    camBtn.addEventListener('click', async () => {
+      if (backCameras.length < 2) return;
+      const i = backCameras.findIndex(c => c.id === cameraId);
+      const next = backCameras[(i + 1) % backCameras.length];
+      try { localStorage.setItem('pokedexCameraId', next.id); } catch { /* saving isn't possible: ignore */ }
+      await startCamera(next.id);
+      out.textContent = 'Camera ' + (backCameras.findIndex(c => c.id === next.id) + 1) + ' of ' + backCameras.length + ' (' + next.label + ')';
+    });
+
+    // scan button that performs everything above
+    scanBtn.addEventListener('click', async () => {
+      if (!video.videoWidth) { out.textContent = 'Start the camera first.'; return; }
+      scanBtn.disabled = true;
+      choices.replaceChildren();
+      const status = text => { if (DEBUG) out.textContent = text; };   // progress text, only while tuning
+      out.textContent = 'Hold still...';
+      try {
+        await new Promise(r => setTimeout(r, HOLD_MS));   // time to steady the phone and let autofocus settle
+        const { still, kind } = await captureSharpest((n, total) => status('Taking photo ' + n + ' of ' + total + '...'));
+        zoomFix = kind.startsWith('photo') ? PHOTO_ZOOM : 1;
+        video.pause();       // freeze the preview on what was captured
+        out.textContent = 'Got it - reading the card...';
+
+        const nameVotes = new Map(), numberVotes = new Map();
+        const stats = { frames: 0, namePasses: 0, numberPasses: 0, nameTexts: [] };
+        let nameError = null, firstName = null, firstNumber = null, firstCard = null, resolved = null;
+
+        for (const [i, f] of FRAMES.entries()) {
+          stats.frames = i + 1;
+          const card = grabCard(still, f);
+          firstCard ??= card;
+          const progress = 'Reading... view ' + (i + 1) + ' of ' + FRAMES.length;
+
+          if (!nameError && !nameDone(nameVotes)) {
+            status(progress + ' (name)');
+            try {
+              const r = await readNameFromStill(card, nameVotes, stats);
+              firstName ??= r;
+            } catch (err) { nameError = err; console.error(err); }
+          }
+
+          if (!numberDone(numberVotes)) {
+            const r = await readNumberFromStill(card, numberVotes, stats, n => {
+              status(progress + ' (number pass ' + n + ' of ' + NUMBER_PASSES.length + ')');
+            });
+            firstNumber ??= r;
+          }
+
+          // a name and number that belong to the same real card are enough, even if neither is confirmed alone
+          try {
+            const r = await resolveCard(nameVotes, numberVotes, stats.nameTexts);
+            if (r?.how === 'name and number agree' && r.score >= 5) { resolved = r; break; }
+          } catch (err) { console.error(err); }
+
+          if ((nameError || nameDone(nameVotes)) && numberDone(numberVotes)) break;   // both are solid
+        }
+
+        // no early match, take the best guess from what we have
+        if (!resolved) {
+          try { resolved = await resolveCard(nameVotes, numberVotes, stats.nameTexts); }
+          catch (err) { console.error(err); }
+        }
+
+        // image and raw OCR for debug
+        let details = '';
+        if (DEBUG) {
+          const nameBest = rankNames(nameVotes)[0] ?? null;
+          const numberBest = rankNumbers(numberVotes)[0] ?? null;
+          const nameShown = nameBest ?? firstName;
+          const numberShown = numberBest ?? firstNumber;
+          showDebug(nameShown?.card ?? numberShown?.card ?? firstCard, nameShown, numberShown, firstNumber?.strips);
+
+          if (nameError) details += 'Name lookup failed: ' + nameError.message;
+          else if (nameBest) details += 'Closest card name: ' + nameBest.name + '  (' + nameBest.count + ' of ' + stats.namePasses + ' passes agreed)';
+          else details += 'No close match for the name';
+          if (nameShown?.text) details += '\nName text: ' + nameShown.text.split('\n').map(s => s.trim()).filter(Boolean).join(' | ');
+          details += '\n' + (numberBest
+            ? 'Card number: ' + numberBest.number + (numberBest.total ? '/' + numberBest.total : '') +
+            (numberBest.setCode ? '  Set code: ' + numberBest.setCode : '') +
+            ' [' + numberBest.kind + (numberBest.anchored ? ', anchored' : '') + ', ' + numberBest.side +
+            ' corner, seen ' + numberBest.count + 'x in ' + stats.numberPasses + ' reads' +
+            (isConfirmed(numberBest) ? '' : ', unconfirmed') + ']' +
+            '\nNumber text: ' + numberBest.raw.replace(/\s+/g, ' ').trim()
+            : 'No card number found after ' + stats.numberPasses + ' reads');
+          details += '\nSource: ' + kind + ' ' + (still.videoWidth || still.width) + 'x' + (still.videoHeight || still.height);
+          details += '\nCamera: ' + cameraInfo;
+          details += '\nPhoto note: ' + (photoNote || 'none');
+          details += '\nFocus: ' + (focusNote || 'not tried');
+          details += '\n(used ' + stats.frames + ' of ' + FRAMES.length + ' views; ' + (resolved ? resolved.how : 'no match') + ')';
+        }
+
+        // what the user sees
+        let headline;
+        if (!resolved) {
+          headline = 'Could not identify that card. Fit the whole card inside the red frame, use even light, and try again.';
+        } else if (resolved.cards.length === 1) {
+          headline = '';
+        } else {
+          headline = 'Which printing is it? (showing ' + Math.min(8, resolved.cards.length) + ' of ' + resolved.cards.length + ')';
+        }
+        out.textContent = headline + (DEBUG ? '\n\n' + details : '');
+
+        if (resolved?.cards.length === 1) await openCardById(resolved.cards[0].id);
+        else if (resolved) showChoices(resolved.cards);
       } catch (err) {
         console.error(err);
         out.textContent = 'Scan failed: ' + err.message;
+      } finally {
+        scanBtn.disabled = false;
+        video.play().catch(() => { });   // unfreeze the preview for the next scan
       }
     });
-
-    document.getElementById('startBtn').addEventListener('click', startCamera);
   </script>
 
 </body>

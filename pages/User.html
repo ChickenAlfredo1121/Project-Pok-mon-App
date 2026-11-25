@@ -253,6 +253,10 @@
       outline-offset: 2px;
     }
 
+        .modal-meta { margin-top: 12px; text-align: center; }
+    .modal-meta strong { display: block; font-size: 15px; font-weight: 500; }
+    .modal-meta span { font-size: 13px; color: var(--muted); }
+
     @media (max-width: 1000px) {
       #grid {
         grid-template-columns: repeat(2, 1fr);
@@ -350,6 +354,23 @@
     let openCard = null;
     let lastFilters = {};
 
+        // set name and printed number (like 40/100), shown directly under the card in the popup
+    function cardMeta(card) {
+      const meta = document.createElement('div');
+      meta.className = 'modal-meta';
+
+      const set = document.createElement('strong');
+      set.textContent = card.cardSetName || 'Unknown set';
+
+      const num = document.createElement('span');
+      const local = card.cardLocalId ?? '';
+      // sets it with a slash if the number is known, (like the 40/100)
+      num.textContent = local === '' ? '' : (card.cardCount ? local + '/' + card.cardCount : String(local));
+
+      meta.append(set, num);
+      return meta;
+    }
+
     //displays message text
     function showMessage(text) {
       grid.innerHTML = '';
@@ -371,7 +392,7 @@
       return box;
     }
 
-    //this is the card image it takes the image field in the DB which is a URL and adds ".webp" so that it populates an image, or if cardImageFull is present in images use that
+    //this builds the card image
     function cardImage(card, size, fallbackSize) {
       const img = document.createElement('img');
       img.src = card.cardImageFull ?? (card.cardImage + '/' + size + '.webp');
@@ -408,7 +429,7 @@
           btn.appendChild(noImage(c));
         }
 
-        if (c.quantity > 1) {   //one listener covers every card, it sits on the grid
+        if (c.quantity > 1) {   
           const q = document.createElement('span');
           q.className = 'qty';
           q.textContent = '×' + c.quantity;
@@ -431,7 +452,7 @@
       if (card.cardImage || card.cardImageFull) {
         modalContent.appendChild(cardImage(card, 'high', 'low'));//tries high quality of card and falls back to low
       } else {
-        modalContent.appendChild(noImage(card));//if there isnt an image its handeled here
+        modalContent.appendChild(noImage(card));//if there isnt an image its handled here
       }
 
       // price of a single copy, under the card
@@ -444,6 +465,8 @@
         price.classList.add('none');
         price.textContent = 'Price unavailable'; //if no price avaliable
       }
+            // set name and printed number, directly under the card
+      modalContent.appendChild(cardMeta(card));
       modalContent.appendChild(price);//add price to card
 
       modal.classList.add('open');
@@ -496,6 +519,11 @@
 
       try {
         const response = await fetch('/api/user/cards?' + params); //tries to get cards from user collection
+                if (response.status === 401) {   // not logged in
+          showMessage('Log in (top right) to see your collection.');
+          document.getElementById('worthValue').textContent = '0.00';
+          return;
+        }
         if (!response.ok) throw new Error('Load failed');
 
         const cards = await response.json();
@@ -512,6 +540,8 @@
 
     //funciton from Filter.js
     initFilters(onFiltersChanged);
+        // logging in or out changes whose collection this is, so reload it
+    window.addEventListener('auth-changed', () => onFiltersChanged(lastFilters));
     onFiltersChanged({});   // load everything when the page opens
   </script>
 

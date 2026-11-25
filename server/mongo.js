@@ -1,12 +1,12 @@
-// require('dotenv').config()
 import 'dotenv/config';
-// const { MongoClient, ServerApiVersion } = require('mongodb');
 import { MongoClient, ServerApiVersion } from 'mongodb';
 import express from 'express'
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 import { ObjectId } from 'mongodb';
 import dns from 'node:dns';
+import crypto from 'node:crypto';
+import { promisify } from 'node:util';
 dns.setServers(['1.1.1.1', '8.8.8.8']);
 
 const __filename = fileURLToPath(import.meta.url);
@@ -30,16 +30,22 @@ const db = client.db('pokedata');
 const collection = db.collection('cards');
 
 const userCards = db.collection('usercards');
-const DEMO_USER = 'stone'; //my first user, my roommate
+const users = db.collection('users');
+const sessions = db.collection('sessions');
 
 await userCards.createIndex({ userId: 1, cardId: 1 }, { unique: true });
+await users.createIndex({ usernameLower: 1 }, { unique: true });   // no two accounts with the same name
+await sessions.createIndex({ tokenHash: 1 }, { unique: true });
+// MongoDB deletes expired sessions
+try { await sessions.createIndex({ expiresAt: 1 }, { expireAfterSeconds: 0 }); }
+catch (err) { console.error('Could not create the session cleanup index:', err.message); }
 
 //helper function for the filter
 function buildCardFilter({ name = '', set = '', type = '' }) {
   const filter = {};
   name = name.trim(); set = set.trim(); type = type.trim();
 
-  //replaces all special characters
+  //reads special characters as literals
   if (name) {
     const safe = name
       .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
@@ -60,7 +66,7 @@ const FX_TTL = 12 * 60 * 60 * 1000; //refreshed at most once every 12 hours
 async function getEurToUsd() {
   if (fxCache.rate && Date.now() - fxCache.fetchedAt < FX_TTL) return fxCache.rate;
   try {
-    const r = await fetch('https://api.frankfurter.dev/v1/latest?base=EUR&symbols=USD'); ///found this link for conversion from EUR to USD since API only had EUR prices
+    const r = await fetch('https://api.frankfurter.dev/v1/latest?base=EUR&symbols=USD'); //found this link for conversion from EUR to USD since API only had EUR prices
     if (!r.ok) throw new Error('FX status ' + r.status);
     const data = await r.json();
     const rate = data?.rates?.USD;
@@ -90,6 +96,144 @@ function cardPriceUsd(card, eurToUsd) {
   }
   return null;
 }
+// account and login
+const scrypt = promisify(crypto.scrypt);
+const SESSION_MS = 30 * 24 * 60 * 60 * 1000;   // a login lasts 30 days
+const COOKIE = { httpOnly: true, sameSite: 'lax', secure: process.env.NODE_ENV === 'production', path: '/' };
+const USERNAME_RE = /^[A-Za-z0-9_]{3,24}$/;
+const DUMMY_SALT = crypto.randomBytes(16);   
+
+// a slow hash with salt
+async function hashPassword(password) {
+  const salt = crypto.randomBytes(16);
+  const hash = await scrypt(password, salt, 64);
+  return salt.toString('base64') + ':' + hash.toString('base64');
+}
+
+// hashes typed password and compare it
+async function checkPassword(password, stored) {
+  const [saltB64, hashB64] = String(stored).split(':');
+  const salt = Buffer.from(saltB64, 'base64');
+  const expected = Buffer.from(hashB64, 'base64');
+  const actual = await scrypt(password, salt, expected.length);
+  return crypto.timingSafeEqual(actual, expected);
+}
+
+// the server stores a hash of the login token, so a copy of the database can't be used to log in
+const hashToken = token => crypto.createHash('sha256').update(token).digest('hex');
+
+// reads one cookie from the request
+function readCookie(req, name) {
+  for (const part of (req.headers.cookie ?? '').split(';')) {
+    const [k, ...v] = part.trim().split('=');
+    if (k === name) return decodeURIComponent(v.join('='));
+  }
+  return null;
+}
+
+// logs a browser in, makes a token and saves the hash
+async function startSession(res, userId, username) {
+  const token = crypto.randomBytes(32).toString('base64url');
+  await sessions.insertOne({ tokenHash: hashToken(token), userId, username, expiresAt: new Date(Date.now() + SESSION_MS) });
+  res.cookie('sid', token, { ...COOKIE, maxAge: SESSION_MS });
+}
+
+// runs before every /api route to find out who is logged in
+async function attachUser(req, res, next) {
+  try {
+    const token = readCookie(req, 'sid');
+    if (token) {
+      const s = await sessions.findOne({ tokenHash: hashToken(token), expiresAt: { $gt: new Date() } });
+      if (s) req.user = { userId: s.userId, username: s.username };
+    }
+  } catch (err) { console.error(err); }
+  next();
+}
+
+// put this in front of any route that needs a logged-in user
+function requireUser(req, res, next) {
+  if (!req.user) return res.status(401).json({ error: 'login required' });
+  next();
+}
+
+// slows down password guessing, at most 10 tries per 15 minutes for each key
+const attempts = new Map();
+function tooManyAttempts(key) {
+  const now = Date.now();
+  const a = attempts.get(key);
+  if (!a || a.resetAt < now) { attempts.set(key, { count: 1, resetAt: now + 15 * 60 * 1000 }); return false; }
+  a.count++;
+  return a.count > 10;
+}
+
+app.use('/api', attachUser);
+
+// create an account and log in
+app.post('/api/auth/register', async (req, res) => {
+  const { username, password } = req.body ?? {};
+  if (typeof username !== 'string' || !USERNAME_RE.test(username)) {
+    return res.status(400).json({ error: 'Username must be 3 to 24 letters, numbers or underscores' });
+  }
+  if (typeof password !== 'string' || password.length < 8 || password.length > 200) {
+    return res.status(400).json({ error: 'Password must be 8 to 200 characters' });
+  }
+  if (tooManyAttempts('register|' + req.ip)) {
+    return res.status(429).json({ error: 'Too many attempts. Try again in a few minutes.' });
+  }
+
+  try {
+    const usernameLower = username.toLowerCase();
+    await users.insertOne({ username, usernameLower, passwordHash: await hashPassword(password), createdAt: new Date() });
+    await startSession(res, usernameLower, username);
+    res.json({ username });
+  } catch (err) {
+    if (err.code === 11000) return res.status(409).json({ error: 'That username is taken' });
+    console.error(err);
+    res.status(500).json({ error: 'Could not create the account' });
+  }
+});
+
+// log in
+app.post('/api/auth/login', async (req, res) => {
+  const { username, password } = req.body ?? {};
+  if (typeof username !== 'string' || typeof password !== 'string' || password.length > 200) {
+    return res.status(400).json({ error: 'Enter a username and password' });
+  }
+  const usernameLower = username.trim().toLowerCase();
+  const key = 'login|' + req.ip + '|' + usernameLower;
+  if (tooManyAttempts(key)) return res.status(429).json({ error: 'Too many attempts. Try again in a few minutes.' });
+
+  try {
+    const user = await users.findOne({ usernameLower });
+    // for an unknown username, still do the slow hash, so response time doesn't reveal which names exist
+    const ok = user ? await checkPassword(password, user.passwordHash)
+      : (await scrypt(password, DUMMY_SALT, 64), false);
+    if (!ok) return res.status(401).json({ error: 'Wrong username or password' });
+
+    attempts.delete(key);
+    await startSession(res, user.usernameLower, user.username);
+    res.json({ username: user.username });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Could not log in' });
+  }
+});
+
+// log out
+app.post('/api/auth/logout', async (req, res) => {
+  try {
+    const token = readCookie(req, 'sid');
+    if (token) await sessions.deleteOne({ tokenHash: hashToken(token) });
+  } catch (err) { console.error(err); }
+  res.clearCookie('sid', COOKIE);
+  res.json({ ok: true });
+});
+
+// who is logged in right now (username is null when nobody is)
+app.get('/api/auth/me', (req, res) => {
+  res.set('Cache-Control', 'no-store');
+  res.json({ username: req.user?.username ?? null });
+});
 
 //connects to the start file Home
 app.get('/', (req, res) => {
@@ -98,7 +242,7 @@ app.get('/', (req, res) => {
 
 
 
-//search function, checks if there is any type of match. if there is it sends it back as JSON
+//search function, checks if there is any type of match, needs at least one parameter. if there is it sends it back as JSON
 app.get('/api/cards/search', async (req, res) => {
   const name = (req.query.name ?? '').trim();
   const set = (req.query.set ?? '').trim();
@@ -111,12 +255,12 @@ app.get('/api/cards/search', async (req, res) => {
   const filter = {};
   if (name) {
     const safe = name
-      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&') //can limit array amount for testing. took out during deployment
+      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
       .replace(/[\s-]+/g, '[\\s-]*');
     filter.cardName = { $regex: safe, $options: 'i' };
   }
   if (set) filter.cardSetName = set;   // matches if the array contains it
-  if (type) filter.cardType = type;    // matches if the array contains it
+  if (type) filter.cardType = type;
 
   try {
     const cards = await collection.find(filter).toArray();
@@ -128,7 +272,7 @@ app.get('/api/cards/search', async (req, res) => {
   }
 });
 
-//this is used for the set filter
+//this is used for the set filter, returns set name once (A-Z)
 app.get('/api/cards/sets', async (req, res) => {
   try {
     const rows = await collection.aggregate([
@@ -146,7 +290,7 @@ app.get('/api/cards/sets', async (req, res) => {
 
 
 // add one copy of a card to the user's collection
-app.post('/api/user/cards', async (req, res) => {
+app.post('/api/user/cards', requireUser, async (req, res) => {
   const { cardId } = req.body ?? {};
   if (!ObjectId.isValid(cardId)) {
     return res.status(400).json({ error: 'invalid cardId' });
@@ -162,7 +306,7 @@ app.post('/api/user/cards', async (req, res) => {
     if (!card) return res.status(404).json({ error: 'card not found' });
 
     const doc = await userCards.findOneAndUpdate(
-      { userId: DEMO_USER, cardId: cardObjectId },
+      { userId: req.user.userId, cardId: cardObjectId },
       {
         $inc: { quantity: 1 },
         $set: { cardName: card.cardName, cardSetName: card.cardSetName },
@@ -179,9 +323,9 @@ app.post('/api/user/cards', async (req, res) => {
 });
 
 // get the user's cards, each with its quantity
-app.get('/api/user/cards', async (req, res) => {
+app.get('/api/user/cards', requireUser, async (req, res) => {
   try {
-    const owned = await userCards.find({ userId: DEMO_USER }).toArray();
+    const owned = await userCards.find({ userId: req.user.userId }).toArray();
     const filter = buildCardFilter(req.query);
     filter._id = { $in: owned.map(o => o.cardId) };
 
@@ -201,7 +345,7 @@ app.get('/api/user/cards', async (req, res) => {
 });
 
 //for removing a card from a users account
-app.delete('/api/user/cards/:cardId', async (req, res) => {
+app.delete('/api/user/cards/:cardId', requireUser, async (req, res) => {
   const { cardId } = req.params;
   if (!ObjectId.isValid(cardId)) {
     return res.status(400).json({ error: 'invalid cardId' });
@@ -212,14 +356,14 @@ app.delete('/api/user/cards/:cardId', async (req, res) => {
 
     // more than one copy, decrement
     const updated = await userCards.findOneAndUpdate(
-      { userId: DEMO_USER, cardId: id, quantity: { $gt: 1 } },
+      { userId: req.user.userId, cardId: id, quantity: { $gt: 1 } },
       { $inc: { quantity: -1 } },
       { returnDocument: 'after' }
     );
     if (updated) return res.json({ quantity: updated.quantity });
 
     // if last copy, delete row
-    const del = await userCards.deleteOne({ userId: DEMO_USER, cardId: id, quantity: { $lte: 1 } });
+    const del = await userCards.deleteOne({ userId: req.user.userId, cardId: id, quantity: { $lte: 1 } });
     if (!del.deletedCount) return res.status(404).json({ error: 'card not in collection' });
 
     res.json({ quantity: 0 });
@@ -240,6 +384,32 @@ app.get('/api/cards/names', async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ error: 'Could not load names' });
+  }
+});
+
+// every card in compact form (name, printed number, set), so the scanner can check that a name and a number belong together
+app.get('/api/cards/index', async (req, res) => {
+  try {
+    const rows = await collection
+      .find({}, { projection: { cardName: 1, cardLocalId: 1, cardSetName: 1 } })
+      .toArray();
+    res.json(rows.map(r => ({ id: r._id, n: r.cardName, l: r.cardLocalId, s: r.cardSetName })));
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Could not load card index' });
+  }
+});
+// one card by id, with its USD price, for the scanner's result popup
+app.get('/api/card/:id', async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) return res.status(400).json({ error: 'invalid id' });
+  try {
+    const card = await collection.findOne({ _id: new ObjectId(req.params.id) });
+    if (!card) return res.status(404).json({ error: 'card not found' });
+    const eurToUsd = await getEurToUsd();
+    res.json({ ...card, priceUsd: cardPriceUsd(card, eurToUsd) });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Could not load card' });
   }
 });
 
