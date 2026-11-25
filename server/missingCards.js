@@ -20,12 +20,11 @@ const norm = s => String(s ?? '').toLowerCase().replace(/[^a-z0-9]/g, '');
 // "001" -> "1", "H01" -> "H1", "CC008" -> "CC8"
 const normNum = s => String(s ?? '').toUpperCase().replace(/^([A-Z]*)0+(?=\d)/, '$1');
 
-// ---- load the whole dump into memory ----
 const sets = JSON.parse(await fs.readFile(join(DATA_DIR, 'sets/en.json'), 'utf8'));
 const setNameById = new Map(sets.map(s => [s.id, s.name]));
 
-const byId = new Map();     // "base1-4" -> { img, setId }
-const byName = new Map();   // normalized card name -> [{ setId, setName, setN, number, img }]
+const byId = new Map();     
+const byName = new Map();   
 
 for (const file of await fs.readdir(join(DATA_DIR, 'cards/en'))) {
   if (!file.endsWith('.json')) continue;
@@ -51,7 +50,7 @@ for (const file of await fs.readdir(join(DATA_DIR, 'cards/en'))) {
 console.log(`Loaded ${byId.size} cards from the dump`);
 
 // matching
-const learned = new Map();   // your cardSetName -> dump set id (filled in below)
+const learned = new Map();   
 
 function findImage(card) {
   // 1. exact id match (works for many older sets)
