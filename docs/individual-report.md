@@ -117,7 +117,7 @@ My Issues:
 ## Resume/Interview
 
 ### Resume Bullet
-Developed a full-stack web application for Pokémon price charting using a MongoDB database, JavaScript backend, and HTML front end, allowing users to identify a card's price with their camera.
+Developed a full-stack web application for Pokémon price charting using a Mongo database, JavaScript backend, and HTML front end, allowing users to identify a card's price with their camera.
 
 ### 30-second Explanation
 This was a class project to practice full-stack development. For my project I created a live camera capture Pokémon price grading app that utilizes Tesseract.js as the OCR, Mongo for the database, and various APIs for cards and price conversion. It also used a Cron job to update prices once a day and cards once a week. It was overall a great experience that helped improve my full-stack development and Agile skills.
