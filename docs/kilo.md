@@ -48,7 +48,7 @@ The demo videos can be found here:
 
 [First Demo Video](https://youtu.be/vPXsmZBbln4)
 
-[Latest Demo Video](XXXXXX)
+[Latest Demo Video](https://www.youtube.com/watch?v=GfWUXkERSfk)
 
 
 
