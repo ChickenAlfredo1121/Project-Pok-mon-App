@@ -103,7 +103,7 @@ My Issues:
 
 [First Demo Video](https://youtu.be/vPXsmZBbln4)
 
-[Latest Demo Video](XXXXXX)
+[Latest Demo Video](https://www.youtube.com/watch?v=GfWUXkERSfk)
 
 ## AI
   There were a couple areas that I used AI for. The main contributions was in the live camera capture. I had it give me a guide on how to use Tesseract to get a snapshot of the camera because I was struggling on my own. It did a pretty good job directing me and had little errors in its instructions. I used the guide to get the camera working and getting the name of the card. When I had the code working I went back and asked AI to break it down line by line on how it was working. Also, what it does to make sure I knew how to repeat the work and apply it to getting the set number. 
