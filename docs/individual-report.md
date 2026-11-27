@@ -1,7 +1,7 @@
 # Individual Experience Report
 
 ### My Contribution
-1. Created all 3 html documents that house the Home, CardCollection, and User pages. In additon to this I made the filter and navigation bar for page transversal and filtered searches.
+1. Created all 3 HTML documents that house the Home, CardCollection, and User pages. In additon to this I made the filter and navigation bar for page transversal and filtered searches.
 2. Deployed production app to Render and GCP. This includes making the Cron job used to update prices and cards.
 3. Developed backend that communicates with the MongoDB for all card queries and made script to add card database to the database.
 4. Made the Live-camera capture capabilities using Tesseract OCR.
@@ -14,29 +14,29 @@
 
 ### Challenges + Response
 
-Problem:
+Challenge:
 The biggest challenge starting out was how to get Pokémon cards. I tried using URLs to TCGDex's cards, but it kept crashing after a few thousand cards. It was really frustrating and confusing not knowing how to get the cards.
 
-Solution:
-Then I found out how to properly use API's. I found out i was hitting the rate limit every time and that's why the job kept failing. Once I understood that and started using the API it worked almost perfectly, minus the missing cards.
+Response:
+Then I found out how to properly use API's. I found out I was hitting the rate limit every time and that's why the job kept failing. Once I understood that and started using the API it worked almost perfectly, minus the missing cards.
 
-Problem:
+Challenge:
 Once I had the database and the rough draft of all the pages I tried to make the Card Collection page to practice getting the cards from the database. Although, this was a lot harder than I imagined. I had the filter script but it would never give me back cards.
 
-Solution:
+Response:
 After troubleshooting for a long while, I found out I had set the fetch path wrong. I had put "card" instead of "cards". It was a very simple mistake, but because of it I never had this issue again.
 
-Problem:
-I was almost done with the project and all I had left was the camera. I definitly underestimated the amount of code and understanding that goes into OCRs. While trying to get the camera to read the card name and number it would always fail at one of the two. It could never get both together and I couldnt understand why. 
+Challenge:
+I was almost done with the project and all I had left was the camera. I definitely underestimated the amount of code and understanding that goes into OCRs. While trying to get the camera to read the card name it would always fail.
 
-Solution:
-I created a debugging tool that shows me the image it took of the card with rectangles over the name. This showed me where it was actually reading a lot easier. Which caused me to notice that not all cards are the same. Trainer cards have the name lower than other cards and cards that are evolutions show names as odd places. After realizing this I changed the size of the name reading box and added in handling for the trainer and evolved cards, fixing my issue.
+Response:
+I created a debugging tool that shows me the image it took of the card with rectangles over the name. This showed me where it was actually reading a lot easier. Which caused me to notice that not all cards are the same. Trainer cards have the name lower than other cards and cards that are evolutions show names at odd places. After realizing this I changed the size of the name reading box and added in handling for the trainer and evolved cards, fixing my issue.
 
-Problem:
+Challenge:
 On my desktop computer I could read cards with very high accuracy, but when it came to my phone it was right maybe 20% of the time. I couldn't understand why even with my debugging tool.
 
-Solution:
-I altered the debugging tool to show me what it is reading for the set number too and what camera it was using. I found that it was reading sets in the right place, but the camera quality was so low that it only saw fuzz. I then realized that the default camera was the issue. I created the ability to switch cameras when available and it worked.
+Response:
+I altered the debugging tool to show me what it is reading for the set number too and what camera it was using. I found that it was reading sets in the right place, but the camera quality was so low that it only saw fuzz. I then realized that the default camera was the issue. I created the ability to switch cameras when available and it works more accurately.
 
 ### Decision + Judgment
 Descision:
@@ -58,7 +58,7 @@ Judgement:
 There were a couple options but I chose the Frankfurter API because of its simplicity. When fetching the price conversion it was very easy, making it ideal.
 
 Descision:
-There was and still is some issues with live camera capture and I was at a crossroad on how to read the cards. The user could either take one picture of the whole card or 2 quick pictures, one of the name and one of the set number. 
+There was, and still is, some issues with live camera capture and I was at a crossroad on how to read the cards. The user could either take one picture of the whole card or 2 quick pictures, one of the name and one of the set number. 
 
 Judgement:
 I decided to keep it as one full card picture for 2 reasons. One I like the concept of the full card scan because it looks better and saves time. The other reason was that it would be inconvenient for users to have to take 2 pictures when the point of the app is to make it convenient and easy. 
@@ -106,11 +106,11 @@ My Issues:
 [Latest Demo Video](XXXXXX)
 
 ## AI
-  There were a couple areas that I used AI for. The main contributions was in the live camera capture. I had it give me a guide on how to use Tesseract to get a snapshot of the camera. It did a pretty good job directing me and had little errors in its instructions. I used the guide to get the camera working and getting the name of the card. When I had the code working I went back and asked AI to break it down line by line on how it was work and what it does to make sure I knew how to repeat the work and apply it to getting the set number. 
+  There were a couple areas that I used AI for. The main contributions was in the live camera capture. I had it give me a guide on how to use Tesseract to get a snapshot of the camera because I was struggling on my own. It did a pretty good job directing me and had little errors in its instructions. I used the guide to get the camera working and getting the name of the card. When I had the code working I went back and asked AI to break it down line by line on how it was working. Also, what it does to make sure I knew how to repeat the work and apply it to getting the set number. 
  
-  When working on the set number I had it help me improve the debugging tool and camera quality to understand why I couldn't get the set number. Even though I had used what I learned for getting the name again for the set. This is where I found out the problem with default camera quality and improved it. I learned from it how the default camera is chosen not the best one and how to change what camera is being used.
+  When working on the set number I had it help me improve the debugging tool and camera quality to understand why I couldn't get the set number. Even though I had used what I learned for getting the name again for the set. This is where I found out the problem with default camera quality and improved it. I learned from it how the default camera is chosen, not the best one, and how to change what camera is being used.
   
-  I also used it to create a guide on hashing user accounts and sessions, using what I already had. We had a topic about session tokens in another class and wanted to try implementing it. The instructions were clear but there were some faults that I corrected with how it talks to Mongo. I used the guide to implement the hashing and it worked very well. I went back through and had it breakdown each line to make sure my understanding was correct.
+  I also used it to create a guide on hashing user accounts and sessions, using what I already had. I had a topic about session tokens in another class and wanted to try implementing it. The instructions were clear but there were some areas I needed it to expand on. I used the guide to implement the hashing and it worked very well. I went back through and had it breakdown each line to make sure my understanding was correct.
   
   Finally, I used it for troubleshooting. When I had small errors or couldn't find problems, I had it help. The biggest thing was for cases like the fetch path that was spelled wrong ("card" instead of "cards"). It did a good job debugging. I had it explain what I did wrong and why it was wrong every time to prevent repeat problems.
 
